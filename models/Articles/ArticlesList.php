@@ -23,4 +23,16 @@ class ArticlesList {
     public function art_author() {
         return $this->_art_author;
     }
+
+    // Déclaration des setters (mutateurs)
+    public function setArt_id($art_id) {
+        $art_id = (int) $art_id;
+        if ($art_id > 0) {
+            $this->_art_id = $art_id;
+        }
+    }
+
+    public function setArt_title($art_title) {
+        
+    }
 }
