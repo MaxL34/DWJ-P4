@@ -33,6 +33,20 @@ class ArticlesList {
     }
 
     public function setArt_title($art_title) {
-        
+        if (is_string($art_title)) {
+            $this->_art_title = $art_title;
+        } 
+    }
+
+    public function setArt_content($art_content) {
+        if (is_string($art_content)) {
+            $this->_art_content = $art_content;
+        }
+    }
+
+    public function setArt_author($art_author) {
+        if (is_string($art_author)) {
+            $this->_art_author = $art_author;
+        }
     }
 }
