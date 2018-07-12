@@ -12,7 +12,7 @@ class CommentsManager {
         $answer = $q->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addComment(Comment $com) {
+    public function addComment(Comment $comment) {
         $q = $this->_db->prepare('INSERT INTO comments (com_id, com_title, com_content, com_author, com_creation_date) VALUES (:com_id, :com_title, :com_content, :com_author, :NOW())');
 
         $q->bindValue(':com_id', $com->com_id());
@@ -24,7 +24,7 @@ class CommentsManager {
         $q->execute();
     }
 
-    public function updateComment(Comment $com) {
+    public function updateComment(Comment $comment) {
         $q = $this->_db->prepare('UPDATE comments SET com_title = :com_title, com_content = :com_content, com_modified_date = :NOW() WHERE com_id = :com_id');
 
         $q->bindValue(':com_title', $com->com_title());
@@ -35,8 +35,13 @@ class CommentsManager {
         $q->execute();
     }
 
-    public function deleteComment(Comment $com) {
+    public function deleteComment(Comment $comment) {
         $q = $this->_db->query('DELETE FROM comments WHERE com_id = $_GET['com_id']');
+    }
+
+    public function listComments(Comment $comment) {
+        $q = $this->_db->prepare('SELECT com_id, com_title, com_content, com_author, com_creation_date, com_modified_date FROM comments WHERE com_id = $_GET['com_id']');
+        $answer = $q->fetch(PDO::FETCH_ASSOC);
     }
 
     public function setDb(PDO $db) {
