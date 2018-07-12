@@ -38,4 +38,8 @@ class CommentsManager {
     public function deleteComment(Comment $com) {
         $q = $this->_db->query('DELETE FROM comments WHERE com_id = $_GET['com_id']');
     }
+
+    public function setDb(PDO $db) {
+        $this->_db = $db;
+    }
 }

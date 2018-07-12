@@ -38,4 +38,8 @@ class ArticlesManager {
     public function deleteArticle(Article $article) {
         $q = $this->_db->query('DELETE FROM articles WHERE art_id = $_GET['art_id']');
     }
+
+    public function setDb(PDO $db) {
+        $this->_db = $db;
+    }
 }
