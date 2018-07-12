@@ -1,6 +1,17 @@
 <?php
 class ArticlesList {
     
+    // HYdratation
+    public function hydrate(array $data) {
+        for each ($data as $key => $value) {
+            $method = 'set'.ucfirst($key)
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
+
     // Décalaration des attributs
     private $_art_id;
     private $_art_title;
