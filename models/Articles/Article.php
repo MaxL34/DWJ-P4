@@ -6,6 +6,8 @@ class Article {
     private $_art_title;
     private $_art_content;
     private $_art_author;
+    private $_art_creation_date;
+    private $_art_modified_date;
 
     // Hydratation
     public function hydrate(array $data) {
