@@ -9,6 +9,7 @@ class ArticlesManager {
 
     public function readArticle(Article $article) {
         $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, art_creation_date, art_modified_date FROM articles WHERE art_id = $_GET['art_id']');
+        $answer = $q->fetch(PDO::FETCH_ASSOC);
     }
 
     public function addArticle(Article $article) {
@@ -37,6 +38,4 @@ class ArticlesManager {
     public function deleteArticle(Article $article) {
         $q = $this->_db->query('DELETE FROM articles WHERE art_id = $_GET['art_id']');
     }
-
-
 }
