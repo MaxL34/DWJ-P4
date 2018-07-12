@@ -7,6 +7,10 @@ class ArticlesManager {
         $this->setDb($db);
     }
 
+    public function readArticle(Article $article) {
+        $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, art_creation_date, art_modified_date FROM articles WHERE art_id = $_GET['art_id']');
+    }
+
     public function addArticle(Article $article) {
         $q = $this->_db->prepare('INSERT INTO articles (art_id, art_title, art_content, art_author, art_creation_date) VALUES (:art_id, :art_title, :art_content, :art_author, :NOW())');
 
@@ -28,6 +32,10 @@ class ArticlesManager {
         $q->bindValue(':art_id', $article->art_id());
 
         $q->execute();
+    }
+
+    public function deleteArticle(Article $article) {
+        $q = $this->_db->query('DELETE FROM articles WHERE art_id = $_GET['art_id']');
     }
 
 
