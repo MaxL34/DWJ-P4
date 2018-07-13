@@ -9,6 +9,10 @@ class Comment {
     private $_article_id;
     private $_com_creation_date;
 
+    public function __construct(array $data) {
+        $this->hydrate($data);
+    }
+
     // Hydratation
     public function hydrate(array $data) {
         for each ($data as $key => $value) {
@@ -78,7 +82,7 @@ class Comment {
         }
     }
 
-    public function setCom_creation_date($_com_creation_date) {
+    public function setCom_creation_date($com_creation_date) {
         $this->_com_creation_date = $com_creation_date;
     }
 }

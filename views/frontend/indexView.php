@@ -7,14 +7,14 @@
 
     <body>
         <?php
-            while ($answer = $q->fetch(PDO::FETCH_ASSOC)) {
+            while ($comment = $q->fetch(PDO::FETCH_ASSOC)) {
 
             ?>
             <div>
                 <p>
-                    <?php echo $answer(['com_title']); ?>
-                    <?php echo $answer(['com_content']); ?>
-                    <?php echo $answer(['com_author']); ?>
+                    <?php echo $comment(['com_title']); ?>
+                    <?php echo $comment(['com_content']); ?>
+                    <?php echo $comment(['com_author']); ?>
                 </p>
             </div>
             
