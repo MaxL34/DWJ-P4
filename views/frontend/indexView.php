@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Blog de Jean Forteroche</title>
+        <title>Blog de Jean Forteroche : Commentaires</title>
         <meta charset="utf-8" />
     </head>
 
