@@ -15,8 +15,8 @@ class Comment {
 
     // Hydratation
     public function hydrate(array $data) {
-        for each ($data as $key => $value) {
-            $method = 'set'.ucfirst($key)
+        foreach ($data as $key => $value) {
+            $method = 'set'.ucfirst($key);
 
             if (method_exists($this, $method)) {
                 $this->$method($value);

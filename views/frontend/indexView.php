@@ -7,24 +7,18 @@
 
     <body>
         <?php
-            while ($comment = $q->fetch(PDO::FETCH_ASSOC)) {
-
-            ?>
-            <div>
-                <p>
-                    <?php echo $comment(['com_title']); ?>
-                    <?php echo $comment(['com_content']); ?>
-                    <?php echo $comment(['com_author']); ?>
-                </p>
-            </div>
-            
-            <?php
+            foreach ($comments as $value) {
+        ?>
+                <div>
+                    <p>
+                        <?php echo $value->com_title(); ?></br>
+                        <?php echo $value->com_content(); ?></br>
+                        <?php echo $value->com_author(); ?></br>
+                    </p>
+                </div>
+        <?php
             }
-            $q->closeCursor();
-            ?>
-
-
-
+        ?>
 
     </body>
 

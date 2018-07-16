@@ -8,15 +8,16 @@ class CommentsManager {
     }
 
     public function readComment() {
-        $comments = [];
-        
-        $q = $this->_db->query('SELECT com_id, com_title, com_content, com_author, com_creation_date, com_modified_date FROM comments');
+        $q = $this->_db->query('SELECT com_title, com_content, com_author, com_creation_date FROM comments');
         
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
-            $comments[] = new Comment($data);
+            $comment = new Comment($data);
         }
+        return $comment;
 
-        return $comments;
+        $q->closeCursor();
+        
+        
     }
 
     public function addComment(Comment $comment) {
@@ -43,12 +44,19 @@ class CommentsManager {
     }
 
     public function deleteComment(Comment $comment) {
-        $q = $this->_db->query('DELETE FROM comments WHERE com_id = $_GET['com_id']');
+        /*$q = $this->_db->query('DELETE FROM comments WHERE com_id = $_GET['com_id']');*/
     }
 
     public function listComments() {
-        $q = $this->_db->prepare('SELECT com_id, com_title, com_content, com_author, com_creation_date, com_modified_date FROM comments WHERE com_id = $_GET['com_id']');
-        $comment = $q->fetch(PDO::FETCH_ASSOC);
+        $comments = [];
+        
+        $q = $this->_db->query('SELECT com_id, com_title, com_content, com_author, com_creation_date FROM comments'); /*WHERE com_id = $_GET['com_id']');*/
+
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);
+        }
+
+        return $comments;
     }
 
     public function setDb(PDO $db) {
