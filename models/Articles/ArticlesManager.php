@@ -39,6 +39,18 @@ class ArticlesManager {
         $q = $this->_db->query('DELETE FROM articles WHERE art_id = $_GET['art_id']');
     }
 
+    public function listArticles() {
+        $articles = [];
+        
+        $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, art_creation_date FROM articles'); /*WHERE com_id = $_GET['com_id']');*/
+
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
+            $articles[] = new Article($data);
+        }
+
+        return $articles;
+    }
+
     public function setDb(PDO $db) {
         $this->_db = $db;
     }
