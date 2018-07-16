@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Blog de Jean Forteroche : Articles</title>
-        <meta charset="utf-8" />
-    </head>
+<?php $title = 'Blog de Jean Forteroche : Articles'; ?>
 
-    <body>
-        <?php
-            foreach ($articles as $value) {
-        ?>
-                <div>
-                    <p>
-                        <?php echo $value->art_title(); ?></br>
-                        <?php echo $value->art_content(); ?></br>
-                        <?php echo $value->art_author(); ?></br>
-                    </p>
-                </div>
-        <?php
-            }
-        ?>
+<?php ob_start(); ?>
+<h1>Billet simple pour l'Alaska</h1>
+<p>Liste des billets du blog</p>
 
-    </body>
+<?php
+    foreach ($articles as $value) {
+?>
+    <div>
+        <p>
+            <?php echo $value->art_title(); ?></br>
+            <?php echo $value->art_content(); ?></br>
+            <?php echo $value->art_author(); ?></br>
+        </p>
+    </div>
+<?php
+    }
+?>
 
-</html>
+<?php $content = ob_get_clean(); ?>
+<?php require('frontTemplate.php'); ?>
