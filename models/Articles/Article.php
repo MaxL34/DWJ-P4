@@ -9,10 +9,14 @@ class Article {
     private $_art_creation_date;
     private $_art_modified_date;
 
+    public function __construct(array $data) {
+        $this->hydrate($data);
+    }
+
     // Hydratation
     public function hydrate(array $data) {
-        for each ($data as $key => $value) {
-            $method = 'set'.ucfirst($key)
+        foreach ($data as $key => $value) {
+            $method = 'set'.ucfirst($key);
 
             if (method_exists($this, $method)) {
                 $this->$method($value);
@@ -35,6 +39,14 @@ class Article {
 
     public function art_author() {
         return $this->_art_author;
+    }
+
+    public function art_creation_date() {
+        return $this->_art_creation_date;
+    }
+
+    public function art_modified_date() {
+        return $this->_art_modified_date;
     }
 
     // Déclaration des setters (mutateurs)
@@ -61,5 +73,13 @@ class Article {
         if (is_string($art_author)) {
             $this->_art_author = $art_author;
         }
+    }
+
+    public function setArt_creation_date($art_creation_date) {
+        $this->_art_creation_date = $art_creation_date;
+    }
+
+    public function setArt_modified_date($art_modified_date) {
+        $this->_art_modified_date = $art_modified_date;
     }
 }
