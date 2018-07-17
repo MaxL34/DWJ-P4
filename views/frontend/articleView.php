@@ -13,6 +13,7 @@
             <?php echo $value->art_content(); ?></br>
             <?php echo $value->art_author(); ?></br>
         </p>
+        <a href="../views/frontend/postView.php">Afficher le billet et ses commentaires</a>
     </div>
 <?php
     }
