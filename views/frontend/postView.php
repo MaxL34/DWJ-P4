@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska</h1>
-<p>Billet <?php echo $articles->art_title(); ?> et ses commentaires</p>
+<p>Billet : <?php echo $articles[$art_title]; ?> et ses commentaires</p>
 
 <?php
     foreach ($articles as $value) {

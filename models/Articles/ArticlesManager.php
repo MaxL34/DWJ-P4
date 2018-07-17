@@ -7,10 +7,10 @@ class ArticlesManager {
         $this->setDb($db);
     }
 
-    public function commentsFromArticle(Article $article) {
-        $q = $this->_db->query('SELECT art_id a.id, article_id art.id FROM comments c INNER JOIN articles a ON a.id = art.id');
-        $post = $q->fetch(PDO::FETCH_ASSOC);
-        return $post;
+    public function commentsFromArticle($art_id) {
+        $q = $this->_db->prepare('SELECT art_id a.id, article_id art.id FROM comments c INNER JOIN articles a ON a.id = art.id WHERE a.id = ?');
+        $data = $q->execute(array($_GET['$art_id']));
+        //$post = $data->fetch(PDO::FETCH_ASSOC);
     }
 
     public function addArticle(Article $article) {
@@ -43,7 +43,7 @@ class ArticlesManager {
     public function listArticles() {
         $articles = [];
         
-        $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, art_creation_date FROM articles'); /*WHERE com_id = $_GET['com_id']');*/
+        $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, art_creation_date FROM articles');
 
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $articles[] = new Article($data);

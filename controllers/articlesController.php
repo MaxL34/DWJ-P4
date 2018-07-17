@@ -6,6 +6,6 @@ $db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', 'root', 'Jmc@M
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 $articlesManager = new ArticlesManager($db);
 $articles = $articlesManager->listArticles();
-$post = $articlesManager->commentsFromArticles();
+$post = $articlesManager->commentsFromArticle($_GET['art_id']);
 require('../views/frontend/articleView.php');
 require('../views/frontend/postView.php');
