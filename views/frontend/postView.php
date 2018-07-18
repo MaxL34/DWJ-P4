@@ -1,10 +1,8 @@
 <?php $title = 'Blog de Jean Forteroche : Article et commentaires associés'; ?>
 
-<?php var_dump($article); ?>
-
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska</h1>
-<p>Billet : <?php echo $article['art_title']; ?> et ses commentaires</p>
+<p>Billet : "<?php echo $article['art_title']; ?>" et ses commentaires</p>
 
 <div>
     <p>
