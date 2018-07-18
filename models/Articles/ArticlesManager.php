@@ -7,9 +7,10 @@ class ArticlesManager {
         $this->setDb($db);
     }
 
-    public function commentsFromArticle($art_id) {
-        $q = $this->_db->prepare('SELECT art_id a.id, article_id art.id FROM comments c INNER JOIN articles a ON a.id = art.id WHERE a.id = ?');
-        $data = $q->execute(array($_GET['$art_id']));
+    public function commentsFromArticle($article_ID) {
+        $q = $this->_db->prepare('SELECT art_title, art_content, art_author, art_creation_date, art_modified_date, art_id, article_id FROM articles INNER JOIN comments ON comments.article_id = articles.art_id  WHERE art_id = :article_ID');
+        $q->bindValue(':article_ID', $article_ID);
+        $data = $q->execute();
         //$post = $data->fetch(PDO::FETCH_ASSOC);
     }
 
