@@ -7,11 +7,12 @@ class ArticlesManager {
         $this->setDb($db);
     }
 
-    public function commentsFromArticle($article_ID) {
-        $q = $this->_db->prepare('SELECT art_title, art_content, art_author, art_creation_date, art_modified_date, art_id, article_id FROM articles INNER JOIN comments ON comments.article_id = articles.art_id  WHERE art_id = :article_ID');
-        $q->bindValue(':article_ID', $article_ID);
-        $data = $q->execute();
-        //$post = $data->fetch(PDO::FETCH_ASSOC);
+    public function getArticle($article_ID) {
+        $q = $this->_db->prepare('SELECT art_id, art_title, art_content, art_author, art_creation_date, art_modified_date FROM articles WHERE art_id = ?');
+        $data = $q->execute(array($article_ID));
+        $article = $data->fetch(PDO::FETCH_ASSOC);
+
+        return $article;
     }
 
     public function addArticle(Article $article) {
