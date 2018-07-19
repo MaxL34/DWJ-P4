@@ -1,6 +1,6 @@
 <?php
-require('../models/Articles/Article.php');
-require('../models/Articles/ArticlesManager.php');
+require('./models/Articles/Article.php');
+require('./models/Articles/ArticlesManager.php');
 
 function listArticles() {
     $db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', 'root', 'Jmc@Mysql!');
@@ -8,7 +8,7 @@ function listArticles() {
     $articlesManager = new ArticlesManager($db);    
     $articles = $articlesManager->listArticles();
 
-    require('../views/frontend/articleView.php');
+    require('./views/frontend/articleView.php');
 }
 
 function getArticle() {
@@ -17,5 +17,5 @@ function getArticle() {
     $articlesManager = new ArticlesManager($db);
     $article = $articlesManager->getArticle($_GET['article_id']);
 
-    require('../views/frontend/postView.php');
+    require('./views/frontend/postView.php');
 }
