@@ -13,7 +13,7 @@
             <?php echo $value->art_content(); ?></br>
             <?php echo $value->art_author(); ?></br>
         </p>
-        <a href="./controllers/postController.php?article_id=<?php echo $value->art_id(); ?>">Afficher le billet et ses commentaires</a>
+        <a href="./controllers/controller.php?action=getArticle&amp;article_id=<?php echo $value->art_id(); ?>">Afficher le billet et ses commentaires</a>
     </div>
 <?php
     }
