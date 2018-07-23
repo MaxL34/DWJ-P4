@@ -35,6 +35,13 @@ function addComment($com_content, $com_author, $article_id) {
     require('./views/frontend/postView.php');
 }
 
+function createUser($login, $password) {
+    $db = setDb();
+    $usersManager = new UsersManager($db);
+    $newUser = $usersManager->createUser($login, $password);
+    require('./views/backend/adminLoginView.php');
+}
+
 function setDb() {
     $db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', 'root', 'Jmc@Mysql!');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
