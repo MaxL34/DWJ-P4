@@ -21,12 +21,12 @@ class CommentsManager {
     }
 
     public function addComment(Comment $comment) {
-        $q = $this->_db->prepare('INSERT INTO comments (com_id, com_title, com_content, com_author, com_creation_date) VALUES (:com_id, :com_title, :com_content, :com_author, :NOW())');
+        $q = $this->_db->prepare('INSERT INTO comments (com_id, com_content, com_author, article_id, com_creation_date) VALUES (:com_id, :com_content, :com_author, :article_id, :NOW())');
 
         $q->bindValue(':com_id', $comment->com_id());
-        $q->bindValue(':com_title', $comment->com_title());
         $q->bindValue(':com_content', $comment->com_content());
         $q->bindValue(':com_author', $comment->com_author());
+        $q->bindValue(':article_id', $comment->article_id());
         $q->bindValue(':com_creation_date', $comment->NOW());
 
         $q->execute();

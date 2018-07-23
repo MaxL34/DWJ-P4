@@ -17,6 +17,22 @@
         <?php echo $comment->com_author(); ?></br>
     </p>
     <?php } ?>
+
+    <form action="./controllers/controller.php" method="post">
+        <div>
+            <label for="name">Nom : </label>
+            <input type="text" id ="name" name="user_name">
+        </div>
+
+        <div>
+            <label for="content">Votre commentaire : </label>
+            <input type="textarea" id="content" name="user_comment">
+        </div>
+
+        <div>
+            <button type="submit">Poster le commentaire</button>
+        </div>
+
 </div>
 
 <?php $content = ob_get_clean(); ?>
