@@ -3,6 +3,8 @@
     require('./models/Articles/ArticlesManager.php');
     require('./models/Comments/Comment.php');
     require('./models/Comments/CommentsManager.php');
+    require('./models/Users/User.php');
+    require('./models/Users/UsersManager.php');
 
 function listArticles() {
     $db = setDb();
@@ -39,6 +41,18 @@ function createUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);
     $newUser = $usersManager->createUser($login, $password);
+    require('./views/backend/adminLoginView.php');
+}
+
+function logUser($login, $password) {
+    $db = setDb();
+    $usersManager = new UsersManager($db);
+    $isAdmin = $usersManager->logUser($login, $password);
+    if ($isAdmin['user_login'] === 'Admin8434' && $isAdmin['user_password'] === 'AdminBl0g_Jf') {
+        header('Location: ./views/backend/adminBoard.php');
+    } else {
+        die('Identifiants de connexion incorrects');
+      }
     require('./views/backend/adminLoginView.php');
 }
 

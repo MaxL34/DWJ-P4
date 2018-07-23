@@ -12,6 +12,11 @@ class UsersManager {
         $q->execute(array($login, $password));
     }
 
+    public function logUser($login, $password) {
+        $q = $this->_db->prepare('SELECT user_login, user_password FROM users');
+        $q->execute(array($login, $password));
+    }
+
     public function setDb(PDO $db) {
         $this->_db = $db;
     }
