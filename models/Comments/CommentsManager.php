@@ -59,6 +59,17 @@ class CommentsManager {
         return $comments;
     }
 
+    public function getComFromArticle($article_ID) {
+        $comments = [];
+        
+        $q = $this->_db->prepare('SELECT com_id, com_title, com_content, com_author, com_creation_date, article_id FROM comments WHERE article_id = ?');
+        $q->execute(array($article_ID));
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);        
+        }
+        return $comments;
+    }
+
     public function setDb(PDO $db) {
         $this->_db = $db;
     }
