@@ -3,7 +3,6 @@ class Comment {
     
     // Décalaration des attributs
     private $_com_id;
-    private $_com_title;
     private $_com_content;
     private $_com_author;
     private $_article_id;
@@ -29,10 +28,6 @@ class Comment {
         return $this->_com_id;
     }
 
-    public function com_title() {
-        return $this->_com_title;
-    }
-
     public function com_content() {
         return $this->_com_content;
     }
@@ -55,12 +50,6 @@ class Comment {
         if ($com_id > 0) {
             $this->_com_id = $com_id;
         }
-    }
-
-    public function setCom_title($com_title) {
-        if (is_string($com_title)) {
-            $this->_com_title = $com_title;
-        } 
     }
 
     public function setCom_content($com_content) {

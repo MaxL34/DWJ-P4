@@ -16,20 +16,12 @@ class CommentsManager {
         return $comment;
 
         $q->closeCursor();
-        
-        
     }
 
-    public function addComment(Comment $comment) {
-        $q = $this->_db->prepare('INSERT INTO comments (com_id, com_content, com_author, article_id, com_creation_date) VALUES (:com_id, :com_content, :com_author, :article_id, :NOW())');
-
-        $q->bindValue(':com_id', $comment->com_id());
-        $q->bindValue(':com_content', $comment->com_content());
-        $q->bindValue(':com_author', $comment->com_author());
-        $q->bindValue(':article_id', $comment->article_id());
-        $q->bindValue(':com_creation_date', $comment->NOW());
-
-        $q->execute();
+    public function addComment($com_content, $com_author, $article_id) {
+        $q = $this->_db->prepare('INSERT INTO comments (com_content, com_author, article_id, com_creation_date) VALUES (?, ?, ?, NOW())');
+        $comment = $q->execute(array($com_content, $com_author, $article_id));
+        return $comment;
     }
 
     public function updateComment(Comment $comment) {
@@ -62,7 +54,7 @@ class CommentsManager {
     public function getComFromArticle($article_ID) {
         $comments = [];
         
-        $q = $this->_db->prepare('SELECT com_id, com_title, com_content, com_author, com_creation_date, article_id FROM comments WHERE article_id = ?');
+        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, article_id FROM comments WHERE article_id = ?');
         $q->execute(array($article_ID));
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);        

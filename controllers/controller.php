@@ -11,22 +11,6 @@ function listArticles() {
     require('./views/frontend/articleView.php');
 }
 
-/*function getArticle() {
-    $db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', 'root', 'Jmc@Mysql!');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-    $articlesManager = new ArticlesManager($db);
-    $article = $articlesManager->getArticle($_GET['article_id']);
-    require('./views/frontend/postView.php');
-}
-
-function getComFromArticle() {
-    $db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', 'root', 'Jmc@Mysql!');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-    $commentsManager = new CommentsManager($db);
-    $comments = $commentsManager->getComFromArticle($_GET['article_id']);
-    require('./views/frontend/postView.php');
-}*/
-
 function getArtCom() {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
@@ -37,11 +21,17 @@ function getArtCom() {
     require('./views/frontend/postView.php');
 }
 
-function addComment($comment) {
+function addComment($com_content, $com_author, $article_id) {
     $db = setDb();
     $commentsManager = new CommentsManager($db);
-    $commentToAdd = $commentsManager->addComment($comment);
-    $commentToAdd = new Comment(array($comment));
+    $comment = $commentsManager->addComment($com_content, $com_author, $article_id);
+
+    if ($comment === false) {
+        die('Impossible d\'ajouter le commentaire');
+    } else {
+        header('Location: ./main_index.php?action=getArticle&article_id=' .$article_id);
+      }
+    
     require('./views/frontend/postView.php');
 }
 

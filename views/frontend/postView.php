@@ -13,25 +13,27 @@
     <p>Commentaires du billet</p>
     <?php foreach ($comments as $comment) { ?>
     <p>
-        <?php echo $comment->com_content(); ?></br>
-        <?php echo $comment->com_author(); ?></br>
+        Commentaire : <?php echo $comment->com_content(); ?></br>
+        Posté par : <?php echo $comment->com_author(); ?></br>
+        le : <?php echo $comment->com_creation_date(); ?></br>
     </p>
     <?php } ?>
 
-    <form action="./controllers/controller.php" method="post">
+    <form action="./main_index.php?action=addComment&amp;article_id=<?php echo $article['art_id']; ?>" method="post">
         <div>
-            <label for="name">Nom : </label>
-            <input type="text" id ="name" name="user_name">
+            <label for="com_author">Nom : </label>
+            <input type="text" id ="author" name="com_author" />
         </div>
 
         <div>
-            <label for="content">Votre commentaire : </label>
-            <input type="textarea" id="content" name="user_comment">
+            <label for="com_content">Votre commentaire : </label>
+            <textarea id="content" name="com_content"></textarea>
         </div>
 
         <div>
-            <button type="submit">Poster le commentaire</button>
+            <input type="submit" />
         </div>
+    </form>
 
 </div>
 
