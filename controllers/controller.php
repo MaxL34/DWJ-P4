@@ -7,7 +7,6 @@ function listArticles() {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     $articlesManager = new ArticlesManager($db);    
     $articles = $articlesManager->listArticles();
-    echo "Bonjour";
     require('./views/frontend/articleView.php');
 }
 
@@ -16,6 +15,5 @@ function getArticle() {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     $articlesManager = new ArticlesManager($db);
     $article = $articlesManager->getArticle($_GET['article_id']);
-    echo "Bonjour";
     require('./views/frontend/postView.php');
 }

@@ -2,7 +2,6 @@
 
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska</h1>
-<?= var_dump($article); ?>
 <p>Billet : "<?php echo $article['art_title']; ?>" et ses commentaires</p>
 
 <div>
