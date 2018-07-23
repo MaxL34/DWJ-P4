@@ -7,6 +7,7 @@
     </head>
 
     <body>
+        <a href="./views/backend/adminLoginView.php">Administration</a>
         <?= $content ?>
     </body>
 </html>
