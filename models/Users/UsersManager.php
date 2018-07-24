@@ -13,7 +13,7 @@ class UsersManager {
     }
 
     public function logUser($login, $password) {
-        $q = $this->_db->prepare('SELECT user_login, user_password FROM users');
+        $q = $this->_db->prepare('SELECT user_login, user_password FROM users WHERE user_login = ? AND user_password = ?');
         $q->execute(array($login, $password));
     }
 

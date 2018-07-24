@@ -15,7 +15,7 @@
 
         <div>
             <label for="password">Mot de passe : </label>
-            <input type="text" id="user_password" name="password" />
+            <input type="password" id="user_password" name="password" />
         </div>
 
         <div>
@@ -25,4 +25,4 @@
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('../frontend/frontTemplate.php'); ?>
+<?php require('./views/frontend/frontTemplate.php'); ?>

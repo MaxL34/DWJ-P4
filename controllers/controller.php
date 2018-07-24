@@ -48,11 +48,7 @@ function logUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);
     $isAdmin = $usersManager->logUser($login, $password);
-    if ($isAdmin['user_login'] === 'Admin8434' && $isAdmin['user_password'] === 'AdminBl0g_Jf') {
-        header('Location: ./views/backend/adminBoard.php');
-    } else {
-        die('Identifiants de connexion incorrects');
-      }
+    
     require('./views/backend/adminLoginView.php');
 }
 
