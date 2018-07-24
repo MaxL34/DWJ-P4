@@ -41,7 +41,7 @@ function createUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);
     $newUser = $usersManager->createUser($login, $password);
-    require('./views/backend/adminLoginView.php');
+    require('./views/frontend/subscriptionView.php');
 }
 
 function logUser($login, $password) {

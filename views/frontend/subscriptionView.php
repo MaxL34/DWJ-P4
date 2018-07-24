@@ -4,20 +4,27 @@
 <h1>Billet simple pour l'Alaska</h1>
 <p>Page d'inscription à l'espace membre</p>
 
-<?php
-    foreach ($articles as $value) {
-?>
-    <div>
-        <p>
-            <?php echo $value->art_title(); ?></br>
-            <?php echo $value->art_content(); ?></br>
-            <?php echo $value->art_author(); ?></br>
-        </p>
-        <a href="main_index.php?action=getArticle&amp;article_id=<?php echo $value->art_id(); ?>">Afficher le billet et ses commentaires</a>
-    </div>
-<?php
-    }
-?>
+<div>
+    <form action="../../main_index.php?action=createUser" method="post">
+        <div>
+            <label for="user">Login : </label>
+            <input type="text" id="user_login" name="user" />
+        </div>
+
+        <div>
+            <label for="password">Mot de passe : </label>
+            <input type="password" id="user_password" name="password" />
+        </div>
+
+        <div>
+            <input type="submit" value="S'inscrire" />
+        </div>
+    </form>
+</div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('views/layout.php'); ?>
+<?php
+if (file_exists('../layout.php')) {
+    require('../layout.php');
+}
+?>

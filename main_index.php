@@ -34,6 +34,12 @@ if (!empty($_GET['action'])) {
                 }
             }
         break;
+        
+        case 'createUser':
+            if (!empty($_POST['user']) && (!empty($_POST['password']))) {
+                createUser($_POST['user'], $_POST['password']);
+            }
+        break;
 
         default:
             echo 'Erreur : aucune valeur pour le paramètre "action"';
