@@ -1,5 +1,5 @@
 <?php
-require('controllers/controller.php');
+require('./controllers/controller.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'getArticle') {
@@ -23,7 +23,7 @@ if (isset($_GET['action'])) {
               logUser($_POST['user'], $_POST['password']);
             
               if ($_POST['user'] == 'Admin8434' && $_POST['password'] == 'AdminBl0g_Jf') {
-                header('Location: ./views/backend/adminBoard.php');
+                header('Location: views/backend/adminBoard.php');
             } else {
                 echo 'Identifiants de connexion incorrects';
               }

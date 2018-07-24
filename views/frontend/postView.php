@@ -19,7 +19,7 @@
     </p>
     <?php } ?>
 
-    <form action="./main_index.php?action=addComment&amp;article_id=<?php echo $article['art_id']; ?>" method="post">
+    <form action="main_index.php?action=addComment&amp;article_id=<?php echo $article['art_id']; ?>" method="post">
         <div>
             <label for="com_author">Nom : </label>
             <input type="text" id ="author" name="com_author" />
@@ -38,4 +38,4 @@
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('frontTemplate.php'); ?>
+<?php require('views/layout.php'); ?>

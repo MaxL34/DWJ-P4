@@ -25,4 +25,8 @@
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('./views/frontend/frontTemplate.php'); ?>
+<?php
+if (file_exists('../layout.php')) {
+    require('../layout.php');
+}
+?>

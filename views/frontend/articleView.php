@@ -13,11 +13,11 @@
             <?php echo $value->art_content(); ?></br>
             <?php echo $value->art_author(); ?></br>
         </p>
-        <a href="./main_index.php?action=getArticle&amp;article_id=<?php echo $value->art_id(); ?>">Afficher le billet et ses commentaires</a>
+        <a href="main_index.php?action=getArticle&amp;article_id=<?php echo $value->art_id(); ?>">Afficher le billet et ses commentaires</a>
     </div>
 <?php
     }
 ?>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('frontTemplate.php'); ?>
+<?php require('views/layout.php'); ?>
