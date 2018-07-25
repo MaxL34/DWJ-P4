@@ -16,9 +16,11 @@ class UsersManager {
     public function doesUserExist($user) {
         $q = $this->_db->prepare('SELECT user_login FROM users WHERE user_login = ?');
         $q->execute(array($user));
-        $response = $q->fetchAll();
-        $nbReponse = count($response);
-        return $nbReponse;
+        if ($response = $q->fetch(PDO::FETCH_ASSOC)) {
+            return true;
+        } else {
+            return false;
+          }
     }
 
     public function logUser($login, $password) {

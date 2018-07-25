@@ -48,6 +48,7 @@ function doesUserExist($user) {
     $db = setDb();
     $usersManager = new UsersManager($db);
     $response = $usersManager->doesUserExist($user);
+    return $response;
     require('./views/frontend/subscriptionView.php');
 }
 
