@@ -25,9 +25,9 @@ if (!empty($_GET['action'])) {
 
         case 'adminLogin':
             if (!empty($_POST['user']) && (!empty($_POST['password']))) {
-                logUser($_POST['user'], $_POST['password']);
-            
-                if ($_POST['user'] == 'Admin8434' && $_POST['password'] == 'AdminBl0g_Jf') {
+                var_dump(logUser($_POST['user'], $_POST['password']));
+                if (logUser($_POST['user'], $_POST['password']) == true) {
+                    logUser($_POST['user'], $_POST['password']);
                     header('Location: views/backend/adminBoard.php');
                 } else {
                     echo 'Identifiants de connexion incorrects';

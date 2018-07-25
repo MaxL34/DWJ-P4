@@ -23,9 +23,18 @@ class UsersManager {
           }
     }
 
-    public function logUser($login, $password) {
-        $q = $this->_db->prepare('SELECT user_login, user_password FROM users WHERE user_login = ? AND user_password = ?');
-        $q->execute(array($login, $password));
+    public function logUser($user, $password) {
+        $q = $this->_db->prepare('SELECT user_login, user_password FROM users WHERE user_login = :user_login');
+        $q->execute(array(
+            'user_login' => $user));
+        $response = $q->fetch(PDO::FETCH_ASSOC);
+        $validPassword = password_verify($password, $response['user_password']);
+
+        if (!$validPassword) {
+            return false;
+        } else {
+            return true;
+          }
     }
 
     public function setDb(PDO $db) {

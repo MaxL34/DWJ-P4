@@ -56,7 +56,7 @@ function logUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);
     $isAdmin = $usersManager->logUser($login, $password);
-    
+    return $isAdmin;    
     require('./views/backend/adminLoginView.php');
 }
 
