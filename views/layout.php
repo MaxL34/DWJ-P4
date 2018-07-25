@@ -7,8 +7,8 @@
     </head>
 
     <body>
-        <a href="views/backend/adminLoginView.php">Administration</a></br>
-        <a href="views/frontend/subscriptionView.php">Inscription</a>
+        <a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminLoginView.php">Administration</a></br>
+        <a href="/tests/Openclassrooms/DWJ-P4/views/frontend/subscriptionView.php">Inscription</a>
 
         <?= $content ?>
     </body>
