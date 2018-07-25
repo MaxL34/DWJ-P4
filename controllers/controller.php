@@ -44,6 +44,13 @@ function createUser($login, $password) {
     require('./views/frontend/subscriptionView.php');
 }
 
+function doesUserExist($user) {
+    $db = setDb();
+    $usersManager = new UsersManager($db);
+    $response = $usersManager->doesUserExist($user);
+    require('./views/frontend/subscriptionView.php');
+}
+
 function logUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);

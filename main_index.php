@@ -37,7 +37,13 @@ if (!empty($_GET['action'])) {
         
         case 'createUser':
             if (!empty($_POST['user']) && (!empty($_POST['password']))) {
-                createUser($_POST['user'], $_POST['password']);
+                var_dump($_POST['user']);
+                var_dump(doesUserExist($_POST['user']));
+                /*if (doesUserExist($_POST['user']) == 0) {
+                    createUser($_POST['user'], $_POST['password']);
+                } else {
+                    echo 'Le pseudo ' . $_POST['user'] . ' est déjà utilisé, veuillez en choisir un autre';
+                  }*/
             }
         break;
 
