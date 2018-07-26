@@ -1,9 +1,11 @@
+<?php session_start(); ?>
+
 <?php $title = 'Blog de Jean Forteroche : Espace d\'administration du blog'; ?>
 
 <?php ob_start(); ?>
 <h1>Espace d'administration</h1>
 
-<p>Bienvenue sur votre espace d'administration</p>
+<p><?php echo 'Heureux de vous revoir ' . $_SESSION['user'] . ' et bienvenue sur votre espace d\'administration.'; ?></p>
 
 <p>Que souhaitez-vous faire ?</p>
 
@@ -15,6 +17,7 @@
     </div>
 
     <div id="comments_management">
+        
 
 
 
