@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +10,13 @@
 
     <body>
         <a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Accueil</a>
+        <?php
+            if (isset($_SESSION['id']) AND isset($_SESSION['user'])) {
+                echo '<a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminBoardView.php">Administration</a>';       
+            } else {
+                echo '<a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminLoginView.php">Administration</a>';   
+              }
+        ?>
         <a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminLoginView.php">Administration</a>
         <a href="/tests/Openclassrooms/DWJ-P4/views/frontend/subscriptionView.php">Inscription</a></br>
 
