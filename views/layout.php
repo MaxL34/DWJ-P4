@@ -16,12 +16,14 @@
         <a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Accueil</a>
         <?php
             if (isset($_SESSION['id'])) {
-                echo '<a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminBoardView.php">Administration</a>';       
+                echo '<a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminBoardView.php">Administration</a>&nbsp';
+                echo '<a href="/tests/Openclassrooms/DWJ-P4/main_index.php?action=signOut">Déconnexion</a>';
             } else {
-                echo '<a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminLoginView.php">Administration</a>';   
+                echo '<a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminLoginView.php">Administration</a>&nbsp';
+                echo '<a href="/tests/Openclassrooms/DWJ-P4/views/frontend/subscriptionView.php">Inscription</a>';  
               }
         ?>
-        <a href="/tests/Openclassrooms/DWJ-P4/views/frontend/subscriptionView.php">Inscription</a></br>
+        
 
         <?= $content ?>
     </body>

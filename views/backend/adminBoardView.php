@@ -9,7 +9,7 @@
 <?php ob_start(); ?>
 <h1>Espace d'administration</h1>
 
-<p><?php echo 'Heureux de vous revoir ' . $_SESSION['user'] . ' et bienvenue sur votre espace d\'administration.'; ?></p>
+<p><?php echo 'Bienvenue sur votre espace d\'administration ' . $_SESSION['user'] . '.'; ?></p>
 
 <p>Que souhaitez-vous faire ?</p>
 
@@ -17,7 +17,7 @@
     <div id="article_management">
         <p>Rédiger un nouveau billet : <a href="/tests/Openclassrooms/DWJ-P4/views/backend/articleCreationView.php">Rédaction de billets</a></p></br>
         <p>Editer un billet existant (modifier, supprimer) : <a href="/tests/Openclassrooms/DWJ-P4/views/backend/articleEditionView.php">Edition de billets</a></p></br>
-        <p>Lire vos billets : <a href="/tests/Openclassrooms/DWJ-P4/views/backend/articleReadingView.php">Rédaction de billets</a></p></br>
+        <p>Lire vos billets : <a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Lecture de billets</a></p></br>
     </div>
 
     <div id="comments_management">
