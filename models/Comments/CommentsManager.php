@@ -62,6 +62,10 @@ class CommentsManager {
         return $comments;
     }
 
+    public function reportComment() {
+        $q = $this->_db->query('SELECT com_id, com_content, com_author, com_creation_date FROM comments')
+    }
+
     public function setDb(PDO $db) {
         $this->_db = $db;
     }
