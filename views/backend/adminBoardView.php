@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+?>
 
 <?php $title = 'Blog de Jean Forteroche : Espace d\'administration du blog'; ?>
 
@@ -17,12 +21,9 @@
     </div>
 
     <div id="comments_management">
-        
-
-
-
-
 </div>
+
+
 
 <?php $content = ob_get_clean(); ?>
 <?php

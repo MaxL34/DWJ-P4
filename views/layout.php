@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -11,13 +15,12 @@
     <body>
         <a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Accueil</a>
         <?php
-            if (isset($_SESSION['id']) AND isset($_SESSION['user'])) {
+            if (isset($_SESSION['id'])) {
                 echo '<a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminBoardView.php">Administration</a>';       
             } else {
                 echo '<a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminLoginView.php">Administration</a>';   
               }
         ?>
-        <a href="/tests/Openclassrooms/DWJ-P4/views/backend/adminLoginView.php">Administration</a>
         <a href="/tests/Openclassrooms/DWJ-P4/views/frontend/subscriptionView.php">Inscription</a></br>
 
         <?= $content ?>

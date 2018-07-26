@@ -34,8 +34,8 @@ if (!empty($_GET['action'])) {
                     session_start();
                     $_SESSION['id'] = logUser($_POST['user'], $_POST['password']);
                     $_SESSION['user'] = $_POST['user'];
-                    
-                    header('Location: views/backend/adminBoard.php');
+
+                    header('Location: views/backend/adminBoardView.php');
                     
                 } else {
                     var_dump(logUser($_POST['user'], $_POST['password']));
