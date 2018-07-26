@@ -47,16 +47,16 @@ function createUser($login, $password) {
 function doesUserExist($user) {
     $db = setDb();
     $usersManager = new UsersManager($db);
-    $response = $usersManager->doesUserExist($user);
-    return $response;
+    $userToCheck = $usersManager->doesUserExist($user);
+    return $userToCheck;
     require('./views/frontend/subscriptionView.php');
 }
 
 function logUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);
-    $isAdmin = $usersManager->logUser($login, $password);
-    return $isAdmin;    
+    $userToLog = $usersManager->logUser($login, $password);
+    return $userToLog;   
     require('./views/backend/adminLoginView.php');
 }
 
