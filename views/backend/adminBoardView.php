@@ -21,6 +21,15 @@
     </div>
 
     <div id="comments_management">
+        <p>Voici la liste des derniers commentaires signalés :</p>
+            <div id="reported_comments">
+                <?php foreach ($reportedComs as $reportedCom) { ?>
+                    <p>
+                        Auteur : <?php echo $reportedCom->com_author(); ?></br>
+                        Commentaire : <?php echo $reportedCom->com_content(); ?></br>
+                        signalé le : <?php echo $reportedCom->com_report_date(); $reportedCom->com_report_id() . ' fois.' ?></br>
+                    </p>
+                <?php } ?>
 </div>
 
 

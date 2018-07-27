@@ -49,6 +49,13 @@ function reportCom() {
     require('./views/frontend/postView.php');
 }
 
+function getReportedComs() {
+    $db = setDb();
+    $commentsManager = new CommentsManager($db);
+    $reportedComs = $commentsManager->getReportedComs();
+    require('./views/backend/adminBoardView.php');
+}
+
 function createUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);

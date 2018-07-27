@@ -63,7 +63,6 @@ if (!empty($_GET['action'])) {
 
         case 'signOut':
             session_start();
-            var_dump($_SESSION['id']);
             if (isset($_SESSION['id'])) {
                 echo 'A bientôt ' . $_SESSION['user'] . ' <a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Retour à l\'accueil</a>';
                 session_destroy();
