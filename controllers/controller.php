@@ -37,6 +37,18 @@ function addComment($com_content, $com_author, $article_id) {
     require('./views/frontend/postView.php');
 }
 
+function reportCom() {
+    $db = setDb();
+    $articlesManager = new ArticlesManager($db);
+    $article = $articlesManager->getArticle($_GET['article_id']);
+
+    $commentsManager = new CommentsManager($db);
+    $comments = $commentsManager->getComFromArticle($_GET['article_id']);
+
+    $reportedCom = $commentsManager->reportComment($_GET['com_id']);
+    require('./views/frontend/postView.php');
+}
+
 function createUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);

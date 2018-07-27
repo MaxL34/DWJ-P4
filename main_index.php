@@ -23,6 +23,13 @@ if (!empty($_GET['action'])) {
             }
         break;
 
+        case 'reportCom':
+            if (isset($_GET['com_id'])) {
+                reportCom($_GET['com_id']);
+                echo 'Le commentaire posté a bien été signalé, il sera soumis à une modération par l\'administrateur du blog';
+            }
+        break;
+
         case 'adminLogin':
             if (!empty($_POST['user']) && (!empty($_POST['password']))) {
                 

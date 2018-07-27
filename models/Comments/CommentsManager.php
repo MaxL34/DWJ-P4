@@ -62,8 +62,20 @@ class CommentsManager {
         return $comments;
     }
 
-    public function reportComment() {
-        $q = $this->_db->query('SELECT com_id, com_content, com_author, com_creation_date FROM comments')
+    public function reportComment($com_id) {
+        $q = $this->_db->prepare('UPDATE comments SET com_report_id = com_report_id + 1, com_report_date = NOW() WHERE com_id = ?');
+        $reportedCom = $q->execute(array($com_id));
+        return $reportedCom;
+    }
+
+    public function getReportedComs() {
+        $comments = [];
+        
+        $q = $this->_db->query('SELECT com_id, com_content, com_author, com_creation_date, com_report_id, com_report_date FROM comments WHERE com_report_id = 1 GROUP BY com_report_date DESC');
+        while ($data = $q-fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = new Comment($data);
+        }
+        return $comments;
     }
 
     public function setDb(PDO $db) {

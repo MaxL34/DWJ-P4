@@ -16,6 +16,8 @@
         Commentaire : <?php echo $comment->com_content(); ?></br>
         Posté par : <?php echo $comment->com_author(); ?></br>
         le : <?php echo $comment->com_creation_date(); ?></br>
+        <a href="main_index.php?action=reportCom&amp;article_id=<?php echo $article['art_id']; ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a>
+        
     </p>
     <?php } ?>
 

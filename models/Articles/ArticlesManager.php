@@ -8,8 +8,6 @@ class ArticlesManager {
     }
 
     public function getArticle($article_ID) {
-        //$article = [];
-        
         $q = $this->_db->prepare('SELECT art_id, art_title, art_content, art_author, art_creation_date, art_modified_date FROM articles WHERE art_id = ?');
         $q->execute(array($article_ID));
         $article = $q->fetch(PDO::FETCH_ASSOC);
