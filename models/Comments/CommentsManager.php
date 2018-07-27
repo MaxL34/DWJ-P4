@@ -54,7 +54,7 @@ class CommentsManager {
     public function getComFromArticle($article_ID) {
         $comments = [];
         
-        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, article_id FROM comments WHERE article_id = ?');
+        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, article_id FROM comments WHERE article_id = ? ORDER BY com_creation_date ASC');
         $q->execute(array($article_ID));
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);        
@@ -71,7 +71,8 @@ class CommentsManager {
     public function getReportedComs() {
         $comments = [];
         
-        $q = $this->_db->query('SELECT com_id, com_content, com_author, com_creation_date, com_report_id, com_report_date FROM comments WHERE com_report_id = 1 GROUP BY com_report_date DESC');
+        $q = $this->_db->query('SELECT com_id, com_content, com_author, com_creation_date, com_report_id, com_report_date, article_id FROM comments WHERE com_report_id > 0 GROUP BY com_report_id, com_report_date DESC');
+        $q->execute();
         while ($data = $q-fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);
         }
