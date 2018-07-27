@@ -7,6 +7,8 @@ class Comment {
     private $_com_author;
     private $_article_id;
     private $_com_creation_date;
+    private $_com_report_id;
+    private $_com_report_date;
 
     public function __construct(array $data) {
         $this->hydrate($data);
@@ -44,6 +46,14 @@ class Comment {
         return $this->_com_creation_date;
     }
 
+    public function com_report_id() {
+        return $this->_article_id;
+    }
+
+    public function com_report_date() {
+        return $this->_com_creation_date;
+    }
+
     // Déclaration des setters (mutateurs)
     public function setCom_id($com_id) {
         $com_id = (int) $com_id;
@@ -73,5 +83,16 @@ class Comment {
 
     public function setCom_creation_date($com_creation_date) {
         $this->_com_creation_date = $com_creation_date;
+    }
+
+    public function setCom_report_id($com_report_id) {
+        $com_report_id = (int) $com_report_id;
+        if ($com_report_id > 0) {
+            $this->_com_report_id = $com_report_id;
+        }
+    } 
+
+    public function setCom_report_date($com_report_date) {
+        $this->_com_report_date = $com_report_date;
     }
 }
