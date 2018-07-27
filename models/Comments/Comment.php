@@ -42,15 +42,15 @@ class Comment {
         return $this->_article_id;
     }
 
-    public function com_creation_date() {
-        return $this->_com_creation_date;
+    public function com_report_date() {
+        return $this->_com_report_date;
     }
 
     public function com_report_id() {
-        return $this->_article_id;
+        return $this->_com_report_id;
     }
 
-    public function com_report_date() {
+    public function com_creation_date() {
         return $this->_com_creation_date;
     }
 
