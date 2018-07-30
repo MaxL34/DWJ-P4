@@ -23,7 +23,7 @@
     <div id="comments_management">
         <p>Voici la liste des derniers commentaires signalés :</p>
             <div id="reported_comments">
-                <?php var_dump($reportedComs); ?>
+                <?php var_dump($var); ?>
                 <?php foreach ($reportedComs as $reportedCom) { ?>
                     <p>
                         Auteur : <?php echo $reportedCom->com_author(); ?></br>
@@ -36,8 +36,4 @@
 
 
 <?php $content = ob_get_clean(); ?>
-<?php
-if (file_exists('../layout.php')) {
-    require('../layout.php');
-}
-?>
+<?php require('../layout.php'); ?>

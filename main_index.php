@@ -50,7 +50,7 @@ if (!empty($_GET['action'])) {
                 }
             }
         break;
-        
+
         case 'createUser':
             if (!empty($_POST['user']) && (!empty($_POST['password']))) {
                 if (doesUserExist($_POST['user']) == false) {

@@ -53,7 +53,7 @@ function getReportedComs() {
     $db = setDb();
     $commentsManager = new CommentsManager($db);
     $reportedComs = $commentsManager->getReportedComs();
-    return $reportedComs;
+    //return $var = json_decode($reportedComs);
     require('./views/backend/adminBoardView.php');
 }
 

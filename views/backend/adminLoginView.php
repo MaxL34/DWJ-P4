@@ -25,8 +25,4 @@
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php
-if (file_exists('../layout.php')) {
-    require('../layout.php');
-}
-?>
+<?php require('../layout.php'); ?>
