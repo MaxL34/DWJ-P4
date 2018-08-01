@@ -19,19 +19,28 @@
         <p>Editer un billet existant (modifier, supprimer) : <a href="/tests/Openclassrooms/DWJ-P4/views/backend/articleEditionView.php">Edition de billets</a></p></br>
         <p>Lire vos billets : <a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Lecture de billets</a></p></br>
     </div>
+</div>
 
+    <?php 
+        foreach ($reportedComs as $reportedCom) { 
+    ?>
     <div id="comments_management">
         <p>Voici la liste des derniers commentaires signalés :</p>
             <div id="reported_comments">
-                <?php var_dump($coms); ?>
-                <?php foreach ($reportedComs as $reportedCom) { ?>
+                <?php var_dump($reportedComs); ?>
+                
                     <p>
                         Auteur : <?php echo $reportedCom->com_author(); ?></br>
                         Commentaire : <?php echo $reportedCom->com_content(); ?></br>
                         signalé le : <?php echo $reportedCom->com_report_date(); $reportedCom->com_report_id() . ' fois.' ?></br>
                     </p>
-                <?php } ?>
-</div>
+                
+            </div>
+    </div>
+    <?php 
+        } 
+    ?>
+
 
 
 

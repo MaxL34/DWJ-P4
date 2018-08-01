@@ -41,6 +41,7 @@ if (!empty($_GET['action'])) {
                     session_start();
                     $_SESSION['id'] = logUser($_POST['user'], $_POST['password']);
                     $_SESSION['user'] = $_POST['user'];
+                    getReportedComs();
 
                     header('Location: views/backend/adminBoardView.php');
                     
@@ -49,6 +50,12 @@ if (!empty($_GET['action'])) {
                     echo 'Identifiants de connexion incorrects';
                 }
             }
+        break;
+
+        case 'adminBoardDisplay':
+            //var_dump($reportedComs);
+            getReportedComs();
+            header('Location: views/backend/adminBoardView.php');
         break;
 
         case 'createUser':

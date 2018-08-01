@@ -69,9 +69,16 @@ class CommentsManager {
     }
 
     public function getReportedComs() {
-        $q = $this->_db->query('SELECT com_id, com_report_id, com_content, com_author, article_id, com_creation_date, com_report_date FROM comments WHERE com_report_id >= 1 ORDER BY com_report_id DESC');
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        return $data;
+        $reportedComs = [];
+
+        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, com_report_id, com_report_date FROM comments WHERE com_report_id >= 1 ORDER BY com_report_id DESC');
+        $q->execute();
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
+            $reportedComs[] = new Comment($data);
+        } 
+        $q->closeCursor();
+        return $reportedComs;
+        //var_dump($reportedComs);
     }
 
     public function setDb(PDO $db) {

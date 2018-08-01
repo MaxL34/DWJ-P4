@@ -1,1 +1,1 @@
-<?php var_dump($var); ?>
+<?php var_dump($reportedComs); ?>
