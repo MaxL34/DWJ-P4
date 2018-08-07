@@ -21,20 +21,19 @@
     </div>
 </div>
 
-    <?php 
-        foreach ($reportedComs as $reportedCom) { 
-    ?>
     <div id="comments_management">
         <p>Voici la liste des derniers commentaires signalés :</p>
             <div id="reported_comments">
-                <?php var_dump($reportedComs); ?>
-                
-                    <p>
-                        Auteur : <?php echo $reportedCom->com_author(); ?></br>
-                        Commentaire : <?php echo $reportedCom->com_content(); ?></br>
-                        signalé le : <?php echo $reportedCom->com_report_date(); $reportedCom->com_report_id() . ' fois.' ?></br>
-                    </p>
-                
+                <?php
+                    //gettype($var);
+                    //var_dump($var);
+                    foreach ($var as $value) { 
+                ?>
+                <p>
+                    Auteur : <?php echo $value->com_author(); ?></br>
+                    Commentaire : <?php echo $value->com_content(); ?></br>
+                    signalé le : <?php echo $value->com_report_date() . ' ' . $value->com_report_id() . ' fois.' ?></br>
+                </p>
             </div>
     </div>
     <?php 
@@ -45,4 +44,8 @@
 
 
 <?php $content = ob_get_clean(); ?>
-<?php require('../layout.php'); ?>
+<?php 
+    if (file_exists('views/layout.php')) {
+        require('views/layout.php');
+    }
+?>

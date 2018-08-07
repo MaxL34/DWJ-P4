@@ -35,27 +35,22 @@ if (!empty($_GET['action'])) {
                 
                 
                 if (logUser($_POST['user'], $_POST['password']) == true) {
-                    var_dump(logUser($_POST['user'], $_POST['password']));
                     logUser($_POST['user'], $_POST['password']);
                     
                     session_start();
                     $_SESSION['id'] = logUser($_POST['user'], $_POST['password']);
                     $_SESSION['user'] = $_POST['user'];
-                    getReportedComs();
 
-                    header('Location: views/backend/adminBoardView.php');
+                    $var = getReportedComs();
                     
                 } else {
-                    var_dump(logUser($_POST['user'], $_POST['password']));
                     echo 'Identifiants de connexion incorrects';
                 }
             }
         break;
 
         case 'adminBoardDisplay':
-            //var_dump($reportedComs);
-            getReportedComs();
-            header('Location: views/backend/adminBoardView.php');
+            $var = getReportedComs();
         break;
 
         case 'createUser':
