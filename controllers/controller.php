@@ -80,7 +80,7 @@ function logUser($login, $password) {
 }
 
 function setDb() {
-    $db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', '******', '******');
+    $db = new PDO('mysql:host=localhost;dbname=blog_jf;charset=utf8', 'root', 'Jmc@Mysql!');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     return $db;
 }
