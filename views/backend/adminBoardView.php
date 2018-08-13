@@ -32,7 +32,7 @@
                 <p>
                     Auteur : <?php echo $value->com_author(); ?></br>
                     Commentaire : <?php echo $value->com_content(); ?></br>
-                    signalé le : <?php echo $value->com_report_date() . ' ' . $value->com_report_id() . ' fois.' ?></br>
+                    signalé le : <?php echo $value->com_report_date() . ', ' . $value->com_report_number() . ' fois.' ?></br>
                 </p>
             </div>
     </div>

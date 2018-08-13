@@ -63,7 +63,7 @@ class CommentsManager {
     }
 
     public function reportComment($com_id) {
-        $q = $this->_db->prepare('UPDATE comments SET com_report_id = com_report_id + 1, com_report_date = NOW() WHERE com_id = ?');
+        $q = $this->_db->prepare('UPDATE comments SET com_report_number = com_report_number + 1, com_report_date = NOW() WHERE com_id = ?');
         $reportedCom = $q->execute(array($com_id));
         return $reportedCom;
     }
@@ -71,7 +71,7 @@ class CommentsManager {
     public function getReportedComs() {
         $reportedComs = [];
 
-        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, com_report_id, com_report_date FROM comments WHERE com_report_id >= 1 ORDER BY com_report_id DESC');
+        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, com_report_number, com_report_date FROM comments WHERE com_report_number >= 1 ORDER BY com_report_number DESC');
         $q->execute();
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $reportedComs[] = new Comment($data);

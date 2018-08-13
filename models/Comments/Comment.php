@@ -7,7 +7,7 @@ class Comment {
     private $_com_author;
     private $_article_id;
     private $_com_creation_date;
-    private $_com_report_id;
+    private $_com_report_number;
     private $_com_report_date;
 
     public function __construct(array $data) {
@@ -46,8 +46,8 @@ class Comment {
         return $this->_com_report_date;
     }
 
-    public function com_report_id() {
-        return $this->_com_report_id;
+    public function com_report_number() {
+        return $this->_com_report_number;
     }
 
     public function com_creation_date() {
@@ -85,10 +85,10 @@ class Comment {
         $this->_com_creation_date = $com_creation_date;
     }
 
-    public function setCom_report_id($com_report_id) {
-        $com_report_id = (int) $com_report_id;
-        if ($com_report_id > 0) {
-            $this->_com_report_id = $com_report_id;
+    public function setCom_report_number($com_report_number) {
+        $com_report_number = (int) $com_report_number;
+        if ($com_report_number > 0) {
+            $this->_com_report_number = $com_report_number;
         }
     } 
 
