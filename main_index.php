@@ -53,18 +53,17 @@ if (!empty($_GET['action'])) {
             $var = getReportedComs();
         break;
 
-        case 'createUser':
+        case 'createUser':   
+
             if (!empty($_POST['user']) && (!empty($_POST['password']))) {
                 if (doesUserExist($_POST['user']) == false) {
                     createUser($_POST['user'], $_POST['password']);
 
                     session_start();
-                    //$_SESSION['id'] = logUser($_POST['user'], $_POST['password']);
+                    $_SESSION['id'] = logUser($_POST['user'], $_POST['password']);
                     $_SESSION['user'] = $_POST['user'];
 
                     $var = getReportedComs();
-
-                    header('Location: ./views/backend/adminBoardView.php');
 
                 } else {
                     echo 'Le pseudo ' . $_POST['user'] . ' est déjà utilisé, veuillez en choisir un autre';
