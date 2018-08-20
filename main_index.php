@@ -11,6 +11,16 @@ if (!empty($_GET['action'])) {
             }
         break;
         
+        case 'addArticle':
+            session_start();
+            if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
+            } else {
+                echo 'Veuillez remplir les champs nécessaires';
+            }
+        break;
+        
+
         case 'addComment':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 if (!empty($_POST['com_content']) && !empty($_POST['com_author'])) {

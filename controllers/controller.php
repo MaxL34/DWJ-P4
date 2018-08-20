@@ -23,6 +23,13 @@ function getArtCom() {
     require('./views/frontend/postView.php');
 }
 
+function addArticle() {
+    $db = setDb();
+    $articlesManager = new ArticlesManager($db);
+    $article = $articlesManager->addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
+    require('./views/backend/articleCreationView.php');
+}
+
 function addComment($com_content, $com_author, $article_id) {
     $db = setDb();
     $commentsManager = new CommentsManager($db);
