@@ -13,6 +13,13 @@ function listArticles() {
     require('./views/frontend/articleView.php');
 }
 
+function listArticlesToEdit() {
+    $db = setDb();
+    $articlesManager = new ArticlesManager($db);    
+    $articles = $articlesManager->listArticles();
+    require('./views/backend/articleEditionView.php');
+}
+
 function getArtCom() {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);

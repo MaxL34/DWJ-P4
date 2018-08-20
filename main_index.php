@@ -19,7 +19,10 @@ if (!empty($_GET['action'])) {
                 echo 'Veuillez remplir les champs nécessaires';
             }
         break;
-        
+
+        case 'editArticles':
+            listArticlesToEdit();
+        break;
 
         case 'addComment':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
