@@ -8,15 +8,25 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title><?= $title ?></title>
+        <title>Création d'un article</title>
         <link href="style.css" rel="stylesheet" />
-        <script src="public/js/tinymce/tinymce.min" type="text/javascript">// <![CDATA[/tiny_mce/tiny_mce.js">// ]]></script>
+        <script type="text/javascript" src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=0ofr5ymckej6ac4mcq2doqoozjut2zifnyjjfp067bqy5s12">// <![CDATA[/tiny_mce/tiny_mce.js">// ]]></script>
         <script type="text/javascript">// <![CDATA[
-            tinyMCE.init({
-	            mode : "textareas",
-	            language : "fr",
-	            theme : "simple"
-            });// ]]></script> 
+        tinymce.init({
+    selector: '.content',
+    theme: 'modern',
+    width: 600,
+    height: 300,
+    plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'save table contextmenu directionality emoticons template paste textcolor'
+    ],
+    content_css: 'css/content.css',
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+  });
+  </script>
+        
     </head>
 
     <body>
@@ -31,11 +41,9 @@
               }
         ?>
         
-        <?php echo $_SESSION['user']; ?>
-
         <form action="../../main_index.php?action=addArticle" method="post">
             <textarea style="width: 60%;" name="title"></textarea></br>
-            <textarea style="width: 100%;" name="content"></textarea></br>
+            <textarea class="content" style="width: 60%;" name="content"></textarea></br>
             <input name="art_send" type="submit" value="Envoyer" />
         </form>
     </body>
