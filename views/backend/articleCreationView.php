@@ -15,7 +15,7 @@
         tinymce.init({
     selector: '.content',
     theme: 'modern',
-    width: 600,
+    width: 1024,
     height: 300,
     plugins: [
       'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
