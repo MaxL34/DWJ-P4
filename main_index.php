@@ -30,13 +30,22 @@ if (!empty($_GET['action'])) {
             } else {
                 echo 'Erreur d\'id d\'article : aucun id envoyé ou id inexistant';
             }
-
-            //header('Location: views/backend/articleUpdateView.php');
-
         break;
 
+        case 'updateArticle':
+            if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
+                $title = rtrim($_POST['title']);
+                $content = rtrim($_POST['content']);
 
-        
+                if (!empty($title) && !empty($content)) {
+                    updateArticle($_GET['article_id'], $_POST['title'], $_POST['content']);
+                } else {
+                    echo 'Veuillez remplir les champs nécessaires';
+                }
+            } else {
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
+        break;
 
         case 'addComment':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {

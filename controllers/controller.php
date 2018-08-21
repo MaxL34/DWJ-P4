@@ -24,7 +24,17 @@ function editArticle() {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
     $article = $articlesManager->getArticle($_GET['article_id']);
+
+    //$articleToUpdate = $articlesManager->updateArticle($_POST['title'], $_POST['content'], $_GET['article_id']);
+
     require('./views/backend/articleUpdateView.php');
+}
+
+function updateArticle() {
+    $db = setDb();
+    $articlesManager = new ArticlesManager($db);
+    $articleToUpdate = $articlesManager->updateArticle($_POST['title'], $_POST['content'], $_GET['article_id']);
+    echo 'Le billet a bien été mis à jour';
 }
 
 function getArtCom() {

@@ -41,7 +41,15 @@
               }
         ?>
         
-        <form action="../../main_index.php?action=addArticle" method="post">
+            <div>
+                <p>
+                    <?php echo $article['art_title']; ?></br>
+                    <?php echo $article['art_content']; ?></br>
+                    Publié le <?php echo $article['art_creation_date'] . ' par : ' . $article['art_author']; ?></br>
+                </p>
+            </div>
+            
+        <form action="./main_index.php?action=updateArticle&amp;article_id=<?php echo $_GET['article_id']; ?>" method="post">
             <textarea style="width: 60%;" name="title"></textarea></br>
             <textarea class="content" style="width: 60%;" name="content">
                 <?php echo $article['art_content']; ?> 
