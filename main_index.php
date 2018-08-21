@@ -13,7 +13,10 @@ if (!empty($_GET['action'])) {
         
         case 'addArticle':
             session_start();
-            if (!empty($_POST['title']) && !empty($_POST['content'])) {
+            $title = rtrim($_POST['title']);
+            $content = rtrim($_POST['content']);
+
+            if (!empty($title) && !empty($content)) {
                 addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
             } else {
                 echo 'Veuillez remplir les champs nécessaires';
@@ -82,6 +85,8 @@ if (!empty($_GET['action'])) {
                 } else {
                     echo 'Identifiants de connexion incorrects';
                 }
+            } else {
+                echo 'Veuiller remplir chaque champ';
             }
         break;
 
@@ -90,9 +95,11 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'createUser':   
+            $user = rtrim($_POST['user']);
+            $password = rtrim($_POST['password']);
 
-            if (!empty($_POST['user']) && (!empty($_POST['password']))) {
-                if (doesUserExist($_POST['user']) == false) {
+            if (!empty($user) && !empty($password)) {
+                if (doesUserExist($_POST['user']) == FALSE) {
                     createUser($_POST['user'], $_POST['password']);
 
                     session_start();
@@ -101,10 +108,12 @@ if (!empty($_GET['action'])) {
 
                     $var = getReportedComs();
 
-                } else {
+                } elseif (doesUserExist($_POST['user']) == TRUE) {
                     echo 'Le pseudo ' . $_POST['user'] . ' est déjà utilisé, veuillez en choisir un autre';
-                  }
-            }
+                  } 
+            } else {
+                echo 'Veuillez renseigner un pseudo et un mot de passe valides';
+              }
         break;
 
         case 'signOut':
