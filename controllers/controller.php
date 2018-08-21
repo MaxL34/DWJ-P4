@@ -20,6 +20,13 @@ function listArticlesToEdit() {
     require('./views/backend/articleEditionView.php');
 }
 
+function editArticle() {
+    $db = setDb();
+    $articlesManager = new ArticlesManager($db);
+    $article = $articlesManager->getArticle($_GET['article_id']);
+    require('./views/backend/articleUpdateView.php');
+}
+
 function getArtCom() {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);

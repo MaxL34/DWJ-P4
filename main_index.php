@@ -20,9 +20,23 @@ if (!empty($_GET['action'])) {
             }
         break;
 
-        case 'editArticles':
+        case 'listArticlesToEdit':
             listArticlesToEdit();
         break;
+
+        case 'editArticle':
+            if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
+                editArticle();
+            } else {
+                echo 'Erreur d\'id d\'article : aucun id envoyé ou id inexistant';
+            }
+
+            //header('Location: views/backend/articleUpdateView.php');
+
+        break;
+
+
+        
 
         case 'addComment':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {

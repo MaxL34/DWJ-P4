@@ -52,7 +52,7 @@
                 <?php echo $value->art_content(); ?></br>
                 Publié le <?php echo $value->art_creation_date() . ' par : ' . $value->art_author(); ?></br>
             </p>
-        <a href="main_index.php?action=getArticle&amp;article_id=<?php echo $value->art_id(); ?>">Editer le billet</a>
+        <a href="main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>">Editer le billet</a>
     </div>
 <?php
     }
