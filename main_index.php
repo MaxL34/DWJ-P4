@@ -69,6 +69,15 @@ if (!empty($_GET['action'])) {
             }
         break;
 
+        case 'deleteCom':
+        if (isset($_GET['article_id']) && $_GET['article_id'] > 0 && $_GET['com_id'] !== NULL) {
+                deleteCom($_GET['article_id'], $_GET['com_id']);
+                echo 'Le commentaire a bien été supprimé';
+            } else {
+                echo 'Erreur dans la suppression du commentaire';
+              }
+        break;
+
         case 'reportCom':
             if (isset($_GET['com_id'])) {
                 reportCom($_GET['com_id']);

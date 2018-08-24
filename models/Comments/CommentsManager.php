@@ -35,8 +35,16 @@ class CommentsManager {
         $q->execute();
     }
 
-    public function deleteComment(Comment $comment) {
-        /*$q = $this->_db->query('DELETE FROM comments WHERE com_id = $_GET['com_id']');*/
+    public function deleteCom($article_id, $com_id) {
+        $q = $this->_db->prepare('DELETE FROM comments WHERE article_id = ? AND com_id = ?');
+        $commentToDelete = $q->execute(array($article_id, $com_id));
+        return $commentToDelete;
+    }
+
+    public function deleteCommentsFromArticle($article_id) {
+        $q = $this->_db->prepare('DELETE FROM comments WHERE article_id = ?');
+        $commentToDelete = $q->execute(array($article_id));
+        return $commentToDelete;
     }
 
     public function listComments() {

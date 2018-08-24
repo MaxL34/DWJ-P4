@@ -75,6 +75,13 @@ function addComment($com_content, $com_author, $article_id) {
     require('./views/frontend/postView.php');
 }
 
+function deleteCom() {
+    $db = setDb();
+    $commentsManager = new CommentsManager($db);
+    $comToDelete = $commentsManager->deleteCom($_GET['article_id'], $_GET['com_id']);
+    return $comToDelete;
+}
+
 function reportCom() {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
