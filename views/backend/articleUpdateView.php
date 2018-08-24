@@ -50,7 +50,7 @@
             </div>
             
         <form action="./main_index.php?action=updateArticle&amp;article_id=<?php echo $_GET['article_id']; ?>" method="post">
-            <textarea style="width: 60%;" name="title">
+            <textarea class="content" style="width: 60%;" name="title">
                 <?php echo $article['art_title']; ?>
             </textarea></br>
             <textarea class="content" style="width: 60%;" name="content">
