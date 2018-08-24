@@ -31,6 +31,7 @@
                     Auteur : <?php echo $value->com_author(); ?></br>
                     Commentaire : <?php echo $value->com_content(); ?></br>
                     signalé le : <?php echo $value->com_report_date() . ', ' . $value->com_report_number() . ' fois.' ?></br>
+                    <?php echo '<a href="main_index.php?action=deleteCom&amp;article_id=' . $value->article_id() . '&amp;com_id=' . $value->com_id() . '">Supprimer le commentaire</a>'; ?>
                 </p>
             </div>
     </div>
