@@ -79,7 +79,7 @@ class CommentsManager {
     public function getReportedComs() {
         $reportedComs = [];
 
-        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, com_report_number, com_report_date FROM comments WHERE com_report_number >= 1 ORDER BY com_report_number DESC');
+        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, com_report_number, com_report_date, article_id FROM comments WHERE com_report_number >= 1 ORDER BY com_report_number DESC');
         $q->execute();
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $reportedComs[] = new Comment($data);
