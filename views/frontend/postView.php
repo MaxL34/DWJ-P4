@@ -1,3 +1,9 @@
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+?>
+
 <?php $title = 'Blog de Jean Forteroche : Article et commentaires associés'; ?>
 
 <?php ob_start(); ?>
@@ -17,8 +23,11 @@
         Posté par : <?php echo $comment->com_author(); ?></br>
         le : <?php echo $comment->com_creation_date(); ?></br>
         <a href="main_index.php?action=reportCom&amp;article_id=<?php echo $article['art_id']; ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a>
-        <a href="main_index.php?action=deleteCom&amp;article_id=<?php echo $article['art_id']; ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Supprimer le commentaire</a>
         
+        <?php if (isset($_SESSION['id'])) {
+                echo '<a href="main_index.php?action=deleteCom&amp;article_id=' . $article['art_id'] . '&amp;com_id=' . $comment->com_id() . '">Supprimer le commentaire</a>';
+              }
+        ?>
     </p>
     <?php } ?>
 
