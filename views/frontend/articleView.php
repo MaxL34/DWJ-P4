@@ -9,8 +9,8 @@
 ?>
     <div>
         <p>
-            <?php echo $value->art_title(); ?></br>
-            <?php echo $value->art_content(); ?></br>
+            <?php echo $value->art_title(); ?>
+            <?php echo $value->art_content(); ?>
             Publié le <?php echo $value->art_creation_date() . ' par : ' . $value->art_author(); ?></br>
         </p>
         <a href="main_index.php?action=getArticle&amp;article_id=<?php echo $value->art_id(); ?>">Afficher le billet et ses commentaires</a>
