@@ -37,6 +37,13 @@ function updateArticle() {
     echo 'Le billet a bien été mis à jour';
 }
 
+function deleteArticle() {
+    $db = setDb();
+    $articlesManager = new ArticlesManager($db);
+    $articleToDelete = $articlesManager->deleteArticle($_GET['article_id']);
+    echo 'Le billet a bien été supprimé';
+} 
+
 function getArtCom() {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);

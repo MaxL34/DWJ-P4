@@ -51,6 +51,12 @@ if (!empty($_GET['action'])) {
             }
         break;
 
+        case "deleteArticle":
+            if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
+                deleteArticle($_GET['article_id']);
+            }
+        break;
+
         case 'addComment':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 if (!empty($_POST['com_content']) && !empty($_POST['com_author'])) {

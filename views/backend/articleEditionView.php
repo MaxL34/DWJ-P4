@@ -52,14 +52,15 @@
                 <?php echo $value->art_content(); ?></br>
                 Publié le <?php echo $value->art_creation_date() . ' par : ' . $value->art_author(); ?></br>
             </p>
-        <a href="main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>">Editer le billet</a>
-    </div>
+            <a href="main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>">Modifier le billet</a>
+            <a href="main_index.php?action=deleteArticle&amp;article_id=<?php echo $value->art_id(); ?>">Supprimer le billet</a>
+        </div>
 <?php
     }
 ?>
         
         <form action="../../main_index.php?action=addArticle" method="post">
-            <textarea style="width: 60%;" name="title"></textarea></br>
+            <textarea class="content" style="width: 60%;" name="title"></textarea></br>
             <textarea class="content" style="width: 60%;" name="content"></textarea></br>
             <input name="art_send" type="submit" value="Envoyer" />
         </form>
