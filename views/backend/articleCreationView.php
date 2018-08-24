@@ -42,8 +42,10 @@
         ?>
         
         <form action="../../main_index.php?action=addArticle" method="post">
-            <textarea style="width: 60%;" name="title"></textarea></br>
-            <textarea class="content" style="width: 60%;" name="content"></textarea></br>
+            <p>Titre du billet :</p>
+                <textarea class="content" name="title"></textarea></br>
+            <p>Contenu du billet :</p>
+                <textarea class="content" name="content"></textarea></br>
             <input name="art_send" type="submit" value="Envoyer" />
         </form>
     </body>
