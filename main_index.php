@@ -18,7 +18,8 @@ if (!empty($_GET['action'])) {
 
             if (!empty($title) && !empty($content)) {
                 addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
-                echo 'Votre article a bien été ajouté';
+                echo 'Votre billet a bien été publié';
+                listArticlesToEdit();
             } else {
                 echo 'Veuillez remplir les champs nécessaires';
             }
