@@ -37,7 +37,7 @@ class ArticlesManager {
     public function listArticles() {
         $articles = [];
         
-        $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, art_creation_date FROM articles ORDER BY art_creation_date ASC');
+        $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, DATE_FORMAT(art_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_fr FROM articles ORDER BY date_fr ASC');
 
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $articles[] = new Article($data);

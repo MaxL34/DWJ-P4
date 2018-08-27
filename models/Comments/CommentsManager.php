@@ -50,7 +50,7 @@ class CommentsManager {
     public function listComments() {
         $comments = [];
         
-        $q = $this->_db->query('SELECT com_id, com_title, com_content, com_author, com_creation_date FROM comments'); /*WHERE com_id = $_GET['com_id']');*/
+        $q = $this->_db->query('SELECT com_id, com_title, com_content, com_author, DATE_FORMAT(com_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS com_date_fr FROM comments');
 
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);
@@ -62,7 +62,7 @@ class CommentsManager {
     public function getComFromArticle($article_ID) {
         $comments = [];
         
-        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, com_creation_date, article_id FROM comments WHERE article_id = ? ORDER BY com_creation_date ASC');
+        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, article_id, DATE_FORMAT(com_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS com_date_fr FROM comments WHERE article_id = ? ORDER BY com_date_fr ASC');
         $q->execute(array($article_ID));
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);        
