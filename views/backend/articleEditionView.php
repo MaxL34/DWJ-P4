@@ -33,7 +33,7 @@
                 <p>
                     <?php echo $value->art_title(); ?>
                     <?php echo $value->art_content(); ?>
-                    Publié le <?php echo $value->art_creation_date(); ?></br>
+                    Publié le <?php echo $value->date_fr(); ?></br>
                     Par : <?php echo $value->art_author(); ?>
                 </p>
                 <a href="main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>">Modifier le billet</a>
