@@ -8,9 +8,14 @@ class ArticlesManager {
     }
 
     public function getArticle($article_ID) {
-        $q = $this->_db->prepare('SELECT art_id, art_title, art_content, art_author, art_creation_date, art_modified_date FROM articles WHERE art_id = ?');
+        $article = [];
+
+        $q = $this->_db->prepare('SELECT art_id, art_title, art_content, art_author, art_modified_date, DATE_FORMAT(art_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_fr FROM articles WHERE art_id = ?');
         $q->execute(array($article_ID));
-        $article = $q->fetch(PDO::FETCH_ASSOC);
+        
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
+            $article = new Article($data);
+        }
 
         return $article;
         
