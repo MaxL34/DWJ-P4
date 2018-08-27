@@ -11,7 +11,8 @@
         <p>
             <?php echo $value->art_title(); ?>
             <?php echo $value->art_content(); ?>
-            Publié le <?php echo $value->date_fr() . ' par : ' . $value->art_author(); ?>
+            Publié le <?php echo $value->date_fr(); ?></br>
+            Par : <?php echo $value->art_author(); ?>
         </p>
         <a href="main_index.php?action=getArticle&amp;article_id=<?php echo $value->art_id(); ?>">Afficher le billet et ses commentaires</a>
     </div>
