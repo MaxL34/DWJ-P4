@@ -31,9 +31,10 @@
         ?>
             <div>
                 <p>
-                    <?php echo $value->art_title(); ?></br>
-                    <?php echo $value->art_content(); ?></br>
-                    Publié le <?php echo $value->art_creation_date() . ' par : ' . $value->art_author(); ?></br>
+                    <?php echo $value->art_title(); ?>
+                    <?php echo $value->art_content(); ?>
+                    Publié le <?php echo $value->art_creation_date(); ?></br>
+                    Par : <?php echo $value->art_author(); ?>
                 </p>
                 <a href="main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>">Modifier le billet</a>
                 <a href="main_index.php?action=deleteArticle&amp;article_id=<?php echo $value->art_id(); ?>">Supprimer le billet</a>

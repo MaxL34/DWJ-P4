@@ -8,12 +8,12 @@
 
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska</h1>
-<p>Billet : "<?php echo $article['art_title']; ?>" et ses commentaires</p>
+<p>Billet : <?php echo $article['art_title']; ?></p>
 
 <div>
     <p>
-        <?php echo $article['art_content']; ?></br>
-        <?php echo $article['art_author']; ?></br>
+        <?php echo $article['art_content']; ?>
+        <?php echo $article['art_author']; ?>
     </p>
 
     <p>Commentaires du billet</p>
@@ -21,7 +21,7 @@
     <p>
         Commentaire : <?php echo $comment->com_content(); ?></br>
         Posté par : <?php echo $comment->com_author(); ?></br>
-        le : <?php echo $comment->com_creation_date(); ?></br>
+        le : <?php echo $comment->com_date_fr(); ?></br>
         <a href="main_index.php?action=reportCom&amp;article_id=<?php echo $article['art_id']; ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a>
         
         <?php if (isset($_SESSION['id'])) {
