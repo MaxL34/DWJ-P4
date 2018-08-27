@@ -7,6 +7,7 @@ class Comment {
     private $_com_author;
     private $_article_id;
     private $_com_creation_date;
+    private $_com_date_fr;
     private $_com_report_number;
     private $_com_report_date;
 
@@ -54,6 +55,10 @@ class Comment {
         return $this->_com_creation_date;
     }
 
+    public function com_date_fr() {
+        return $this->_com_date_fr;
+    }
+
     // Déclaration des setters (mutateurs)
     public function setCom_id($com_id) {
         $com_id = (int) $com_id;
@@ -83,6 +88,10 @@ class Comment {
 
     public function setCom_creation_date($com_creation_date) {
         $this->_com_creation_date = $com_creation_date;
+    }
+
+    public function setCom_date_fr($com_date_fr) {
+        $this->_com_date_fr = $com_date_fr;
     }
 
     public function setCom_report_number($com_report_number) {
