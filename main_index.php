@@ -53,14 +53,17 @@ if (!empty($_GET['action'])) {
 
         case "deleteArticle":
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                deleteArticle($_GET['article_id']);
+                deleteArticle();
             }
         break;
 
         case 'addComment':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 if (!empty($_POST['com_content']) && !empty($_POST['com_author'])) {
-                    addComment($_POST['com_content'], $_POST['com_author'], $_GET['article_id']);
+                    $comment = addComment($_POST['com_content'], $_POST['com_author'], $_GET['article_id']);
+                    if ($comment === false) {
+                        die('Impossible d\'ajouter le commentaire');
+                    }
                 } else {
                     echo 'Erreur : tous les champs ne sont pas remplis !';
                 }
