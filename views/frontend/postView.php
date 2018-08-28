@@ -8,7 +8,7 @@
 
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska</h1>
-<p>Billet : <?php echo $article->art_title(); ?></p>
+<?php echo $article->art_title(); ?>
 
 <div>
     <p>
