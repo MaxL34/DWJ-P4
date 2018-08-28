@@ -34,12 +34,12 @@ function updateArticle() {
     echo 'Le billet a bien été mis à jour';
 }
 
-function deleteArticle() {
+function deleteArticle($article_id) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
     $commentsManager = new CommentsManager($db);
-    $articleToDelete = $articlesManager->deleteArticle($_GET['article_id']);
-    $comsToDelete = $commentsManager->deleteComsFromArticle($_GET['article_id']);
+    $articleToDelete = $articlesManager->deleteArticle($article_id);
+    $comsToDelete = $commentsManager->deleteComsFromArticle($article_id);
     echo 'Le billet et ses commentaires ont bien été supprimés';
 } 
 

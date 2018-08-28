@@ -53,7 +53,7 @@ if (!empty($_GET['action'])) {
 
         case "deleteArticle":
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                deleteArticle();
+                deleteArticle($_GET['article_id']);
             }
         break;
 
