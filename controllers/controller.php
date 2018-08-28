@@ -31,7 +31,6 @@ function updateArticle($art_title, $art_content, $art_id) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
     $articleToUpdate = $articlesManager->updateArticle($art_title, $art_content, $art_id);
-    echo 'Le billet a bien été mis à jour';
 }
 
 function deleteArticle($article_id) {
@@ -40,7 +39,6 @@ function deleteArticle($article_id) {
     $commentsManager = new CommentsManager($db);
     $articleToDelete = $articlesManager->deleteArticle($article_id);
     $comsToDelete = $commentsManager->deleteComsFromArticle($article_id);
-    echo 'Le billet et ses commentaires ont bien été supprimés';
 } 
 
 function getArtCom($article_id) {
