@@ -24,9 +24,6 @@ function editArticle() {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
     $article = $articlesManager->getArticle($_GET['article_id']);
-
-    //$articleToUpdate = $articlesManager->updateArticle($_POST['title'], $_POST['content'], $_GET['article_id']);
-
     require('./views/backend/articleUpdateView.php');
 }
 
@@ -65,13 +62,11 @@ function addComment($com_content, $com_author, $article_id) {
     $db = setDb();
     $commentsManager = new CommentsManager($db);
     $comment = $commentsManager->addComment($com_content, $com_author, $article_id);
-
     if ($comment === false) {
         die('Impossible d\'ajouter le commentaire');
     } else {
         header('Location: ./main_index.php?action=getArticle&article_id=' .$article_id);
       }
-    
     require('./views/frontend/postView.php');
 }
 

@@ -29,8 +29,6 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'editArticle':
-            //$article = editArticle();
-
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 editArticle();
             } else {

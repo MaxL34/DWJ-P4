@@ -16,9 +16,7 @@ class ArticlesManager {
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $article = new Article($data);
         }
-
         return $article;
-        
     }
 
     public function addArticle($art_title, $art_content, $art_author) {
@@ -41,13 +39,11 @@ class ArticlesManager {
 
     public function listArticles() {
         $articles = [];
-        
         $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, DATE_FORMAT(art_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_fr FROM articles ORDER BY date_fr ASC');
 
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $articles[] = new Article($data);
         }
-
         return $articles;
     }
 
