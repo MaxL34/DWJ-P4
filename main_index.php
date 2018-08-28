@@ -5,7 +5,7 @@ if (!empty($_GET['action'])) {
     switch ($_GET['action']) {
         case 'getArticle':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                getArtCom();
+                getArtCom($_GET['article_id']);
             } else {
                 echo 'Erreur d\'id d\'article : aucun id envoyé ou id inexistant';
             }
@@ -30,7 +30,7 @@ if (!empty($_GET['action'])) {
 
         case 'editArticle':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                editArticle();
+                editArticle($_GET['article_id']);
             } else {
                 echo 'Erreur d\'id d\'article : aucun id envoyé ou id inexistant';
             }
@@ -42,7 +42,7 @@ if (!empty($_GET['action'])) {
                 $content = rtrim($_POST['content']);
 
                 if (!empty($title) && !empty($content)) {
-                    updateArticle($_GET['article_id'], $_POST['title'], $_POST['content']);
+                    updateArticle($_POST['title'], $_POST['content'], $_GET['article_id']);
                 } else {
                     echo 'Veuillez remplir les champs nécessaires';
                 }
@@ -83,7 +83,7 @@ if (!empty($_GET['action'])) {
 
         case 'reportCom':
             if (isset($_GET['com_id'])) {
-                reportCom($_GET['com_id']);
+                reportCom($_GET['article_id'], $_GET['com_id']);
                 echo 'Le commentaire posté a bien été signalé, il sera soumis à une modération par l\'administrateur du blog';
             }
         break;

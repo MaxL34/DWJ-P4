@@ -20,17 +20,17 @@ function listArticlesToEdit() {
     require('./views/backend/articleEditionView.php');
 }
 
-function editArticle() {
+function editArticle($article_id) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
-    $article = $articlesManager->getArticle($_GET['article_id']);
+    $article = $articlesManager->getArticle($article_id);
     require('./views/backend/articleUpdateView.php');
 }
 
-function updateArticle() {
+function updateArticle($art_title, $art_content, $art_id) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
-    $articleToUpdate = $articlesManager->updateArticle($_POST['title'], $_POST['content'], $_GET['article_id']);
+    $articleToUpdate = $articlesManager->updateArticle($art_title, $art_content, $art_id);
     echo 'Le billet a bien été mis à jour';
 }
 
@@ -43,20 +43,20 @@ function deleteArticle($article_id) {
     echo 'Le billet et ses commentaires ont bien été supprimés';
 } 
 
-function getArtCom() {
+function getArtCom($article_id) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
-    $article = $articlesManager->getArticle($_GET['article_id']);
+    $article = $articlesManager->getArticle($article_id);
 
     $commentsManager = new CommentsManager($db);
-    $comments = $commentsManager->getComFromArticle($_GET['article_id']);
+    $comments = $commentsManager->getComFromArticle($article_id);
     require('./views/frontend/postView.php');
 }
 
-function addArticle() {
+function addArticle($art_title, $art_content, $art_author) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
-    $article = $articlesManager->addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
+    $article = $articlesManager->addArticle($art_title, $art_content, $art_author);
     require('./views/backend/articleCreationView.php');
 }
 
@@ -66,30 +66,28 @@ function addComment($com_content, $com_author, $article_id) {
     $comment = $commentsManager->addComment($com_content, $com_author, $article_id);
 
     $articlesManager = new ArticlesManager($db);
-    $article = $articlesManager->getArticle($_GET['article_id']);
+    $article = $articlesManager->getArticle($article_id);
 
-    $comments = $commentsManager->getComFromArticle($_GET['article_id']);
-
-
+    $comments = $commentsManager->getComFromArticle($article_id);
     require('./views/frontend/postView.php');
 }
 
-function deleteCom() {
+function deleteCom($article_id, $com_id) {
     $db = setDb();
     $commentsManager = new CommentsManager($db);
-    $comToDelete = $commentsManager->deleteCom($_GET['article_id'], $_GET['com_id']);
+    $comToDelete = $commentsManager->deleteCom($article_id, $com_id);
     return $comToDelete;
 }
 
-function reportCom() {
+function reportCom($article_id, $com_id) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
-    $article = $articlesManager->getArticle($_GET['article_id']);
+    $article = $articlesManager->getArticle($article_id);
 
     $commentsManager = new CommentsManager($db);
-    $comments = $commentsManager->getComFromArticle($_GET['article_id']);
+    $comments = $commentsManager->getComFromArticle($article_id);
 
-    $reportedCom = $commentsManager->reportComment($_GET['com_id']);
+    $reportedCom = $commentsManager->reportComment($com_id);
     require('./views/frontend/postView.php');
 }
 
