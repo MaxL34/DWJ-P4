@@ -30,7 +30,7 @@ class CommentsManager {
         return $commentToDelete;
     }
 
-    public function deleteCommentsFromArticle($article_id) {
+    public function deleteComsFromArticle($article_id) {
         $q = $this->_db->prepare('DELETE FROM comments WHERE article_id = ?');
         $commentToDelete = $q->execute(array($article_id));
         return $commentToDelete;
