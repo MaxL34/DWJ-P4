@@ -11,22 +11,7 @@
         <title>Création d'un article</title>
         <link href="style.css" rel="stylesheet" />
         <script type="text/javascript" src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=0ofr5ymckej6ac4mcq2doqoozjut2zifnyjjfp067bqy5s12">// <![CDATA[/tiny_mce/tiny_mce.js">// ]]></script>
-        <script type="text/javascript">// <![CDATA[
-        tinymce.init({
-    selector: '.content',
-    theme: 'modern',
-    width: 1024,
-    height: 300,
-    plugins: [
-      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'save table contextmenu directionality emoticons template paste textcolor'
-    ],
-    content_css: 'css/content.css',
-    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
-  });
-  </script>
-        
+        <script type="text/javascript" src="/tests/Openclassrooms/DWJ-P4/public/js/tinymce/default_editor.js"></script>
     </head>
 
     <body>
