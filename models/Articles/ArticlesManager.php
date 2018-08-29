@@ -23,6 +23,15 @@ class ArticlesManager {
         $q = $this->_db->prepare('INSERT INTO articles (art_title, art_content, art_author, art_creation_date) VALUES (?, ?, ?, NOW())');
         $articleToAdd = $q->execute(array($art_title, $art_content, $art_author));
         return $articleToAdd;
+
+        $addedArticle = [];
+        $req = $this->_db->prepare('SELECT art_id FROM articles WHERE art_title = ?');
+        $req->execute(array($art_title));
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $addedArticle = new Article($data);
+        }
+        return $addedArticle;
     }
 
     public function updateArticle($art_title, $art_content, $art_id) {

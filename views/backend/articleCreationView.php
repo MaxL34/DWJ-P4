@@ -25,7 +25,7 @@
                 echo '<a href="/tests/Openclassrooms/DWJ-P4/views/frontend/subscriptionView.php">Inscription</a>';  
               }
         ?>
-        
+
         <form action="../../main_index.php?action=addArticle" method="post">
             <p>Titre du billet :</p>
                 <textarea class="content" name="title"></textarea></br>
