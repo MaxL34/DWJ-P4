@@ -55,8 +55,11 @@ function addArticle($art_title, $art_content, $art_author) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
     $article = $articlesManager->addArticle($art_title, $art_content, $art_author);
-    var_dump($article);
-    require('./views/backend/articleCreationView.php');
+    $articleId = $article->art_id();
+
+    $commentsManager = new CommentsManager($db);
+    $comments = $commentsManager->getComFromArticle($articleId);
+    require('./views/frontend/postView.php');
 }
 
 function addComment($com_content, $com_author, $article_id) {

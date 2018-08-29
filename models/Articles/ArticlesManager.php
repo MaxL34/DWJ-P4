@@ -22,10 +22,9 @@ class ArticlesManager {
     public function addArticle($art_title, $art_content, $art_author) {
         $q = $this->_db->prepare('INSERT INTO articles (art_title, art_content, art_author, art_creation_date) VALUES (?, ?, ?, NOW())');
         $articleToAdd = $q->execute(array($art_title, $art_content, $art_author));
-        return $articleToAdd;
 
         $addedArticle = [];
-        $req = $this->_db->prepare('SELECT art_id FROM articles WHERE art_title = ?');
+        $req = $this->_db->prepare('SELECT art_title, art_content, art_author, art_id, DATE_FORMAT(art_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_fr FROM articles WHERE art_title = ?');
         $req->execute(array($art_title));
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
