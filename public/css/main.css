@@ -8,3 +8,15 @@
     position: relative;
     left: 80%;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.article {
+    width: 26%;
+    text-align: justify;
+    /*margin: auto;*/
+}
