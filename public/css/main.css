@@ -9,6 +9,10 @@
     left: 80%;
 }
 
+.title {
+    text-align: center;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -19,4 +23,36 @@
     width: 26%;
     text-align: justify;
     /*margin: auto;*/
+}
+
+.postView_article {
+    width: 26%;
+    text-align: justify;
+    margin: auto;
+}
+
+.com_form label {
+    display: block;
+    width: 150px;
+    float: left;
+}
+
+.login_form {
+    width: 15%;
+    text-align: center;
+    position: relative;
+    left: 43%;
+}
+
+.login_form label {
+    display: block;
+}
+
+.article_management {
+    display: flex;
+    text-align: center;    
+    justify-content: space-evenly;    
+    width: 700px;    
+    position: relative;    
+    left: 31%;
 }
