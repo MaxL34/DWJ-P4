@@ -7,16 +7,20 @@
 <?php $title = 'Blog de Jean Forteroche : Article et commentaires associés'; ?>
 
 <?php ob_start(); ?>
-<h1>Billet simple pour l'Alaska</h1>
-<?php echo $article->art_title(); ?>
+<div class="title">
+    <h1>Billet simple pour l'Alaska</h1>
+    <?php echo $article->art_title(); ?>
+</div>
 
-<div>
+<div class="postView_article">
     <p>
         <?php echo $article->art_content(); ?>
         Posté le : <?php echo $article->date_fr(); ?></br>
         Par : <?php echo $article->art_author(); ?>
     </p>
+</div>
 
+<div class="postView_comment">
     <p>Commentaires du billet</p>
     <?php foreach ($comments as $comment) { ?>
     <p>
@@ -32,22 +36,21 @@
     </p>
     <?php } ?>
 
-    <form action="main_index.php?action=addComment&amp;article_id=<?php echo $article->art_id(); ?>" method="post">
+    <form class ="com_form" action="main_index.php?action=addComment&amp;article_id=<?php echo $article->art_id(); ?>" method="post">
         <div>
-            <label for="com_author">Nom : </label>
-            <input type="text" id ="author" name="com_author" />
+            <label for="com_author">Pseudo : </label>
+            <input type="text" id ="author" name="com_author" placeholder="Votre pseudo" />
         </div>
 
         <div>
             <label for="com_content">Votre commentaire : </label>
-            <textarea id="content" name="com_content"></textarea>
+            <textarea id="content" name="com_content" placeholder="Votre commentaire"></textarea>
         </div>
 
         <div>
             <input type="submit" />
         </div>
     </form>
-
 </div>
 
 <?php $content = ob_get_clean(); ?>
