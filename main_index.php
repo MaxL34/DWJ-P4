@@ -141,7 +141,7 @@ if (!empty($_GET['action'])) {
         case 'signOut':
             session_start();
             if (isset($_SESSION['id'])) {
-                echo 'A bientôt ' . $_SESSION['user'] . ' <a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Retour à l\'accueil</a>';
+                echo '<p class="signout_message">A bientôt ' . $_SESSION['user'] . ' </br><a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Retour à l\'accueil</a></p>';
                 session_destroy();
             }
         break;
