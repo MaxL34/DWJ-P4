@@ -22,13 +22,27 @@
 .article {
     width: 26%;
     text-align: justify;
-    /*margin: auto;*/
+}
+
+.article a {
+    padding-left: 25%;
 }
 
 .postView_article {
     width: 26%;
     text-align: justify;
     margin: auto;
+}
+
+.com_form {
+    position: relative;
+    left: 42%;
+    width: 340px;
+}
+
+.com_form [type="submit"] {
+    margin-left: 35%;
+    cursor: pointer;
 }
 
 .com_form label {
@@ -44,6 +58,10 @@
     left: 43%;
 }
 
+.login_form [type="submit"] {
+    cursor: pointer;
+}
+
 .login_form label {
     display: block;
 }
@@ -55,4 +73,16 @@
     width: 700px;    
     position: relative;    
     left: 31%;
+}
+
+.article_creation_container, .article_form, .edition_p, .edition_a, .comments {
+    text-align: center;
+}
+
+.mce-tinymce.mce-container.mce-panel {
+    margin: auto;
+}
+
+.edition_a a {
+    padding: 0 20px 0 20px;
 }
