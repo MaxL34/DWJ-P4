@@ -19,23 +19,22 @@
     <p>Lire vos billets : </br><a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Lecture de billets</a></p></br>
 </div>
 
-<div class="comments_management">
+<div class="comments">
     <p>Voici la liste des derniers commentaires signalés :</p>
-        <div class="reported_comments">
-            <?php
-                foreach ($var as $value) { 
-            ?>
+        <?php
+            foreach ($var as $value) { 
+        ?>
             <p>
                 Auteur : <?php echo $value->com_author(); ?></br>
                 Commentaire : <?php echo $value->com_content(); ?></br>
                 signalé le : <?php echo $value->com_date_fr() . ', ' . $value->com_report_number() . ' fois.' ?></br>
                 <?php echo '<a href="main_index.php?action=deleteCom&amp;article_id=' . $value->article_id() . '&amp;com_id=' . $value->com_id() . '">Supprimer le commentaire</a>'; ?>
             </p>
-        </div>
+
+        <?php 
+            } 
+        ?>
 </div>
-            <?php 
-                } 
-            ?>
 
 <?php $content = ob_get_clean(); ?>
 <?php 

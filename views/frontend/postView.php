@@ -20,7 +20,7 @@
     </p>
 </div>
 
-<div class="postView_comment">
+<div class="comments">
     <p>Commentaires du billet</p>
     <?php foreach ($comments as $comment) { ?>
     <p>
@@ -35,6 +35,7 @@
         ?>
     </p>
     <?php } ?>
+</div>
 
     <form class ="com_form" action="main_index.php?action=addComment&amp;article_id=<?php echo $article->art_id(); ?>" method="post">
         <div>
@@ -51,7 +52,6 @@
             <input type="submit" />
         </div>
     </form>
-</div>
 
 <?php $content = ob_get_clean(); ?>
 <?php require('views/layout.php'); ?>
