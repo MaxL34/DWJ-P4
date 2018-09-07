@@ -73,10 +73,18 @@
     width: 700px;    
     position: relative;    
     left: 31%;
+    padding-bottom: 60px;
 }
 
-.article_creation_container, .article_form, .edition_p, .edition_a, .comments {
+.article_creation_container, .article_form, .edition_p {
+    position: relative;
     text-align: center;
+}
+
+.comments {
+    position: relative;
+    left: 43%;
+    max-width: 380px;
 }
 
 .mce-tinymce.mce-container.mce-panel {
@@ -85,4 +93,6 @@
 
 .edition_a a {
     padding: 0 20px 0 20px;
+    position: relative;
+    left: 18%;
 }
