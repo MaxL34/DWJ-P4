@@ -8,6 +8,7 @@ class Article {
     private $_art_author;
     private $_art_creation_date;
     private $_date_fr;
+    private $_modified_date_fr;
     private $_art_modified_date;
 
     public function __construct(array $data) {
@@ -50,6 +51,10 @@ class Article {
         return $this->_date_fr;
     }
 
+    public function modified_date_fr() {
+        return $this->_modified_date_fr;
+    }
+
     public function art_modified_date() {
         return $this->_art_modified_date;
     }
@@ -86,6 +91,10 @@ class Article {
 
     public function setDate_fr($date_fr) {
         $this->_date_fr = $date_fr;
+    }
+
+    public function setModified_date_fr($modified_date_fr) {
+        $this->_modified_date_fr = $modified_date_fr;
     }
 
     public function setArt_modified_date($art_modified_date) {
