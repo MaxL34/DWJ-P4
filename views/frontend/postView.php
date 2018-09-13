@@ -46,18 +46,22 @@
 <form class ="com_form" action="main_index.php?action=addComment&amp;article_id=<?php echo $article->art_id(); ?>" method="post">
     <div>
         <label for="com_author">Pseudo : </label>
-        <input type="text" id ="author" name="com_author" placeholder="Votre pseudo" />
+        <input class="com_author" type="text" id ="author" name="com_author" placeholder="Votre pseudo" />
     </div>
 
     <div>
         <label for="com_content">Votre commentaire : </label>
-        <textarea id="content" name="com_content" placeholder="Votre commentaire"></textarea>
+        <textarea class="com_content" id="content" name="com_content" placeholder="Votre commentaire"></textarea>
     </div>
 
     <div>
-        <input type="submit" />
+        <input class="com_submit_btn" type="submit" />
     </div>
 </form>
+
+<div class="com_submit_message">
+    <p></p>
+</div>
 
 <?php $content = ob_get_clean(); ?>
 <?php require('views/layout.php'); ?>
