@@ -28,6 +28,7 @@
         Commentaire : <?php echo $comment->com_content(); ?></br>
         Posté par : <?php echo $comment->com_author(); ?></br>
         le : <?php echo $comment->com_date_fr(); ?></br>
+        
         <a href="main_index.php?action=reportCom&amp;article_id=<?php echo $article->art_id(); ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a>
         
         <?php if (isset($_SESSION['id'])) {
@@ -38,21 +39,25 @@
     <?php } ?>
 </div>
 
-    <form class ="com_form" action="main_index.php?action=addComment&amp;article_id=<?php echo $article->art_id(); ?>" method="post">
-        <div>
-            <label for="com_author">Pseudo : </label>
-            <input type="text" id ="author" name="com_author" placeholder="Votre pseudo" />
-        </div>
+<div class="add_com">
+    <button>Ajouter un commentaire</button>
+</div>
 
-        <div>
-            <label for="com_content">Votre commentaire : </label>
-            <textarea id="content" name="com_content" placeholder="Votre commentaire"></textarea>
-        </div>
+<form class ="com_form" action="main_index.php?action=addComment&amp;article_id=<?php echo $article->art_id(); ?>" method="post">
+    <div>
+        <label for="com_author">Pseudo : </label>
+        <input type="text" id ="author" name="com_author" placeholder="Votre pseudo" />
+    </div>
 
-        <div>
-            <input type="submit" />
-        </div>
-    </form>
+    <div>
+        <label for="com_content">Votre commentaire : </label>
+        <textarea id="content" name="com_content" placeholder="Votre commentaire"></textarea>
+    </div>
+
+    <div>
+        <input type="submit" />
+    </div>
+</form>
 
 <?php $content = ob_get_clean(); ?>
 <?php require('views/layout.php'); ?>
