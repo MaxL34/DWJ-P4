@@ -83,8 +83,13 @@
 
 .comments {
     position: relative;
-    left: 43%;
+    left: 44%;
     max-width: 380px;
+}
+
+.add_com {
+    text-align: center;
+    padding-bottom: 25px;
 }
 
 .mce-tinymce.mce-container.mce-panel {
