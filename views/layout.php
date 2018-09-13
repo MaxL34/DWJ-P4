@@ -27,7 +27,12 @@
                       }
                 ?>
         </ul>
-        
+
         <?= $content ?>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/tests/Openclassrooms/DWJ-P4/public/js/commentAdder.js"></script>
+        <script src="/tests/Openclassrooms/DWJ-P4/public/js/main.js"></script>
+
     </body>
 </html>
