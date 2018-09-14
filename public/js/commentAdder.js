@@ -4,7 +4,7 @@ var commentAdder = {
     comAuthor: $('.com_author'),
     comContent: $('.com_content'),
     comSubmitBtn: $('.com_submit_btn'),
-    comSubmitMessageElt: $('.com_submit_message'),
+    comSubmitMessageElt: $('.com_submit_message > p'),
 
     init: function() {
         var self = this;
@@ -17,15 +17,19 @@ var commentAdder = {
         });
 
         self.comSubmitBtn.click(function() {
-            if (self.comAuthor == null && self.comContent == null) {
+            if (!self.comAuthor && !self.comContent) {
                 self.comSubmitMessageElt.text('Veuillez renseigner votre Pseudo et un commentaire svp.');
-            } else if (self.comAuthor == null) {
+                console.log(self.comSubmitMessageElt);
+            } else if (!self.comAuthor) {
                 self.comSubmitMessageElt.text('Veuillez renseigner votre Pseudo svp.');
-              } else if (self.comContent == null) {
+                console.log(self.comSubmitMessageElt);
+              } else if (!self.comContent) {
                 self.comSubmitMessageElt.text('Veuillez laisser un commentaire svp.');
+                console.log(self.comSubmitMessageElt);
                 }
             else {
                 self.comSubmitMessageElt.text('Votre commentaire a bien été ajouté.');
+                console.log(self.comSubmitMessageElt);
             }             
         });
     }
