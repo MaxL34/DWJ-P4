@@ -64,12 +64,15 @@ if (!empty($_GET['action'])) {
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 if (!empty($_POST['com_content']) && !empty($_POST['com_author'])) {
                     $comment = addComment($_POST['com_content'], $_POST['com_author'], $_GET['article_id']);
+                    if ($comment === false) {
+                        die('Impossible d\'ajouter le commentaire');
+                    }
                 } else {
-                    getArtCom($_GET['article_id']);
-                }
-             } else {
-                    echo 'Erreur : aucun identifiant de billet envoyé';
+                    echo 'Erreur : tous les champs ne sont pas remplis !';
                   }
+            } else {
+                echo 'Erreur : aucun identifiant de billet envoyé';
+              }
         break;
 
         case 'deleteCom':
