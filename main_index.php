@@ -93,8 +93,6 @@ if (!empty($_GET['action'])) {
 
         case 'adminLogin':
             if (!empty($_POST['user']) && (!empty($_POST['password']))) {
-                
-                
                 if (logUser($_POST['user'], $_POST['password']) == true) {
                     logUser($_POST['user'], $_POST['password']);
                     
