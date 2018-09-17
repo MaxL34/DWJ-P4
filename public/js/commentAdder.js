@@ -17,29 +17,5 @@ var commentAdder = {
         self.addComButton.click(function() {
             self.comForm.show();
         });
-
-        /*self.comSubmitBtn.click(validation());
-            
-            /*if (!self.comAuthor && !self.comContent) {
-                self.comSubmitMessageElt.text('Veuillez renseigner votre Pseudo et un commentaire svp.');
-                console.log(self.comSubmitMessageElt);
-            } else if (!self.comAuthor) {
-                self.comSubmitMessageElt.text('Veuillez renseigner votre Pseudo svp.');
-                console.log(self.comSubmitMessageElt);
-              } else if (!self.comContent) {
-                self.comSubmitMessageElt.text('Veuillez laisser un commentaire svp.');
-                console.log(self.comSubmitMessageElt);
-                }
-            else {
-                self.comSubmitMessageElt.text('Votre commentaire a bien été ajouté.');
-                console.log(self.comSubmitMessageElt);
-            }      
-        
-        function validation(event) {
-            if (self.comAuthor.validity.valueMissing) {
-                event.preventDefault();
-                self.missPseudo.textContent = 'Pseudo manquant';
-                self.missPseudo.style.color = 'red';
-            }*/
-        }
+    }
 };
