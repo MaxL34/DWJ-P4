@@ -11,12 +11,12 @@
     <form class="login_form" action="../../main_index.php?action=adminLogin" method="post">
         <div>
             <label for="user">Login : </label>
-            <input type="text" id="user_login" name="user" />
+            <input class="user_login" type="text" id="user_login" name="user" />
         </div>
 
         <div>
             <label for="password">Mot de passe : </label>
-            <input type="password" id="user_password" name="password" />
+            <input class="user_pass" type="password" id="user_password" name="password" />
         </div>
 
         <div>
