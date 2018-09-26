@@ -103,7 +103,7 @@ if (!empty($_GET['action'])) {
                     $var = getReportedComs();
                     
                 } else {
-                    echo 'Identifiants de connexion incorrects';
+                    echo 'Identifiants incorrects';
                 }
             } else {
                 echo 'Veuiller remplir chaque champ';

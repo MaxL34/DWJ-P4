@@ -8,21 +8,25 @@
 </div>
 
 <div>
-    <form class="login_form" action="../../main_index.php?action=adminLogin" method="post">
+    <form id="login_form" action="../../main_index.php?action=adminLogin" method="post">
         <div>
             <label for="user">Login : </label>
-            <input class="user_login" type="text" id="user_login" name="user" />
+            <input type="text" id="user_login" name="user" />
         </div>
 
         <div>
             <label for="password">Mot de passe : </label>
-            <input class="user_pass" type="password" id="user_password" name="password" />
+            <input type="password" id="user_password" name="password" />
         </div>
 
         <div>
-            <input type="submit" value="Se connecter" />
+            <input id="login_btn" type="submit" value="Se connecter" />
         </div>
     </form>
+</div>
+
+<div id="login_message">
+    <p></p>
 </div>
 
 <?php $content = ob_get_clean(); ?>
