@@ -51,18 +51,18 @@
     float: left;
 }
 
-.login_form {
+#login_form {
     width: 15%;
     text-align: center;
     position: relative;
     left: 43%;
 }
 
-.login_form [type="submit"] {
+#login_form [type="submit"] {
     cursor: pointer;
 }
 
-.login_form label {
+#login_form label {
     display: block;
 }
 
