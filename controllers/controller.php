@@ -119,7 +119,7 @@ function logUser($login, $password) {
     $db = setDb();
     $usersManager = new UsersManager($db);
     $userToLog = $usersManager->logUser($login, $password);
-    return $userToLog;   
+    return $userToLog; 
     require('./views/backend/adminLoginView.php');
 }
 
