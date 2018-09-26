@@ -30,4 +30,8 @@
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('../layout.php'); ?>
+<?php
+if (file_exists('../layout.php')) {
+    require('../layout.php');
+}
+?>

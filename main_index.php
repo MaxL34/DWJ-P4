@@ -94,16 +94,17 @@ if (!empty($_GET['action'])) {
         case 'adminLogin':
             if (!empty($_POST['user']) && (!empty($_POST['password']))) {
                 if (logUser($_POST['user'], $_POST['password']) == true) {
+                    
                     logUser($_POST['user'], $_POST['password']);
                     
                     session_start();
-                    $_SESSION['id'] = logUser($_POST['user'], $_POST['password']);
                     $_SESSION['user'] = $_POST['user'];
-
+                    
                     $var = getReportedComs();
+                    echo 'success';
                     
                 } else {
-                    echo 'Identifiants incorrects';
+                    echo 'failed';
                 }
             } else {
                 echo 'Veuiller remplir chaque champ';
@@ -138,7 +139,7 @@ if (!empty($_GET['action'])) {
 
         case 'signOut':
             session_start();
-            if (isset($_SESSION['id'])) {
+            if (isset($_SESSION['user'])) {
                 echo 'A bientôt ' . $_SESSION['user'] . ' </br><a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Retour à l\'accueil</a>';
                 session_destroy();
             }

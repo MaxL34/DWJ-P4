@@ -1,27 +1,31 @@
 var loginValid = {
     userLogin: $('#user_login'),
-    userPass: $('#user_pass'),
+    userPass: $('#user_password'),
     loginBtn: $('#login_btn'),
     loginMessageElt: $('#login_message > p'),
 
     init: function() {
         var self = this;
-        self.loginBtn.on('submit', function(e) {
+        self.loginBtn.click(function(e) {
             e.preventDefault();
-            var donnees = $(this).serialize();
+            //var self = this;
+            //var donnees = $(self).serialize();
 
-            $.post(
-                '/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminLogin',
-                {
-                    username: self.userLogin.val(),
-                    userpass: self.userPass.val()
-                },
-                
-                function(donnees) {
-                  console.log(donnees);
-                },
-                'json'
-            );
+            $.ajax({                
+                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminLogin',
+                type: 'POST',
+                data: 'user=' + self.userLogin.val() + '&password=' + self.userPass.val(),
+                dataType: 'text',
+                success: function(data) {
+                    if (data == 'success') {
+                        self.loginMessageElt.text('Succès.');
+                        window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
+                    } else {
+                        console.log(data);
+                        self.loginMessageElt.text('Echec d\'authentfication : mauvais identifiants.');
+                    }
+                }
+            });
         });
     }
 };
