@@ -8,8 +8,7 @@ var loginValid = {
         var self = this;
         self.loginBtn.click(function(e) {
             e.preventDefault();
-            //var self = this;
-            //var donnees = $(self).serialize();
+            //var donnees = $(this).serialize();
 
             $.ajax({                
                 url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminLogin',
@@ -18,13 +17,15 @@ var loginValid = {
                 dataType: 'text',
                 success: function(data) {
                     if (data == 'success') {
-                        self.loginMessageElt.text('Succès.');
+                        //self.loginMessageElt.text('Connexion établie.');
+                        alert('Connexion établie');
                         window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
                     } else if (data == 'failed') {
-                        console.log(data);
-                        self.loginMessageElt.text('Echec d\'authentfication : mauvais identifiants.');
+                        //self.loginMessageElt.text('Echec d\'authentfication : mauvais identifiants.');
+                        alert('Echec d\'authentfication : mauvais identifiants.');
                     } else {
-                        self.loginMessageElt.text('Veuillez renseigner tous les champs requis.');
+                        //self.loginMessageElt.text('Veuillez renseigner tous les champs requis.');
+                        alert('Veuillez renseigner tous les champs requis.');
                     } 
                 }
             });
