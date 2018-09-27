@@ -4,4 +4,7 @@ $(function() {
 
     var login = Object.create(loginValid);
     login.init();
+
+    var logOut = Object.create(signOut);
+    logOut.init();
 });
