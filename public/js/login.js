@@ -20,10 +20,12 @@ var loginValid = {
                     if (data == 'success') {
                         self.loginMessageElt.text('Succès.');
                         window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
-                    } else {
+                    } else if (data == 'failed') {
                         console.log(data);
                         self.loginMessageElt.text('Echec d\'authentfication : mauvais identifiants.');
-                    }
+                    } else {
+                        self.loginMessageElt.text('Veuillez renseigner tous les champs requis.');
+                    } 
                 }
             });
         });
