@@ -66,6 +66,10 @@
     display: block;
 }
 
+#login_message {
+    text-align: center;
+}
+
 .article_management {
     display: flex;
     text-align: center;    
