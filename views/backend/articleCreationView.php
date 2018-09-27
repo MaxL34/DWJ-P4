@@ -21,7 +21,7 @@
                 <a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Accueil</a>
                 </li>
                     <?php
-                        if (isset($_SESSION['id'])) {
+                        if (isset($_SESSION['user'])) {
                             echo '<li><a href="/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay">Administration</a></li>';
                             echo '<li><a href="/tests/Openclassrooms/DWJ-P4/main_index.php?action=signOut">Déconnexion</a></li>';
                         } else {
