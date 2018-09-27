@@ -7,7 +7,7 @@
 </div>
 
 <div>
-    <form class="login_form" action="../../main_index.php?action=createUser" method="post">
+    <form id="login_form" action="../../main_index.php?action=createUser" method="post">
         <div>
             <label for="user">Login : </label>
             <input type="text" id="user_login" name="user" />
