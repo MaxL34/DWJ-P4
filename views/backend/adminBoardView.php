@@ -9,7 +9,7 @@
 <?php ob_start(); ?>
 <div class="title">
     <h1>Espace d'administration</h1>
-    <p><?php echo 'Bienvenue sur votre espace d\'administration ' . $_SESSION['user'] . '.'; ?></p>
+    <p>Bienvenue sur votre espace d\'administration <span id="session_user"><?php echo $_SESSION['user']; ?></span>.</p>
     <p>Que souhaitez-vous faire ?</p>
 </div>
 
