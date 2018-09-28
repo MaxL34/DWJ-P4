@@ -44,7 +44,7 @@
                     </p>
                     <div class="edition_a">
                         <a href="main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>">Modifier le billet</a>
-                        <a href="main_index.php?action=deleteArticle&amp;article_id=<?php echo $value->art_id(); ?>">Supprimer le billet</a>
+                        <a id="article_del_link" href="main_index.php?action=deleteArticle&amp;article_id=<?php echo $value->art_id(); ?>">Supprimer le billet</a>
                     </div>
                 </div>
             <?php
