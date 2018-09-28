@@ -5,8 +5,6 @@ var signOut = {
     init: function() {
         var self = this;
 
-
-
         self.signOutLink.click(function(e) {
             e.preventDefault();
 

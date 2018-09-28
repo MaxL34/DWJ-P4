@@ -34,6 +34,7 @@
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/commentAdder.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/login.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/signout.js"></script>
+        <script src="/tests/Openclassrooms/DWJ-P4/public/js/deleteArticle.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/main.js"></script>
 
     </body>

@@ -18,7 +18,7 @@ var loginValid = {
                 success: function(data) {
                     if (data == 'success') {
                         //self.loginMessageElt.text('Connexion établie.');
-                        alert('Heurux de vous revoir ' + self.userLogin.val() + '.');
+                        alert('Heureux de vous revoir ' + self.userLogin.val() + '.');
                         window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
                     } else if (data == 'failed') {
                         //self.loginMessageElt.text('Echec d\'authentfication : mauvais identifiants.');
