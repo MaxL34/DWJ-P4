@@ -81,7 +81,7 @@ if (!empty($_GET['action'])) {
                 echo 'Le commentaire a bien été supprimé';
             } else {
                 echo 'Erreur dans la suppression du commentaire';
-              }
+            }
         break;
 
         case 'reportCom':
@@ -120,7 +120,6 @@ if (!empty($_GET['action'])) {
                     createUser($_POST['user'], $_POST['password']);
 
                     session_start();
-                    $_SESSION['id'] = logUser($_POST['user'], $_POST['password']);
                     $_SESSION['user'] = $_POST['user'];
 
                     $var = getReportedComs();
