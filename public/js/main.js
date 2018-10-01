@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
     var commentForm = Object.create(commentAdder);
     commentForm.init();
 
