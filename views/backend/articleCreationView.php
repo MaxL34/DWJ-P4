@@ -1,9 +1,3 @@
-<?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-?>
-
 <?php $title = 'Blog de Jean Forteroche : Création d\'un article'; ?>
 
 <?php ob_start(); ?>
