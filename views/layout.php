@@ -40,6 +40,7 @@
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/deleteCom.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/login.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/signout.js"></script>
+        <script src="/tests/Openclassrooms/DWJ-P4/public/js/articleAdder.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/main.js"></script>
 
     </body>
