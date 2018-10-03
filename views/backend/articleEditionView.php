@@ -15,12 +15,8 @@
                     Publié le <?php echo $value->date_fr(); ?></br>
                     Par : <?php echo $value->art_author(); ?></br>
                     Modifié le : <?php echo $value->modified_date_fr(); ?>
-                    <?php echo $artId =  $value->art_id(); ?>
-                    <script>
-                        var artId = <?php echo $artId; ?>;
-                    </script>
                 </p>
-                    <button class="edit">Editer</button>
+                    <input type="button" onclick="document.location.href='/tests/Openclassrooms/DWJ-P4/main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>';" value="Editer" />
             </div>
         <?php
             }
