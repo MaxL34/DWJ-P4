@@ -1,8 +1,6 @@
 <?php
     if (!isset($_SESSION)) {
         session_start();
-    } else if (isset($_SESSION)) {
-        $session_user = $_SESSION['user'];
     }
 ?>
 
@@ -33,16 +31,11 @@
         </ul>
 
         <?= $content ?>
-        
-        <script>
-            var sessionUser = <?php echo $session_user; ?>;
-        </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/commentAdder.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/login.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/signout.js"></script>
-        <script src="/tests/Openclassrooms/DWJ-P4/public/js/deleteArticle.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/main.js"></script>
 
     </body>
