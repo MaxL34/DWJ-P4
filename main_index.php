@@ -84,7 +84,6 @@ if (!empty($_GET['action'])) {
         case 'reportCom':
             if (isset($_GET['com_id'])) {
                 reportCom($_GET['article_id'], $_GET['com_id']);
-                echo 'Le commentaire posté a bien été signalé, il sera soumis à une modération par l\'administrateur du blog';
             }
         break;
 
