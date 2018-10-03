@@ -1,4 +1,4 @@
-var artDel = {
+/*var artDel = {
     editBtn: $('.edit'),
 
     init: function() {
@@ -12,7 +12,7 @@ var artDel = {
             console.log(artId);
 
             $.ajax({
-                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=deleteArticle',
+                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=editArticle',
                 type: 'GET',
                 data: '&article_id=' + artId,
                 dataType: 'text',
@@ -25,4 +25,4 @@ var artDel = {
             });
         })  ;
     }
-};
+};*/
