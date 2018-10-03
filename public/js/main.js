@@ -7,7 +7,4 @@ $(document).ready(function() {
 
     var logOut = Object.create(signOut);
     logOut.init();
-
-    var articleToDel = Object.create(artDel);
-    articleToDel.init();
 });
