@@ -17,5 +17,9 @@ var commentAdder = {
         self.addComButton.click(function() {
             self.comForm.show();
         });
+
+        self.comSubmitBtn.click(function() {
+            alert('Votre commentaire à bien été ajouté');
+        });
     }
 };
