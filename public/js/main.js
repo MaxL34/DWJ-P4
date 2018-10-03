@@ -13,4 +13,7 @@ $(function() {
 
     var logOut = Object.create(signOut);
     logOut.init();
+
+    var artToAdd = Object.create(articleToAdd);
+    artToAdd.init();
 });
