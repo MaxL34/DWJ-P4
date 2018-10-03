@@ -18,9 +18,9 @@ if (!empty($_GET['action'])) {
 
             if (!empty($title) && !empty($content)) {
                 addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
-                echo 'Votre billet a bien été publié';
+                echo 'success';
             } else {
-                echo 'Veuillez remplir les champs nécessaires';
+                echo 'failed';
             }
         break;
 
@@ -96,8 +96,6 @@ if (!empty($_GET['action'])) {
                 } else {
                     echo 'failed';
                 }
-            } else {
-                echo 'Veuiller remplir chaque champ';
             }
         break;
 
