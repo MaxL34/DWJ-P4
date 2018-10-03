@@ -66,12 +66,10 @@ if (!empty($_GET['action'])) {
                     if ($comment === false) {
                         die('Impossible d\'ajouter le commentaire');
                     }
-                } else {
-                    echo 'Erreur : tous les champs ne sont pas remplis !';
-                  }
+                }
             } else {
-                echo 'Erreur : aucun identifiant de billet envoyé';
-              }
+                echo 'Aucun id de billet paramétré.';
+            }
         break;
 
         case 'deleteCom':
