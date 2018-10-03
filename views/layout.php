@@ -21,6 +21,7 @@
             </li>
                 <?php
                     if (isset($_SESSION['user'])) {
+                        $sessionUser = $_SESSION['user'];
                         echo '<li><a href="/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay">Administration</a></li>';
                         echo '<li><a class="signOut_link" href="/tests/Openclassrooms/DWJ-P4/main_index.php?action=signOut">Déconnexion</a></li>';
                     } else {
@@ -33,6 +34,7 @@
         <?= $content ?>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>var sUser = '<?php echo $sessionUser; ?>';console.log(sUser);</script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/commentAdder.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/login.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/signout.js"></script>
