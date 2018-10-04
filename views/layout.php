@@ -9,8 +9,6 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
-        <script type="text/javascript" src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=0ofr5ymckej6ac4mcq2doqoozjut2zifnyjjfp067bqy5s12"></script>
-        <script type="text/javascript" src="/tests/Openclassrooms/DWJ-P4/public/js/tinymce/default_editor.js"></script>
         <link rel="stylesheet" href="/tests/Openclassrooms/DWJ-P4/public/css/main.css" />
     </head>
 
