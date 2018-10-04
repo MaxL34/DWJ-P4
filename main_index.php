@@ -56,6 +56,7 @@ if (!empty($_GET['action'])) {
         case "deleteArticle":
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 deleteArticle($_GET['article_id']);
+                header('Location: /tests/Openclassrooms/DWJ-P4/main_index.php?action=listArticlesToEdit');
             }
         break;
 
