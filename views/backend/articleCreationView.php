@@ -4,7 +4,14 @@
     }
 ?>
 
-<?php $title = 'Blog de Jean Forteroche : Création d\'un article'; ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Blog de Jean Forteroche : Création d'un article</title>
+        <script type="text/javascript" src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=0ofr5ymckej6ac4mcq2doqoozjut2zifnyjjfp067bqy5s12"></script>
+        <script type="text/javascript" src="/tests/Openclassrooms/DWJ-P4/public/js/tinymce/default_editor.js"></script>
+    </head>
 
 <?php ob_start(); ?>
 
