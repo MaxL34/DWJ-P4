@@ -9,6 +9,9 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
+        <script <?= $tinyMCE_API ?>></script>
+        <script <?= $tinyMCE_DefaultEditor ?>></script>
+        <script <?= $tinymceInit ?>></script>
         <link rel="stylesheet" href="/tests/Openclassrooms/DWJ-P4/public/css/main.css" />
     </head>
 
@@ -31,14 +34,18 @@
 
         <?= $content ?>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/tests/Openclassrooms/DWJ-P4/public/js/jquery/jquery-3.3.1.min.js"></script>
         <script>var sUser = '<?php echo $sessionUser; ?>';console.log(sUser);</script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/commentAdder.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/reportCom.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/deleteCom.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/login.js"></script>
-        <script src="/tests/Openclassrooms/DWJ-P4/public/js/signout.js"></script>
-        <script src="/tests/Openclassrooms/DWJ-P4/public/js/articleAdder.js"></script>
+        <?php
+            if (isset($_SESSION['user'])) {
+                echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/signout.js"></script>';
+                echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/articleAdder.js"></script>';
+            }
+        ?>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/main.js"></script>
 
     </body>
