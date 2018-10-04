@@ -17,7 +17,7 @@
         <?php echo $article->art_content(); ?>
         Posté le : <?php echo $article->date_fr(); ?></br>
         Par : <?php echo $article->art_author(); ?></br>
-        Modifié le <?php echo $article->date_fr(); ?>
+        Modifié le <?php echo $article->modified_date_fr(); ?>
     </p>
 </div>
 
