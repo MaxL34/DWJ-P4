@@ -17,6 +17,7 @@
                     Modifié le : <?php echo $value->modified_date_fr(); ?>
                 </p>
                     <input type="button" onclick="document.location.href='/tests/Openclassrooms/DWJ-P4/main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>';" value="Editer" />
+                    <input type="button" onclick="document.location.href='/tests/Openclassrooms/DWJ-P4/main_index.php?action=deleteArticle&amp;article_id=<?php echo $value->art_id(); ?>';" value="Supprimer" />
             </div>
         <?php
             }
