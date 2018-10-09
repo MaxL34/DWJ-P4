@@ -16,6 +16,10 @@ if (!empty($_GET['action'])) {
             $title = rtrim($_POST['title']);
             $content = rtrim($_POST['content']);
 
+            //var_dump($title);
+            //var_dump($content);
+
+
             if (!empty($title) && !empty($content)) {
                 addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
                 echo 'success';
@@ -37,19 +41,26 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'updateArticle':
-            if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                $title = rtrim($_POST['title']);
-                $content = rtrim($_POST['content']);
+            //echo 'article_id = ' . $_GET['article_id'] . 'titre = ' . $_POST['title'] . 'contenu = ' . $_POST['content'];    
+            //var_dump($_GET);
 
-                if (!empty($title) && !empty($content)) {
+            if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
+                //$title = rtrim($_POST['title']);
+                //$content = rtrim($_POST['content']);
+                
+                //var_dump($title);
+                //var_dump($content);
+
+                //echo '1ere boucle OK';
+
+                if (!empty($_POST['title']) && !empty($_POST['content'])) {
                     updateArticle($_POST['title'], $_POST['content'], $_GET['article_id']);
-                    getArtCom($_GET['article_id']);
-                    echo 'Le billet a bien été mis à jour';
+                    echo 'success';
                 } else {
-                    echo 'Veuillez remplir les champs nécessaires';
+                    echo 'missing';
                 }
             } else {
-                echo 'Erreur : aucun identifiant de billet envoyé';
+                echo 'failed';
             }
         break;
 
