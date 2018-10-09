@@ -18,7 +18,6 @@
                     <textarea class="content" id="art_title" name="title"></textarea></br>
                 <p>Contenu du billet :</p>
                     <textarea class="content" id="art_content" name="content"></textarea></br>
-                <!-- <input type="hidden" id="session_user" name="user" value=<?php echo $_SESSION['user']; ?> /> -->
                 <input id="art_submit_btn" name="art_send" type="submit" value="Envoyer" />
             </form>
     </div>
