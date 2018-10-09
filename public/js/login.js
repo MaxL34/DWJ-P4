@@ -15,6 +15,8 @@ var loginValid = {
                 data: 'user=' + self.userLogin.val() + '&password=' + self.userPass.val(),
                 dataType: 'text',
                 success: function(data) {
+                    console.log(data);
+
                     if (data == 'success') {
                         alert('Heureux de vous revoir ' + self.userLogin.val() + '.');
                         window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
