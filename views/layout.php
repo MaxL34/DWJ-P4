@@ -44,6 +44,7 @@
             if (isset($_SESSION['user'])) {
                 echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/signout.js"></script>';
                 echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/articleAdder.js"></script>';
+                echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/articleUpdater.js"></script>';
             }
         ?>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/main.js"></script>
