@@ -19,15 +19,17 @@
 
         <form class="article_form" action="./main_index.php?action=updateArticle&amp;article_id=<?php echo $_GET['article_id']; ?>" method="post">
             <p>Titre du billet :</p>
-                <textarea class="content" style="width: 60%;" name="title">
+                <textarea class="content" id="art_title" style="width: 60%;" name="title">
                     <?php echo $article->art_title(); ?>
                 </textarea></br>
             <p>Contenu du billet :</p>
-                <textarea class="content" style="width: 60%;" name="content">
+                <textarea class="content" id="art_content" style="width: 60%;" name="content">
                     <?php echo $article->art_content(); ?> 
                 </textarea></br>
-                <input name="art_send" type="submit" value="Envoyer" />
+                <input type="hidden" name="art_id" id="art_id" value="<?php echo $_GET['article_id']; ?>" />
+                <input id="art_update_btn" name="art_send" type="submit" value="Envoyer" />
         </form>
+<script>var artId = <?php echo $_GET['article_id']; ?>;</script>
 
 <?php $content = ob_get_clean(); ?>
 
