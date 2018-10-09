@@ -16,4 +16,7 @@ $(function() {
 
     var artToAdd = Object.create(articleToAdd);
     artToAdd.init();
+
+    var artToUpdate = Object.create(articleToUpdate);
+    artToUpdate.init();
 });
