@@ -1,40 +1,43 @@
 var articleToUpdate = {
     sessionUser: sUser,
-    artTitle: $('#art_title'),
-    artContent: $('#art_content'),
-    articleId: $('#art_id'),
+    articleId: $('#art_id').val(),
     artUpdateBtn: $('#art_update_btn'),
 
     init: function() {
         var self = this;
-        console.log('init articleToUpdate lancée, user = ' + self.sessionUser + ' article_id = ' + artId);
 
         self.artUpdateBtn.click(function(e) {
             e.preventDefault();
 
+            var artTitle = tinyMCE.get('art_title').getContent();
+            var artContent = tinyMCE.get('art_content').getContent();
+
             $.ajax({
-                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=updateArticle&article_id=' + artId,
+                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=updateArticle&article_id=' + self.articleId,
                 type: 'POST',
-                data: '&title=' + self.artTitle.val() + '&content=' + self.artContent.val(),
-                dataType: 'html',
+                data: 'title=' + artTitle + '&content=' + artContent,
+                dataType: 'text',
                 success: function(data) {
-                    console.log('data=' + data);
+                    console.log('data=' + data + ', article_id = ' + self.articleId);
                     
-                    if (data == 'success') {
-                        console.log('success articleToUpdate lancée, user = ' + self.sessionUser + ', titre = ' + self.artTitle.val() + 'contenu = ' + self.artContent.val());
-                        alert('Votre billet a bien été mis à jour');
-                    } else if (data == 'missing') {
-                        console.log('missing articleToUpdate lancée, user = ' + self.sessionUser + ', titre = ' + self.artTitle.val() + 'contenu = ' + self.artContent.val());
-                        alert('Veuillez remplir tous les champs.')
-                    } else if (data == 'failed') {
-                        console.log('failed articleToUpdate lancée, user = ' + self.sessionUser + ', titre = ' + self.artTitle.val() + 'contenu = ' + self.artContent.val() + 'article_id = ' + self.articleId.val());
-                        alert('Erreur dans la récupération de l\'ID du billet.');
+                    switch (data) {
+                        case 'success':
+                            alert('Votre billet a bien été ajouté');
+                            console.log(self.articleId);
+                            window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + self.articleId;
+                        break;
+
+                        case 'missing':
+                            alert('Veuillez remplir tous les champs.');
+                        break;
+
+                        case 'failed':
+                            alert('Erreur dans la récupération de l\'ID du billet.');
+                        break;
+
+                        default:
+                            alert('Erreur : aucun cas correspondant.')
                     } 
-                },
-                error: function(resultat, statut, erreur) {
-                    console.log(resultat);
-                    console.log(statut);
-                    console.log(erreur);
                 }
             });
         });
