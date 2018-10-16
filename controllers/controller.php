@@ -56,6 +56,7 @@ function addArticle($art_title, $art_content, $art_author) {
     $articlesManager = new ArticlesManager($db);
     $article = $articlesManager->addArticle($art_title, $art_content, $art_author);
     $articleId = $article->art_id();
+    return $articleId;
 
     //$commentsManager = new CommentsManager($db);
     //$comments = $commentsManager->getComFromArticle($articleId);
