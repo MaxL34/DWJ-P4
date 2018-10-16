@@ -29,7 +29,6 @@
                 <input type="hidden" name="art_id" id="art_id" value="<?php echo $_GET['article_id']; ?>" />
                 <input id="art_update_btn" name="art_send" type="submit" value="Envoyer" />
         </form>
-<script>var artId = <?php echo $_GET['article_id']; ?>;</script>
 
 <?php $content = ob_get_clean(); ?>
 
