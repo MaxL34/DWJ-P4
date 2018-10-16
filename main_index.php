@@ -16,16 +16,18 @@ if (!empty($_GET['action'])) {
             $title = rtrim($_POST['title']);
             $content = rtrim($_POST['content']);
 
-            //var_dump($title);
-            //var_dump($content);
-
-
             if (!empty($title) && !empty($content)) {
-                addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
-                echo 'success';
-            } else {
+                $artId = addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
+                echo $artId;
+            } else if (empty($title) && empty($content)) {
                 echo 'failed';
-            }
+            } else if (empty($title) && !empty($content)) {
+                echo 'title_missing';
+            } else if (!empty($title) && empty($content)) {
+                echo 'content_missing';
+            } else {
+                echo 'erreur non gérée';
+            } 
         break;
 
         case 'listArticlesToEdit':
@@ -45,16 +47,16 @@ if (!empty($_GET['action'])) {
             //var_dump($_GET);
 
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                //$title = rtrim($_POST['title']);
-                //$content = rtrim($_POST['content']);
+                $title = rtrim($_POST['title']);
+                $content = rtrim($_POST['content']);
                 
                 //var_dump($title);
                 //var_dump($content);
 
                 //echo '1ere boucle OK';
 
-                if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                    updateArticle($_POST['title'], $_POST['content'], $_GET['article_id']);
+                if (!empty($title) && !empty($content)) {
+                    updateArticle($title, $content, $_GET['article_id']);
                     echo 'success';
                 } else {
                     echo 'missing';
@@ -85,9 +87,9 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'deleteCom':
-        if (isset($_GET['article_id']) && $_GET['article_id'] > 0 && $_GET['com_id'] !== NULL) {
+            if (isset($_GET['article_id']) && $_GET['article_id'] > 0 && $_GET['com_id'] !== NULL) {
                 deleteCom($_GET['article_id'], $_GET['com_id']);
-                header('Location: /tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay');
+                echo 'success';
             }
         break;
 
@@ -149,3 +151,4 @@ if (!empty($_GET['action'])) {
 } else {
         listArticles();
       }
+?>
