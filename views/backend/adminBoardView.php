@@ -22,23 +22,21 @@
 <div class="comments">
     <p>Voici la liste des derniers commentaires signalés :</p>
         <?php
-            foreach ($var as $value) { 
+            if (isset($var)) {
+                foreach ($var as $value) {
         ?>
             <p>
                 Auteur : <?php echo $value->com_author(); ?></br>
                 Commentaire : <?php echo $value->com_content(); ?></br>
-                signalé le : <?php echo $value->com_date_fr() . ', ' . $value->com_report_number() . ' fois.' ?></br>
-                <?php echo '<a class="delete_com_link" href="main_index.php?action=deleteCom&amp;article_id=' . $value->article_id() . '&amp;com_id=' . $value->com_id() . '">Supprimer le commentaire</a>'; ?>
+                signalé le : <?php echo $value->com_date_fr() . ', ' . $value->com_report_number() . ' fois.'; ?></br>
+                <button class="delete_com_btn" id="<?php echo $value->com_id(); ?>" data_id="<?php echo $value->article_id(); ?>">Supprimer le commentaire</button>
             </p>
-
         <?php 
+                }
             } 
         ?>
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php 
-    if (file_exists('views/layout.php')) {
-        require('views/layout.php');
-    }
-?>
+
+<?php require('views/layout.php'); ?>
