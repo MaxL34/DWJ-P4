@@ -37,6 +37,15 @@
         ?>
 </div>
 
+<div id="modal_delete" class="modal">
+    <div class="modal_content">
+        <span class="close">&times;</span>
+        <p id="modal_text">Voulez-vous vraiment supprimer ce commentaire ?</p>
+        <button id="yes">Oui</button>
+        <button id="no">Non</button>
+    </div>
+</div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('views/layout.php'); ?>
