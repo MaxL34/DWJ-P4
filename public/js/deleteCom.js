@@ -4,9 +4,9 @@ var comToDel = {
     modalText: $('#modal_text'),
     spanClose: $('.close'),
     yesModalBtn: $('#yes'),
-    noModalBtn: $('no'),
+    noModalBtn: $('#no'),
 
-    init: function() {
+    init: function() {  
         var self = this;
 
         self.deleteBtn.click(function(e) {
@@ -24,11 +24,12 @@ var comToDel = {
 
             $(document).click(function(event) { 
                 if(!$(event.target).closest(self.modal).length) {
+                    console.log('document cliqué');
                     self.modal.hide();
                 } 
             });
 
-            self.yesModalBtn.click(function(){
+            self.yesModalBtn.click(function() {
                 $.ajax({
                     url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=deleteCom',
                     type: 'GET',
@@ -37,16 +38,31 @@ var comToDel = {
                     success: function(data) {
                         console.log('data = ' + data);
                         if (data == 'success') {
-                            //alert('Le commentaire a bien été supprimé.');
-                            self.modalText.replaceWith('Le commentaire a bien été supprimé.');
-                            self.modal.fadeOut();
-
-                            window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
+                            self.yesModalBtn.hide();
+                            self.noModalBtn.hide();
+                            self.modalText.text('Le commentaire a bien été supprimé.');
+                            self.modal.fadeOut(1600, function() {
+                                self.yesModalBtn.show();
+                                self.noModalBtn.show();
+                                window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
+                            });
                         } else {
                             console.log('erreur');
                         }
                     }
                 });
+            });
+
+            self.noModalBtn.click(function() {
+                self.yesModalBtn.hide();
+                self.noModalBtn.hide();
+                self.modalText.text('Le commentaire n\'a pas été supprimé.');
+                    self.modal.fadeOut(3000, function() {
+                        self.modal.hide();
+                        self.modalText.text('Voulez-vous vraiment supprimer ce commentaire ?');
+                        self.yesModalBtn.show();
+                        self.noModalBtn.show();
+                    });
             });
         });
     }
