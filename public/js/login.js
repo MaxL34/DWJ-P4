@@ -15,12 +15,14 @@ var loginValid = {
             self.modal.show();
 
             self.spanClose.click(function() {
+                self.modalText.empty();
                 self.modal.hide();
             });
         
             $(document).click(function(event) { 
                 if(!$(event.target).closest(self.modal).length) {
                     console.log('document cliqué');
+                    self.modalText.empty();
                     self.modal.hide();
                 } 
             });
