@@ -2,12 +2,29 @@ var loginValid = {
     userLogin: $('#user_login'),
     userPass: $('#user_password'),
     loginBtn: $('#login_btn'),
-    loginMessageElt: $('#login_message > p'),
+    modal: $('#modal_login'),
+    spanClose: $('.close'),
+    modalText: $('#modal_text'),
 
     init: function() {
         var self = this;
         self.loginBtn.click(function(e) {
+            e.stopPropagation();
             e.preventDefault();
+
+            self.modal.show();
+
+            self.spanClose.click(function() {
+                self.modal.hide();
+            });
+        
+            $(document).click(function(event) { 
+                if(!$(event.target).closest(self.modal).length) {
+                    console.log('document cliqué');
+                    self.modal.hide();
+                } 
+            });
+            
 
             $.ajax({                
                 url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminLogin',
@@ -18,12 +35,14 @@ var loginValid = {
                     console.log(data);
 
                     if (data == 'success') {
-                        alert('Heureux de vous revoir ' + self.userLogin.val() + '.');
-                        window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
+                        self.modalText.text('Heureux de vous revoir ' + self.userLogin.val() + '.');
+                        self.modal.fadeOut(3000, function() {
+                            window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
+                        });
                     } else if (data == 'failed') {
-                        alert('Echec d\'authentfication : mauvais identifiants.');
+                        self.modalText.text('Echec d\'authentfication : mauvais identifiants.');
                     } else {
-                        alert('Veuillez renseigner tous les champs requis.');
+                        self.modalText.text('Veuillez renseigner tous les champs requis.');
                     } 
                 }
             });
