@@ -13,14 +13,14 @@ var comToDel = {
             e.stopPropagation();
             e.preventDefault();
 
+            self.modal.show();
+
             self.yesModalBtn.show();
             self.noModalBtn.show();
 
             var comId = $(this).attr("id");
             var artId = $(this).attr('data_id');
 
-            self.modal.show();
-            
             self.spanClose.click(function() {
                 self.modal.hide();
             });
