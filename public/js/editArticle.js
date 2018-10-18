@@ -58,18 +58,13 @@ var artDelEdit = {
                     data: 'article_id=' + artId,
                     dataType: 'text',
                     success: function() {
-                        //console.log('d/ata = ' + data);
-                            //if (data == 'success') {
-                                self.yesModalBtn.hide();
-                                self.noModalBtn.hide();
-                                self.modalText.text('Votre billet a été supprimé.');
-                                self.modal.fadeOut(3000, function() {
-                                    self.modalText.empty();    
-                                    window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=listArticlesToEdit";
-                                });
-                            /*} else {
-                                console.log('erreur');
-                            }*/
+                        self.yesModalBtn.hide();
+                        self.noModalBtn.hide();
+                        self.modalText.text('Votre billet a été supprimé.');
+                        self.modal.fadeOut(3000, function() {
+                        self.modalText.empty();    
+                        window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=listArticlesToEdit";
+                        });
                     }
                 }); 
             });
