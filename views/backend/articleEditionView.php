@@ -15,13 +15,22 @@
                     Par : <?php echo $value->art_author(); ?></br>
                     Modifié le : <?php echo $value->modified_date_fr(); ?></br>
 
-                    <input type="button" onclick="document.location.href='/tests/Openclassrooms/DWJ-P4/main_index.php?action=editArticle&amp;article_id=<?php echo $value->art_id(); ?>';" value="Editer" />
-                    <input type="button" onclick="document.location.href='/tests/Openclassrooms/DWJ-P4/main_index.php?action=deleteArticle&amp;article_id=<?php echo $value->art_id(); ?>';" value="Supprimer" />
+                    <input class="edit_btn" type="button" data_id="<?php echo $value->art_id(); ?>" value="Editer" />
+                    <input class="delete_btn" type="button" data2_id="<?php echo $value->art_id(); ?>" value="Supprimer" />
             </div>
         <?php
             }
         ?>
     </div>
+
+<div id="modal_edit" class="modal">
+    <div class="modal_content">
+        <span class="close">&times;</span>
+        <p id="modal_text">Voulez-vous vraiment supprimer ce billet ?</p>
+        <button id="yes">Oui</button>
+        <button id="no">Non</button>
+    </div>
+</div>
 
 <?php $content = ob_get_clean(); ?>
 
