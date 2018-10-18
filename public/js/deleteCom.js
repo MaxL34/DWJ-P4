@@ -13,6 +13,9 @@ var comToDel = {
             e.stopPropagation();
             e.preventDefault();
 
+            self.yesModalBtn.show();
+            self.noModalBtn.show();
+
             var comId = $(this).attr("id");
             var artId = $(this).attr('data_id');
 
@@ -30,6 +33,9 @@ var comToDel = {
             });
 
             self.yesModalBtn.click(function() {
+                self.yesModalBtn.hide();
+                self.noModalBtn.hide();
+
                 $.ajax({
                     url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=deleteCom',
                     type: 'GET',
@@ -42,8 +48,6 @@ var comToDel = {
                             self.noModalBtn.hide();
                             self.modalText.text('Le commentaire a bien été supprimé.');
                             self.modal.fadeOut(1600, function() {
-                                self.yesModalBtn.show();
-                                self.noModalBtn.show();
                                 window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
                             });
                         } else {
@@ -60,8 +64,6 @@ var comToDel = {
                     self.modal.fadeOut(3000, function() {
                         self.modal.hide();
                         self.modalText.text('Voulez-vous vraiment supprimer ce commentaire ?');
-                        self.yesModalBtn.show();
-                        self.noModalBtn.show();
                     });
             });
         });
