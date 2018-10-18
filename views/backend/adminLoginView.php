@@ -25,8 +25,11 @@
     </form>
 </div>
 
-<div id="login_message">
-    <p></p>
+<div id="modal_login" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>  
+        <p id="modal_text"></p>
+    </div>
 </div>
 
 <?php $content = ob_get_clean(); ?>
