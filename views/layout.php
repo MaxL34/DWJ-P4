@@ -45,6 +45,7 @@
                 echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/signout.js"></script>';
                 echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/articleAdder.js"></script>';
                 echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/articleUpdater.js"></script>';
+                echo '<script src="/tests/Openclassrooms/DWJ-P4/public/js/editArticle.js"></script>';
             }
         ?>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/main.js"></script>
