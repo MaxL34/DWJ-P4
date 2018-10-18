@@ -14,6 +14,9 @@ $(function() {
     var logOut = Object.create(signOut);
     logOut.init();
 
+    var artEdition = Object.create(artDelEdit);
+    artEdition.init();
+
     var artToAdd = Object.create(articleToAdd);
     artToAdd.init();
 
