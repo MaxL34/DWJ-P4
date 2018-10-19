@@ -68,16 +68,27 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'addComment':
-            if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                if (!empty($_POST['com_content']) && !empty($_POST['com_author'])) {
-                    $comment = addComment($_POST['com_content'], $_POST['com_author'], $_GET['article_id']);
-                    if ($comment === false) {
-                        die('Impossible d\'ajouter le commentaire');
-                    }
-                }
+            var_dump($_POST['com_content']);
+            var_dump($_POST['com_author']);
+            var_dump($_POST['art_id']);
+            //if (isset($_POST['art_id']) && $_POST['art_id'] > 0) {
+                //if (!empty($_POST['com_content']) && !empty($_POST['com_author'])) {
+                    addComment($_POST['com_content'], $_POST['com_author'], $_POST['art_id']);
+                    //echo 'success';
+                //} else {
+                    //die('contenu ou pseudo manquant.');
+                //}      
+            //} else {
+                //die('aucun id de billet renseigné');
+            //}
+            //echo 'success';
+            /*if ($comment === false) {
+                die('Impossible d\'ajouter le commentaire');
+            }
+                //}
             } else {
                 echo 'Aucun id de billet paramétré.';
-            }
+            }*/
         break;
 
         case 'deleteCom':
