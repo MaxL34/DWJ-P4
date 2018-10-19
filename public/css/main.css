@@ -34,18 +34,18 @@
     margin: auto;
 }
 
-.com_form {
+#com_form {
     position: relative;
     left: 42%;
     width: 340px;
 }
 
-.com_form [type="submit"] {
+#com_form [type="submit"] {
     margin-left: 35%;
     cursor: pointer;
 }
 
-.com_form label {
+#com_form label {
     display: block;
     width: 150px;
     float: left;
@@ -91,7 +91,7 @@
     max-width: 380px;
 }
 
-.add_com {
+#add_com {
     text-align: center;
     padding-bottom: 25px;
 }
