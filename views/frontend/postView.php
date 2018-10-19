@@ -35,33 +35,37 @@
     <?php } ?>
 </div>
 
-<div class="add_com">
+<div id="add_com">
     <button>Ajouter un commentaire</button>
 </div>
 
-<form class ="com_form" action="main_index.php?action=addComment&amp;article_id=<?php echo $article->art_id(); ?>" method="post">
+<form id="com_form" action="main_index.php?action=addComment" method="post">
     <div>
         <label for="com_author">Pseudo : </label>
-        <input class="com_author" type="text" id ="author" name="com_author" placeholder="Votre pseudo" required />
-        <span class="missPseudo"></span>
+        <input class="com_author" type="text" id="author" name="com_author" placeholder="Votre pseudo" required />
+        <span id="missPseudo"></span>
     </div>
 
     <div>
         <label for="com_content">Votre commentaire : </label>
         <textarea class="com_content" id="content" name="com_content" placeholder="Votre commentaire" required></textarea>
-        <span class="missCom"></span>
+        <span id="missCom"></span>
     </div>
 
+    <input type="hidden" id="art_id" name="art_id" value="<?php echo $article->art_id(); ?>" />
+
     <div>
-        <input class="com_submit_btn" type="submit" />
+        <input id="com_submit_btn" type="submit" />
     </div>
 </form>
 
-<div class="com_submit_message">
-    <p></p>
+<div id="modal_com" class="modal">
+    <div class="modal_content">
+        <p id="modal_text"></p>
+    </div>
 </div>
 
-<script>var artId = <?php echo $article->art_id(); ?>;</script>
+<!-- <script>var artId = <?php echo $article->art_id(); ?>;</script> -->
 
 <?php $content = ob_get_clean(); ?>
 <?php require('views/layout.php'); ?>
