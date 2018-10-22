@@ -34,6 +34,12 @@
 
         <?= $content ?>
 
+        <div id="modal_logout" class="modal">
+            <div class="modal_content">
+                <p id="modal_text">A bientôt <?php echo $sessionUser; ?></p>
+            </div>
+        </div>
+
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/jquery/jquery-3.3.1.min.js"></script>
         <script>var sUser = '<?php echo $sessionUser; ?>';console.log(sUser);</script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/commentAdder.js"></script>
