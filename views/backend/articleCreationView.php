@@ -22,6 +22,12 @@
             </form>
     </div>
 
+<div id="modal_create" class="modal">
+    <div class="modal_content">
+        <p id="modal_text"></p>
+    </div>
+</div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php 

@@ -15,8 +15,9 @@
                     Par : <?php echo $value->art_author(); ?></br>
                     Modifié le : <?php echo $value->modified_date_fr(); ?></br>
 
-                    <input class="edit_btn" type="button" data_id="<?php echo $value->art_id(); ?>" value="Editer" />
-                    <input class="delete_btn" type="button" data2_id="<?php echo $value->art_id(); ?>" value="Supprimer" />
+                    <input class="edit_btn" type="button" id="<?php echo $value->art_id(); ?>" value="Editer" />
+                    <!-- <input class="delete_btn" type="button" value="Supprimer" /> -->
+                    <!-- <input type="hidden" class="hidden_input" id="<?php echo $value->art_id(); ?>" /> -->
             </div>
         <?php
             }
@@ -26,7 +27,9 @@
 <div id="modal_edit" class="modal">
     <div class="modal_content">
         <span class="close">&times;</span>
-        <p id="modal_text">Voulez-vous vraiment supprimer ce billet ?</p>
+        <p id="modal_text"></p>
+        <button id="edit">Editer</button>
+        <button id="delete">Supprimer</button>
         <button id="yes">Oui</button>
         <button id="no">Non</button>
     </div>
