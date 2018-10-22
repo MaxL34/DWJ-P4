@@ -42,13 +42,13 @@
 <form id="com_form" action="main_index.php?action=addComment" method="post">
     <div>
         <label for="com_author">Pseudo : </label>
-        <input class="com_author" type="text" id="author" name="com_author" placeholder="Votre pseudo" />
+        <input class="com_author" type="text" id="author" name="com_author" placeholder="Votre pseudo" required/>
         <span id="missPseudo"></span>
     </div>
 
     <div>
         <label for="com_content">Votre commentaire : </label>
-        <textarea class="com_content" id="content" name="com_content" placeholder="Votre commentaire"></textarea>
+        <textarea class="com_content" id="content" name="com_content" placeholder="Votre commentaire" required></textarea>
         <span id="missCom"></span>
     </div>
 
