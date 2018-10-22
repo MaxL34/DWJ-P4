@@ -24,6 +24,7 @@ var commentAdder = {
 
         self.comSubmitBtn.click(function(e) {
             e.preventDefault();
+
             console.log('article_id = ' + self.artId);
             console.log('com_content = ' + self.comContent.val() + ', com_author = ' + self.comAuthor.val());
 

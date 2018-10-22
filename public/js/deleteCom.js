@@ -18,7 +18,7 @@ var comToDel = {
             self.yesModalBtn.show();
             self.noModalBtn.show();
 
-            var comId = $(this).attr("id");
+            var comId = $(this).attr('id');
             var artId = $(this).attr('data_id');
 
             self.spanClose.click(function() {
