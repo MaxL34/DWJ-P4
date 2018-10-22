@@ -68,13 +68,21 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'addComment':
-            var_dump($_POST['com_content']);
-            var_dump($_POST['com_author']);
-            var_dump($_POST['art_id']);
-            //if (isset($_POST['art_id']) && $_POST['art_id'] > 0) {
-                //if (!empty($_POST['com_content']) && !empty($_POST['com_author'])) {
-                    addComment($_POST['com_content'], $_POST['com_author'], $_POST['art_id']);
-                    //echo 'success';
+            $content = rtrim($_POST['com_content']);
+            $author = rtrim($_POST['com_author']);
+
+            if (isset($_POST['art_id']) && $_POST['art_id'] > 0) {
+                if (!empty($content) && !empty($author)) {
+                    addComment($content, $author, $_POST['art_id']);
+                    echo 'success';
+                } else if (empty($author)) {
+                    echo 'author_missing';
+                } else if (empty($content)) {
+                    echo 'content_missing';
+                }
+            } else {
+                echo 'id_error';
+            }
                 //} else {
                     //die('contenu ou pseudo manquant.');
                 //}      
