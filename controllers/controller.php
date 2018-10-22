@@ -70,11 +70,8 @@ function addComment($com_content, $com_author, $article_id) {
 
     $articlesManager = new ArticlesManager($db);
     $article = $articlesManager->getArticle($article_id);
-    //return $article;
 
     $comments = $commentsManager->getComFromArticle($article_id);
-    //return $comments;
-    //require('./views/frontend/postView.php');
 }
 
 function deleteCom($article_id, $com_id) {
