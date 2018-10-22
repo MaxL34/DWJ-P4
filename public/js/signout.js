@@ -1,6 +1,7 @@
 var signOut = {
     signOutLink: $('.signOut_link'),
-    user: sUser,
+    modalLogOut: $('#modal_logout'),
+    modalText: $('#modal_text'),
     
     init: function() {
         var self = this;
@@ -8,12 +9,16 @@ var signOut = {
         self.signOutLink.click(function(e) {
             e.preventDefault();
             
+            self.modalLogOut.show();
+
             $.ajax({
                 url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=signOut',
                 type: 'GET',
                 success: function() {
-                    alert('A bientôt ' + self.user + '.');
-                    window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php";
+                    self.modalLogOut.fadeOut(3000, function() {
+                        self.modalLogOut.hide();
+                        window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php";
+                    });
                 }
             });
         });
