@@ -83,20 +83,7 @@ if (!empty($_GET['action'])) {
             } else {
                 echo 'id_error';
             }
-                //} else {
-                    //die('contenu ou pseudo manquant.');
-                //}      
-            //} else {
-                //die('aucun id de billet renseigné');
-            //}
-            //echo 'success';
-            /*if ($comment === false) {
-                die('Impossible d\'ajouter le commentaire');
-            }
-                //}
-            } else {
-                echo 'Aucun id de billet paramétré.';
-            }*/
+
         break;
 
         case 'deleteCom':
