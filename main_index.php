@@ -17,7 +17,7 @@ if (!empty($_GET['action'])) {
             $content = rtrim($_POST['content']);
 
             if (!empty($title) && !empty($content)) {
-                $artId = addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
+                $artId = addArticle($title, $content, $_SESSION['user']);
                 echo $artId;
             } else if (empty($title) && empty($content)) {
                 echo 'failed';
@@ -37,8 +37,6 @@ if (!empty($_GET['action'])) {
         case 'editArticle':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 editArticle($_GET['article_id']);
-                //header('Location: /tests/Openclassrooms/DWJ-P4/views/backend/articleUpdateView.php');
-                //echo 'success';
             } else {
                 echo 'Erreur d\'id d\'article : aucun id envoyé ou id inexistant';
             }
@@ -63,7 +61,6 @@ if (!empty($_GET['action'])) {
         case "deleteArticle":
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 deleteArticle($_GET['article_id']);
-                //header('Location: /tests/Openclassrooms/DWJ-P4/main_index.php?action=listArticlesToEdit');
             }
         break;
 
