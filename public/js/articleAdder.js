@@ -1,6 +1,8 @@
 var articleToAdd = {
     sessionUser: sUser,
     artSubmitBtn: $('#art_submit_btn'),
+    modalCreate: $('#modal_create'),
+    modalText: $('#modal_text'),
 
     init: function() {
         var self = this;
@@ -21,20 +23,41 @@ var articleToAdd = {
 
                     switch (data) {
                         case 'title_missing':
-                            alert('Veuillez renseigner un titre.');
+                            self.modalText.text('Veuillez écrire un titre');
+                            self.modalCreate.show();
+                            self.modalCreate.fadeOut(3000, function() {
+                                self.modalText.text('');
+                                self.modalCreate.hide();
+                            })
                         break;
 
                         case 'content_missing':
-                            alert('Veuillez écrire le contenu de votre billet.');
+                            self.modalText.text('Veuillez écrire le contenu de votre billet');
+                            self.modalCreate.show();
+                            self.modalCreate.fadeOut(3000, function() {
+                                self.modalText.text('');
+                                self.modalCreate.hide();
+                        })
                         break;
 
                         case 'failed':
-                            alert('Veuillez remplir tous les champs.');
+                            self.modalText.text('Veuillez remplir rous les champs, un titre et un contenu');
+                            self.modalCreate.show();
+                            self.modalCreate.fadeOut(3000, function() {
+                                self.modalText.text('');
+                                self.modalCreate.hide();
+                        })
                         break;
 
                         default:
-                            alert('Votre billet a bien été ajouté');
-                            window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + data; 
+                            self.modalText.text('Votre billet a bien été ajouté');
+                            self.modalCreate.show();
+                            self.modalCreate.fadeOut(3000, function() {
+                                self.modalText.text('');
+                                self.modalCreate.hide();
+                                window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + data;
+                            })
+                             
                     }
                 }
             });
