@@ -33,14 +33,34 @@ var commentAdder = {
                 type: 'POST',
                 data: 'com_content=' + self.comContent.val() + '&com_author=' + self.comAuthor.val() + '&art_id=' + self.artId,
                 dataType: 'text',
-                success: function() {
-                    //if (data == 'success') {
-                    self.modalText.text('Votre commentaire à bien été ajouté');
-                    self.modalCom.show();
-                    self.modalCom.fadeOut(3000, function() {
-                        self.modalCom.hide();
-                        window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + self.artId;
-                    });
+                success: function(data) {
+                    console.log('data = ' + data);
+                    if (data == 'success') {
+                        self.modalText.text('Votre commentaire à bien été ajouté');
+                        self.modalCom.show();
+                        self.modalCom.fadeOut(3000, function() {
+                            self.modalCom.hide();
+                            window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + self.artId;
+                        });
+                    } else if (data == 'author_missing') {
+                        self.modalText.text('Pseudo manquant : veuillez remplir ce champ');
+                        self.modalCom.show();
+                        self.modalCom.fadeOut(3000, function() {
+                            self.modalCom.hide();
+                        });
+                    } else if (data == 'content_missing') {
+                        self.modalText.text('Commentaire vide : écrivez un commentaire');
+                        self.modalCom.show();
+                        self.modalCom.fadeOut(3000, function() {
+                            self.modalCom.hide();
+                        });
+                    } else if (data == 'id_error') {
+                        self.modalText.text('Erreur de récupération de l\'id de billet : contactez votre webmaster');
+                        self.modalCom.show();
+                        self.modalCom.fadeOut(3000, function() {
+                            self.modalCom.hide();
+                        });
+                    }
                 }
             });
         });
