@@ -29,7 +29,8 @@
         Posté par : <?php echo $comment->com_author(); ?></br>
         le : <?php echo $comment->com_date_fr(); ?></br>
         
-        <a class="report_com" href="main_index.php?action=reportCom&amp;article_id=<?php echo $article->art_id(); ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a>
+        <!-- <a class="report_com" href="main_index.php?action=reportCom&amp;article_id=<?php echo $article->art_id(); ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a> -->
+        <input class="report_com_btn" type="button" id="<?php echo $comment->com_id(); ?>" value="Signaler" />
         
     </p>
     <?php } ?>
@@ -65,7 +66,7 @@
     </div>
 </div>
 
-<!-- <script>var artId = <?php echo $article->art_id(); ?>;</script> -->
+<script>var artId = <?php echo $article->art_id(); ?>;</script>
 
 <?php $content = ob_get_clean(); ?>
 <?php require('views/layout.php'); ?>
