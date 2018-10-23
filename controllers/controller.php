@@ -57,10 +57,6 @@ function addArticle($art_title, $art_content, $art_author) {
     $article = $articlesManager->addArticle($art_title, $art_content, $art_author);
     $articleId = $article->art_id();
     return $articleId;
-
-    //$commentsManager = new CommentsManager($db);
-    //$comments = $commentsManager->getComFromArticle($articleId);
-    //require('./views/frontend/postView.php');
 }
 
 function addComment($com_content, $com_author, $article_id) {
@@ -90,7 +86,6 @@ function reportCom($article_id, $com_id) {
     $comments = $commentsManager->getComFromArticle($article_id);
 
     $reportedCom = $commentsManager->reportComment($com_id);
-    require('./views/frontend/postView.php');
 }
 
 function getReportedComs() {
