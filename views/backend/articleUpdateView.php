@@ -30,6 +30,12 @@
                 <input id="art_update_btn" name="art_send" type="submit" value="Envoyer" />
         </form>
 
+<div id="modal_update" class="modal">
+    <div class="modal_content">
+        <p id="modal_text"></p>
+    </div>
+</div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php 
