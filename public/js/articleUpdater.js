@@ -2,6 +2,8 @@ var articleToUpdate = {
     sessionUser: sUser,
     articleId: $('#art_id').val(),
     artUpdateBtn: $('#art_update_btn'),
+    modalUpdate: $('#modal_update'),
+    modalText: $('#modal_text'),
 
     init: function() {
         var self = this;
@@ -21,22 +23,41 @@ var articleToUpdate = {
                     console.log('data=' + data + ', article_id = ' + self.articleId);
                     
                     switch (data) {
-                        case 'success':
-                            alert('Votre billet a bien été ajouté');
-                            console.log(self.articleId);
-                            window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + self.articleId;
+                        case 'title_missing':
+                            self.modalText.text('Veuillez écrire un titre');
+                            self.modalUpdate.show();
+                            self.modalUpdate.fadeOut(3000, function() {
+                                self.modalText.text('');
+                                self.modalUpdate.hide();
+                            })
                         break;
 
-                        case 'missing':
-                            alert('Veuillez remplir tous les champs.');
+                        case 'content_missing':
+                            self.modalText.text('Veuillez écrire le contenu de votre billet');
+                            self.modalUpdate.show();
+                            self.modalUpdate.fadeOut(3000, function() {
+                                self.modalText.text('');
+                                self.modalUpdate.hide();
+                        })
                         break;
 
                         case 'failed':
-                            alert('Erreur dans la récupération de l\'ID du billet.');
+                            self.modalText.text('Veuillez remplir tous les champs, un titre et un contenu');
+                            self.modalUpdate.show();
+                            self.modalUpdate.fadeOut(3000, function() {
+                                self.modalText.text('');
+                                self.modalUpdate.hide();
+                        })
                         break;
 
                         default:
-                            alert('Erreur : aucun cas correspondant.')
+                            self.modalText.text('Votre billet a été mis à jour');
+                            self.modalUpdate.show();
+                            self.modalUpdate.fadeOut(3000, function() {
+                                self.modalText.text('');
+                                self.modalUpdate.hide();
+                                window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + data;
+                            })
                     } 
                 }
             });
