@@ -13,17 +13,17 @@ if (!empty($_GET['action'])) {
         
         case 'addArticle':
             session_start();
-            $title = rtrim($_POST['title']);
-            $content = rtrim($_POST['content']);
+            $title = ($_POST['title']);
+            $content = ($_POST['content']);
 
-            if (!empty($title) && !empty($content)) {
+            if (!empty(strip_tags($title)) && !empty(strip_tags($content))) {
                 $artId = addArticle($title, $content, $_SESSION['user']);
                 echo $artId;
-            } else if (empty($title) && empty($content)) {
+            } else if (empty(strip_tags($title)) && empty(strip_tags($content))) {
                 echo 'failed';
-            } else if (empty($title) && !empty($content)) {
+            } else if (empty(strip_tags($title)) && !empty(strip_tags($content))) {
                 echo 'title_missing';
-            } else if (!empty($title) && empty($content)) {
+            } else if (!empty(strip_tags($title)) && empty(strip_tags($content))) {
                 echo 'content_missing';
             } else {
                 echo 'erreur non gérée';
@@ -44,17 +44,21 @@ if (!empty($_GET['action'])) {
 
         case 'updateArticle':
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                $title = rtrim($_POST['title']);
-                $content = rtrim($_POST['content']);
+                $title = ($_POST['title']);
+                $content = ($_POST['content']);
 
-                if (!empty($title) && !empty($content)) {
+                if (!empty(strip_tags($title)) && !empty(strip_tags($content))) {
                     updateArticle($title, $content, $_GET['article_id']);
-                    echo 'success';
+                    echo $_GET['article_id'];
+                } else if (empty(strip_tags($title)) && empty(strip_tags($content))) {
+                    echo 'failed';
+                } else if (empty(strip_tags($title)) && !empty(strip_tags($content))) {
+                    echo 'title_missing';
+                } else if (!empty(strip_tags($title)) && empty(strip_tags($content))) {
+                    echo 'content_missing';
                 } else {
-                    echo 'missing';
+                    echo 'erreur non gérée';
                 }
-            } else {
-                echo 'failed';
             }
         break;
 
@@ -91,8 +95,10 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'reportCom':
-            if (isset($_GET['com_id'])) {
+            if ((isset($_GET['article_id']) && $_GET['article_id'] > 0) && isset($_GET['com_id'])) {
                 reportCom($_GET['article_id'], $_GET['com_id']);
+            } else {
+                echo 'error on article_id or com_id';
             }
         break;
 
