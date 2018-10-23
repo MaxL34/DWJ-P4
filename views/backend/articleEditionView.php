@@ -28,10 +28,12 @@
     <div class="modal_content">
         <span class="close">&times;</span>
         <p id="modal_text"></p>
-        <button id="edit">Editer</button>
-        <button id="delete">Supprimer</button>
-        <button id="yes">Oui</button>
-        <button id="no">Non</button>
+        <div id="buttons">
+            <button id="edit">Editer</button>
+            <button id="delete">Supprimer</button>
+            <button id="yes">Oui</button>
+            <button id="no">Non</button>
+        </div>
     </div>
 </div>
 
