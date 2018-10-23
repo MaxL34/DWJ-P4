@@ -26,8 +26,7 @@
 </div>
 
 <div id="modal_login" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>  
+    <div class="modal-content">  
         <p id="modal_text"></p>
     </div>
 </div>
