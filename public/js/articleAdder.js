@@ -41,7 +41,7 @@ var articleToAdd = {
                         break;
 
                         case 'failed':
-                            self.modalText.text('Veuillez remplir rous les champs, un titre et un contenu');
+                            self.modalText.text('Veuillez remplir tous les champs, un titre et un contenu');
                             self.modalCreate.show();
                             self.modalCreate.fadeOut(3000, function() {
                                 self.modalText.text('');
