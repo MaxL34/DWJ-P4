@@ -19,9 +19,35 @@
     justify-content: space-around;
 }
 
-.article {
+.container_article {
     width: 26%;
+    padding-top: 20px;
+}
+
+.container_article a {
+    position: relative;
+    left: 25%;
+    top: 12px;
+}
+
+.container_article input {
+    position: relative;
+    left: 43%;
+    top: 20px;
+}
+
+.container_edition_article {
+    width: 26%;
+    padding-top: 20px;
+    position: relative;
+    left: 37%;
+}
+
+.article {
+    /*width: 26%;*/
     text-align: justify;
+    height: 450px;
+    overflow: hidden;
 }
 
 .article a {
@@ -121,19 +147,23 @@
     background-color: rgba(51,113,255,0.7);
 }
 
-/* Modal Content/Box */
-.modal-content {
-    /*padding: 20px;*/
-    /*border: 1px solid #888;*/
-    width: 80%; /* Could be more or less, depending on screen size */
+.modal_content p {
+    position: relative;
+    top: 30px;
 }
+
 
 #modal_text {
     color: aliceblue;
     text-align: center;
 }
 
-#modal_logout p {
+#modal_delete p, #modal_edit p {
+    top: 0px;
+}
+
+
+/*#modal_logout p {
     position: relative;
     top: 30px;
 }
@@ -142,6 +172,11 @@
     position: relative;
     left: 30px;
 }
+
+#modal_update p {
+    position: relative;
+    left: 30px;
+}*/
 
 /* The Close Button */
 .close {
