@@ -13,6 +13,7 @@ var comToDel = {
             e.stopPropagation();
             e.preventDefault();
 
+            self.modalText.text('Voulez-vous vraiment supprimer ce commentaire ?');
             self.modal.show();
 
             self.yesModalBtn.show();

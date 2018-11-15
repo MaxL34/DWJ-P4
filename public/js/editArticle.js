@@ -46,8 +46,8 @@ var artDelEdit = {
                     success: function() {
                         //console.log('data = ' + data);
                             //if (data == 'success') {
-                                self.yesModalBtn.hide();
-                                self.noModalBtn.hide();
+                                self.delModalBtn.hide();
+                                self.editModalBtn.hide();
                                 self.modalText.text('Redirection vers la page d\'édition du billet');
                                 self.modal.show();
                                 self.modal.fadeOut(3000, function() {
