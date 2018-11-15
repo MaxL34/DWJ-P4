@@ -40,7 +40,7 @@
 <div id="modal_delete" class="modal">
     <div class="modal_content">
         <span class="close">&times;</span>
-        <p id="modal_text">Voulez-vous vraiment supprimer ce commentaire ?</p>
+        <p id="modal_text"></p>
         <div id="buttons">
             <button id="yes">Oui</button>
             <button id="no">Non</button>
