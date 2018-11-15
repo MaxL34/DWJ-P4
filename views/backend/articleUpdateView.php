@@ -6,7 +6,7 @@
 <?php ob_start(); ?>
 
             
-            <div class="container">
+            <div class="container_edition_article">
                 <div class="article">
                     <p>
                         <?php echo $article->art_title(); ?></br>
