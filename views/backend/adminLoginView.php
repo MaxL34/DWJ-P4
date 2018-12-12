@@ -26,12 +26,14 @@
 </div>
 
 <div id="modal_login" class="modal">
-    <div class="modal-content">  
+    <div class="modal-content">
+        <span class="close">&times;</span>  
         <p id="modal_text"></p>
     </div>
 </div>
 
 <?php $content = ob_get_clean(); ?>
+
 <?php
     if (file_exists('../layout.php')) {
         require('../layout.php');
