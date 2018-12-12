@@ -16,7 +16,7 @@ var artDelEdit = {
 
 
         self.editBtn.click(function(e) {
-            //e.stopPropagation();
+            e.stopPropagation();
             e.preventDefault();
 
             self.modalText.text('Que souhaitez-vous faire ?');
@@ -28,12 +28,22 @@ var artDelEdit = {
             self.yesModalBtn.hide();
             self.noModalBtn.hide();
 
-
             console.log('bouton edit cliqué');
 
             var artId = $(this).attr('id');
             //console.log(self.artId);
             console.log('art_id = ' + artId);
+
+            self.spanClose.click(function() {
+                self.modal.hide();
+            });
+
+            $(document).click(function(event) { 
+                if(!$(event.target).closest(self.modal).length) {
+                    console.log('document cliqué');
+                    self.modal.hide();
+                } 
+            });
 
             self.editModalBtn.click(function(e) {
                 e.preventDefault();
