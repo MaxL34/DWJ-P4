@@ -7,7 +7,7 @@
 <?php $title = 'Blog de Jean Forteroche : Espace d\'administration du blog'; ?>
 
 <?php ob_start(); ?>
-<div class="title">
+<div class="admin_title">
     <h1>Espace d'administration</h1>
     <p>Bienvenue sur votre espace d'administration <span id="session_user"><?php echo $_SESSION['user']; ?></span>.</p>
     <p>Que souhaitez-vous faire ?</p>
@@ -19,7 +19,7 @@
     <p>Lire vos billets : </br><a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Lecture de billets</a></p></br>
 </div>
 
-<div class="comments">
+<div class="admin_comments">
     <p>Voici la liste des derniers commentaires signalés :</p>
         <?php
             if (isset($var)) {
