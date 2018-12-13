@@ -9,8 +9,13 @@
     left: 80%;
 }
 
-.title {
+.banner {
     text-align: center;
+    height: 100vh;
+}
+
+.title {
+    padding-top: 50vh;
 }
 
 .container {
