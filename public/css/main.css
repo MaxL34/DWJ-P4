@@ -31,6 +31,11 @@
 .container_article {
     width: 26%;
     padding-top: 20px;
+    background-color: #122833;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 50px;
+    color: white;
 }
 
 .container_article a {
@@ -64,9 +69,14 @@
 }
 
 .postView_article {
-    width: 26%;
     text-align: justify;
     margin: auto;
+    width: 80vw;
+}
+
+.post_infos {
+    text-align: center;
+    padding-top: 30px;
 }
 
 #com_form {
@@ -120,9 +130,14 @@
     text-align: center;
 }
 
+.admin_comments {
+    position: relative;
+    left: 42%;
+}
+
 .comments {
     position: relative;
-    left: 44%;
+    left: 10%;
     max-width: 380px;
 }
 
@@ -139,6 +154,10 @@
     padding: 0 20px 0 20px;
     position: relative;
     left: 18%;
+}
+
+.admin_title, .post_title {
+    text-align: center;
 }
 
 /* Styles pour modal des commentaire */
