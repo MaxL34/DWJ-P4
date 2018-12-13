@@ -1,9 +1,9 @@
 <?php $title = 'Blog de Jean Forteroche : Articles'; ?>
 
 <?php ob_start(); ?>
-<div class="title">
-    <h1>Billet simple pour l'Alaska</h1>
-        <p>Liste des billets du blog</p>
+<div class="banner">
+    <h1 class="title">Billet simple pour l'Alaska</h1>
+        <p class="paragraphe">Liste des billets du blog</p>
 </div>
 
 <div class="container">
