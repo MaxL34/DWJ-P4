@@ -12,6 +12,7 @@
         <script <?= $tinyMCE_API ?>></script>
         <script <?= $tinyMCE_DefaultEditor ?>></script>
         <script <?= $tinymceInit ?>></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous" />
         <link rel="stylesheet" href="/tests/Openclassrooms/DWJ-P4/public/css/main.css" />
     </head>
 
@@ -42,6 +43,7 @@
 
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/jquery/jquery-3.3.1.min.js"></script>
         <script>var sUser = '<?php echo $sessionUser; ?>';console.log(sUser);</script>
+        <script src="/tests/Openclassrooms/DWJ-P4/public/js/scroll.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/commentAdder.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/reportCom.js"></script>
         <script src="/tests/Openclassrooms/DWJ-P4/public/js/deleteCom.js"></script>
