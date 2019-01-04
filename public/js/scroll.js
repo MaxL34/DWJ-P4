@@ -1,6 +1,6 @@
 $(function(){
     // au clic sur un lien
-    $('a').on('click', function(evt){
+    $('a#chapter_link').on('click', function(evt){
        // bloquer le comportement par défaut: on ne rechargera pas la page
        evt.preventDefault(); 
        // enregistre la valeur de l'attribut  href dans la variable target
