@@ -17,12 +17,25 @@
     font-size: 1.5em;
 }
 
+.banner a {
+    text-decoration: none;
+}
+
+.banner a:hover {
+    color: aliceblue;
+}
+
+.fa-arrow-alt-circle-down {
+    position: relative;
+    top: 35%;
+    color: white;
+}
 .title {
     padding-top: 30vh;
     text-align: center;
 }
 
-.container {
+#container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -117,12 +130,12 @@
 
 .article_management {
     display: flex;
-    text-align: center;    
-    justify-content: space-evenly;    
-    width: 700px;    
-    position: relative;    
-    left: 31%;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 700px;
+    position: relative;
     padding-bottom: 60px;
+    margin: auto;
 }
 
 .article_creation_container, .article_form, .edition_p {
@@ -131,8 +144,9 @@
 }
 
 .admin_comments {
-    position: relative;
-    left: 42%;
+    position: relative;    
+    width: 20vw;    
+    margin: auto;
 }
 
 .comments {

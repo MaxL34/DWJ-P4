@@ -3,10 +3,13 @@
 <?php ob_start(); ?>
 <div class="banner">
     <h1 class="title">Billet simple pour l'Alaska</h1>
-        <p class="paragraphe">Liste des billets du blog</p>
+        <p class="paragraphe">Faites défiler la page vers le bas pour retrouver les différents chapitres de mon roman et laissez vous guider pour lire le chapitre qui vous intéresse</p>
+
+        <a id="chapter_link" href="#container" class="fas fa-arrow-alt-circle-down fa-4x"></a>
+
 </div>
 
-<div class="container">
+<div id="container">
     <?php
         foreach ($articles as $value) {
     ?>

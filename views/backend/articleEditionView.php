@@ -4,7 +4,7 @@
 
 <p class="edition_p">Quel billet voulez-vous modifier ?</p>
         
-    <div class="container">
+    <div id="container">
         <?php
             foreach ($articles as $value) {
         ?>
