@@ -349,10 +349,15 @@
     position: relative;
     padding-left: 35%;
     padding-right: 35%;
+    background: linear-gradient(to left, #122833, #286DA6);
+    margin: 0;
+    height: 60px;
+    align-items: center;
 }
 
 .main_menu a {
     text-decoration: none;
+    color: white;
 }
 
 .banner {
@@ -361,6 +366,7 @@
     background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_main_pic.jpg");
     color: white;
     font-size: 1.5em;
+    margin-top: -32px;
 }
 
 .banner a {
@@ -455,11 +461,15 @@
     float: left;
 }
 
+.login_container {
+    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_main_pic.jpg");
+    height: 93.6vh;
+    color: white;
+}
+
 #login_form {
-    width: 15%;
     text-align: center;
     position: relative;
-    left: 43%;
 }
 
 #login_form [type="submit"] {
@@ -478,15 +488,32 @@
     display: flex;
     text-align: center;
     justify-content: space-evenly;
-    width: 700px;
+    width: 55%;
     position: relative;
     padding-bottom: 60px;
     margin: auto;
 }
 
+.article_management a {
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+.article_management a:hover {
+    color:aqua;
+}
+
+
+
 .article_creation_container, .article_form, .edition_p {
     position: relative;
     text-align: center;
+}
+
+.adminBoard_container {
+    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_main_pic.jpg");
+    min-height: 93.6vh;
+    color: white;
 }
 
 .admin_comments {
@@ -521,6 +548,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    padding-bottom: 60px;
 }
 
 /* Styles pour modal des commentaire */
@@ -535,7 +563,7 @@
     height: 13%;
     overflow: auto;
     /*background-color: rgb(51,113,255);*/
-    background-color: rgba(51,113,255,0.7);
+    background-color: #122833;
 }
 
 .modal_content p {
