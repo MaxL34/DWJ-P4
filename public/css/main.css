@@ -360,6 +360,10 @@
     color: white;
 }
 
+.main_menu a:hover {
+    color: aqua;
+}
+
 .banner {
     text-align: center;
     height: 100vh;
@@ -407,12 +411,19 @@
     position: relative;
     left: 25%;
     top: 12px;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+.container_article a:hover {
+    color: aqua;
 }
 
 .container_article input {
     position: relative;
     left: 43%;
     top: 20px;
+    cursor: pointer;
 }
 
 .container_edition_article {
@@ -427,6 +438,10 @@
     text-align: justify;
     height: 450px;
     overflow: hidden;
+}
+
+.edition {
+    height: 100%;
 }
 
 .article a {
@@ -472,7 +487,7 @@
     position: relative;
 }
 
-#login_form [type="submit"] {
+#login_btn, #art_submit_btn, #art_update_btn {
     cursor: pointer;
 }
 
@@ -503,8 +518,6 @@
     color:aqua;
 }
 
-
-
 .article_creation_container, .article_form, .edition_p {
     position: relative;
     text-align: center;
@@ -520,6 +533,10 @@
     position: relative;    
     width: 20vw;    
     margin: auto;
+}
+
+.admin_comments button {
+    cursor: pointer;
 }
 
 .comments {
@@ -581,6 +598,9 @@
     top: 0px;
 }
 
+#buttons button {
+    cursor: pointer;
+}
 
 /*#modal_logout p {
     position: relative;
