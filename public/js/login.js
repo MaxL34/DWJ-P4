@@ -12,8 +12,6 @@ var loginValid = {
             e.stopPropagation();
             e.preventDefault();
 
-            self.modal.show();
-
             self.spanClose.click(function() {
                 self.modalText.empty();
                 self.modal.hide();
@@ -38,13 +36,16 @@ var loginValid = {
 
                     if (data == 'success') {
                         self.modalText.text('Heureux de vous revoir ' + self.userLogin.val() + '.');
+                        self.modal.show();
                         self.modal.fadeOut(3000, function() {
                             window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
                         });
                     } else if (data == 'failed') {
                         self.modalText.text('Echec d\'authentfication : mauvais identifiants.');
+                        self.modal.show();
                     } else {
                         self.modalText.text('Veuillez renseigner tous les champs requis.');
+                        self.modal.show();
                     } 
                 }
             });
