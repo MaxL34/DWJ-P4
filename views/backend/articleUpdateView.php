@@ -7,7 +7,7 @@
 
             
             <div class="container_edition_article">
-                <div class="article">
+                <div class="article edition">
                     <p>
                         <?php echo $article->art_title(); ?></br>
                         <?php echo $article->art_content(); ?></br>
