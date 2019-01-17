@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <div class="banner">
-    <h1 class="title">Billet simple pour l'Alaska</h1>
+    <h1 class="home_title">Billet simple pour l'Alaska</h1>
         <p class="paragraphe">Faites défiler la page vers le bas pour retrouver les différents chapitres de mon roman et laissez vous guider pour lire le chapitre qui vous intéresse</p>
 
         <a id="chapter_link" href="#container" class="fas fa-arrow-alt-circle-down fa-4x"></a>
@@ -23,11 +23,7 @@
             </div>
 
             <a href="main_index.php?action=getArticle&amp;article_id=<?php echo $value->art_id(); ?>">Afficher le billet et ses commentaires</a>
-
         </div>
-    
-        
-
     <?php
         }
     ?>
