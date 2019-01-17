@@ -369,8 +369,16 @@
     height: 100vh;
     background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_main_pic.jpg");
     color: white;
+    margin-top: -54px;
+}
+
+.home_title {
+    font-size: 5em;
+    padding-top: 20vh;
+}
+
+.banner p {
     font-size: 1.5em;
-    margin-top: -32px;
 }
 
 .banner a {
@@ -387,7 +395,7 @@
     color: white;
 }
 .title {
-    padding-top: 30vh;
+    padding-top: 15vh;
     text-align: center;
 }
 
@@ -482,6 +490,14 @@
     color: white;
 }
 
+.login_container .title h1 {
+    font-size: 5em;
+}
+
+.login_container .title p {
+    font-size: 2em;
+}
+
 #login_form {
     text-align: center;
     position: relative;
@@ -503,10 +519,11 @@
     display: flex;
     text-align: center;
     justify-content: space-evenly;
-    width: 55%;
+    width: 67vw;
     position: relative;
     padding-bottom: 60px;
     margin: auto;
+    font-size: 20px;
 }
 
 .article_management a {
@@ -516,6 +533,23 @@
 
 .article_management a:hover {
     color:aqua;
+}
+
+.article_creation_container {
+    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_main_pic.jpg");
+    margin-top: -23px;
+}
+
+.article_creation_container h1 {
+    color: white;
+    font-size: 35px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.article_creation_container p {
+    color: white;
+    font-size: 22px;
 }
 
 .article_creation_container, .article_form, .edition_p {
@@ -530,13 +564,24 @@
 }
 
 .admin_comments {
-    position: relative;    
-    width: 20vw;    
-    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin_comments p {
+    background: linear-gradient(to left, #122833, #286DA6);
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 20%;
 }
 
 .admin_comments button {
     cursor: pointer;
+    position: relative;
+    left: 15%;
+    top: 8px;
 }
 
 .comments {
@@ -566,6 +611,7 @@
     align-items: center;
     position: relative;
     padding-bottom: 60px;
+    font-size: 25px;
 }
 
 /* Styles pour modal des commentaire */
