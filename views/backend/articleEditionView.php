@@ -2,32 +2,31 @@
 
 <?php ob_start(); ?>
 
-<p class="edition_p">Quel billet voulez-vous modifier ?</p>
-        
     <div id="container">
-        <?php
-            foreach ($articles as $value) {
-        ?>
-            
-            <div class="container_article">
-                <div class="article">
-                        <?php echo $value->art_title(); ?>
-                        <?php echo $value->art_content(); ?>
-                        Publié le <?php echo $value->date_fr(); ?></br>
-                        Par : <?php echo $value->art_author(); ?></br>
-                        Modifié le : <?php echo $value->modified_date_fr(); ?></br>
+        <p class="edition_p">Quel billet voulez-vous modifier ?</p>
+            <?php
+                foreach ($articles as $value) {
+            ?>
+                
+                <div class="container_article">
+                    <div class="article">
+                            <?php echo $value->art_title(); ?>
+                            <?php echo $value->art_content(); ?>
+                            Publié le <?php echo $value->date_fr(); ?></br>
+                            Par : <?php echo $value->art_author(); ?></br>
+                            Modifié le : <?php echo $value->modified_date_fr(); ?></br>
 
-                        
-                        <!-- <input class="delete_btn" type="button" value="Supprimer" /> -->
-                        <!-- <input type="hidden" class="hidden_input" id="<?php echo $value->art_id(); ?>" /> -->
+                            
+                            <!-- <input class="delete_btn" type="button" value="Supprimer" /> -->
+                            <!-- <input type="hidden" class="hidden_input" id="<?php echo $value->art_id(); ?>" /> -->
+                    </div>
+
+                    <input class="edit_btn" type="button" id="<?php echo $value->art_id(); ?>" value="Editer" />
+
                 </div>
-
-                <input class="edit_btn" type="button" id="<?php echo $value->art_id(); ?>" value="Editer" />
-
-            </div>
-        <?php
-            }
-        ?>
+            <?php
+                }
+            ?>
     </div>
 
 <div id="modal_edit" class="modal">
