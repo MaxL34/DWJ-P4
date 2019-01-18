@@ -37,7 +37,7 @@ var loginValid = {
                     if (data == 'success') {
                         self.modalText.text('Heureux de vous revoir ' + self.userLogin.val() + '.');
                         self.modal.show();
-                        self.modal.fadeOut(3000, function() {
+                        self.modal.fadeOut(4000, function() {
                             window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
                         });
                     } else if (data == 'failed') {

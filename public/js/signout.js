@@ -15,7 +15,7 @@ var signOut = {
                 url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=signOut',
                 type: 'GET',
                 success: function() {
-                    self.modalLogOut.fadeOut(3000, function() {
+                    self.modalLogOut.fadeOut(4000, function() {
                         self.modalLogOut.hide();
                         window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php";
                     });

@@ -48,7 +48,7 @@ var comToDel = {
                             self.yesModalBtn.hide();
                             self.noModalBtn.hide();
                             self.modalText.text('Le commentaire a bien été supprimé.');
-                            self.modal.fadeOut(1600, function() {
+                            self.modal.fadeOut(4000, function() {
                                 window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
                             });
                         } else {
@@ -62,7 +62,7 @@ var comToDel = {
                 self.yesModalBtn.hide();
                 self.noModalBtn.hide();
                 self.modalText.text('Le commentaire n\'a pas été supprimé.');
-                    self.modal.fadeOut(3000, function() {
+                    self.modal.fadeOut(4000, function() {
                         self.modal.hide();
                         self.modalText.text('Voulez-vous vraiment supprimer ce commentaire ?');
                     });

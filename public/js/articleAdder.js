@@ -25,7 +25,7 @@ var articleToAdd = {
                         case 'title_missing':
                             self.modalText.text('Veuillez écrire un titre');
                             self.modalCreate.show();
-                            self.modalCreate.fadeOut(3000, function() {
+                            self.modalCreate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalCreate.hide();
                             })
@@ -34,7 +34,7 @@ var articleToAdd = {
                         case 'content_missing':
                             self.modalText.text('Veuillez écrire le contenu de votre billet');
                             self.modalCreate.show();
-                            self.modalCreate.fadeOut(3000, function() {
+                            self.modalCreate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalCreate.hide();
                         })
@@ -43,7 +43,7 @@ var articleToAdd = {
                         case 'failed':
                             self.modalText.text('Veuillez remplir tous les champs, un titre et un contenu');
                             self.modalCreate.show();
-                            self.modalCreate.fadeOut(3000, function() {
+                            self.modalCreate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalCreate.hide();
                         })
@@ -52,7 +52,7 @@ var articleToAdd = {
                         default:
                             self.modalText.text('Votre billet a bien été ajouté');
                             self.modalCreate.show();
-                            self.modalCreate.fadeOut(3000, function() {
+                            self.modalCreate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalCreate.hide();
                                 window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + data;

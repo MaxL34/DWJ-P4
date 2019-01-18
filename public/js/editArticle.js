@@ -60,7 +60,7 @@ var artDelEdit = {
                                 self.editModalBtn.hide();
                                 self.modalText.text('Redirection vers la page d\'édition du billet');
                                 self.modal.show();
-                                self.modal.fadeOut(3000, function() {
+                                self.modal.fadeOut(4000, function() {
                                     self.modal.hide();
                                     window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=editArticle&article_id=" + artId;
                                 });
@@ -98,7 +98,7 @@ var artDelEdit = {
                             self.yesModalBtn.hide();
                             self.noModalBtn.hide();
                             self.modalText.text('Votre billet a été supprimé.');
-                            self.modal.fadeOut(3000, function() {   
+                            self.modal.fadeOut(4000, function() {   
                                 window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=listArticlesToEdit";
                             });
                         }
@@ -109,7 +109,7 @@ var artDelEdit = {
                     self.yesModalBtn.hide();
                     self.noModalBtn.hide();
                     self.modalText.text('Votre billet n\'a pas été supprimé.');
-                        self.modal.fadeOut(3000, function() {
+                        self.modal.fadeOut(4000, function() {
                             self.modal.hide();
                         });
                 });

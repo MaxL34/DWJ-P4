@@ -26,7 +26,7 @@ var articleToUpdate = {
                         case 'title_missing':
                             self.modalText.text('Veuillez écrire un titre');
                             self.modalUpdate.show();
-                            self.modalUpdate.fadeOut(3000, function() {
+                            self.modalUpdate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalUpdate.hide();
                             })
@@ -35,7 +35,7 @@ var articleToUpdate = {
                         case 'content_missing':
                             self.modalText.text('Veuillez écrire le contenu de votre billet');
                             self.modalUpdate.show();
-                            self.modalUpdate.fadeOut(3000, function() {
+                            self.modalUpdate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalUpdate.hide();
                         })
@@ -44,7 +44,7 @@ var articleToUpdate = {
                         case 'failed':
                             self.modalText.text('Veuillez remplir tous les champs, un titre et un contenu');
                             self.modalUpdate.show();
-                            self.modalUpdate.fadeOut(3000, function() {
+                            self.modalUpdate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalUpdate.hide();
                         })
@@ -53,7 +53,7 @@ var articleToUpdate = {
                         default:
                             self.modalText.text('Votre billet a été mis à jour');
                             self.modalUpdate.show();
-                            self.modalUpdate.fadeOut(3000, function() {
+                            self.modalUpdate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalUpdate.hide();
                                 window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + data;

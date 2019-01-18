@@ -22,7 +22,7 @@ var comToReport = {
                 success: function() {
                     self.modalText.text('Le commentaire a bien été signalé à l\'administrateur');
                     self.modalCom.show();
-                    self.modalCom.fadeOut(3000, function() {
+                    self.modalCom.fadeOut(4000, function() {
                         self.modalText.text('');
                         self.modalCom.hide();
                     });
