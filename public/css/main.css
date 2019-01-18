@@ -342,6 +342,8 @@
 
 /* Page d'accueil : main_index.php */
 
+/* Style du menu */
+
 .main_menu {
     display: flex;
     list-style: none;    
@@ -364,17 +366,14 @@
     color: aqua;
 }
 
+/* Style de la page d'accueil */
+
 .banner {
     text-align: center;
     height: 100vh;
     background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_main_pic.jpg");
     color: white;
     margin-top: -54px;
-}
-
-.home_title {
-    font-size: 5em;
-    padding-top: 20vh;
 }
 
 .banner p {
@@ -389,21 +388,26 @@
     color: aliceblue;
 }
 
+.home_title {
+    font-size: 5em;
+    padding-top: 20vh;
+}
+
 .fa-arrow-alt-circle-down {
     position: relative;
     top: 35%;
     color: white;
 }
-.title {
-    padding-top: 15vh;
-    text-align: center;
+
+.article {
+    text-align: justify;
+    height: 450px;
+    overflow: hidden;
+    color: white;
 }
 
-#container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_pic2.jpg");
+.article a {
+    padding-left: 25%;
 }
 
 .container_article {
@@ -428,44 +432,7 @@
     color: aqua;
 }
 
-.container_article input {
-    position: relative;
-    left: 43%;
-    top: 20px;
-    cursor: pointer;
-}
-
-.edition_container {
-    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_pic2.jpg");
-}
-
-.container_edition_article {
-    width: 80vw;
-    padding-top: 20px;
-    position: relative;
-    margin: auto;
-}
-
-.article_form p {
-    color: white;
-    font-size: 25px;
-}
-
-.article {
-    /*width: 26%;*/
-    text-align: justify;
-    height: 450px;
-    overflow: hidden;
-    color: white;
-}
-
-.edition {
-    height: 100%;
-}
-
-.article a {
-    padding-left: 25%;
-}
+/* Page de lecture d'un article (postView.php) */
 
 #postView_container {
     background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_pic2.jpg");
@@ -501,6 +468,32 @@
     float: left;
 }
 
+#add_com {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#add_com button {
+    cursor: pointer;
+}
+
+.comments {
+    position: relative;
+    left: 10%;
+    max-width: 380px;
+}
+
+.comments input {
+    cursor: pointer;
+}
+
+/* Style de la page de connexion à l'espace d'administration */
+
+.title {
+    padding-top: 15vh;
+    text-align: center;
+}
+
 .login_container {
     background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_main_pic.jpg");
     height: 93.6vh;
@@ -532,6 +525,8 @@
     text-align: center;
 }
 
+/* Styles de la page d'administration du blog (adminBoardView.php) */
+
 .article_management {
     display: flex;
     text-align: center;
@@ -552,39 +547,19 @@
     color:aqua;
 }
 
-.article_creation_container {
-    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_pic2.jpg");
-    margin-top: -23px;
-}
-
-.article_creation_container h1 {
-    color: white;
-    font-size: 35px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.article_creation_container p {
-    color: white;
-    font-size: 22px;
-}
-
-.article_creation_container, .article_form {
-    position: relative;
-    text-align: center;
-}
-
-.edition_p {
-    position: absolute;
-    text-align: center;
-    margin-top: 30px;
-    font-size: 25px;
-}
-
 .adminBoard_container {
     background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_main_pic.jpg");
     min-height: 93.6vh;
     color: white;
+}
+
+.admin_title, .post_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 60px;
+    font-size: 25px;
 }
 
 .admin_comments {
@@ -608,37 +583,90 @@
     top: 8px;
 }
 
-.comments {
-    position: relative;
-    left: 10%;
-    max-width: 380px;
+/* */
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_pic2.jpg");
 }
 
-#add_com {
+/* Style de la page de création d'article (articleCreationView.php) */
+
+.article_creation_container {
+    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_pic2.jpg");
+    margin-top: -23px;
+}
+
+.article_creation_container h1 {
+    color: white;
+    font-size: 35px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.article_creation_container p {
+    color: white;
+    font-size: 22px;
+}
+
+.article_creation_container, .article_form {
+    position: relative;
     text-align: center;
-    padding-bottom: 25px;
 }
 
 .mce-tinymce.mce-container.mce-panel {
     margin: auto;
 }
 
-.edition_a a {
-    padding: 0 20px 0 20px;
-    position: relative;
-    left: 18%;
-}
+/* Style de la page d'édition des articles (articleEditionView.php) */
 
-.admin_title, .post_title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding-bottom: 60px;
+.edition_p {
+    position: absolute;
+    text-align: center;
+    margin-top: 30px;
     font-size: 25px;
 }
 
-/* Styles pour modal des commentaire */
+.container_article input {
+    position: relative;
+    left: 43%;
+    top: 20px;
+    cursor: pointer;
+}
+
+/* Style de la page d'édition de l'article (articleUpdateView.php) */
+
+.edition_container {
+    background-image: url("/tests/Openclassrooms/DWJ-P4/images/alaska_pic2.jpg");
+}
+
+.container_edition_article {
+    width: 80vw;
+    padding-top: 20px;
+    position: relative;
+    margin: auto;
+}
+
+.article_form p {
+    color: white;
+    font-size: 25px;
+}
+
+.edition {
+    height: 100%;
+}
+
+/* */
+
+/* .edition_a a {
+    padding: 0 20px 0 20px;
+    position: relative;
+    left: 18%;
+} */
+
+/* Styles pour les modal */
 
 .modal {
     display: none;
@@ -672,22 +700,8 @@
     cursor: pointer;
 }
 
-/*#modal_logout p {
-    position: relative;
-    top: 30px;
-}
+/* Style de la croix de fermeture des modal */
 
-#modal_login p {
-    position: relative;
-    left: 30px;
-}
-
-#modal_update p {
-    position: relative;
-    left: 30px;
-}*/
-
-/* The Close Button */
 .close {
     color: aliceblue;
     font-size: 28px;
@@ -696,9 +710,8 @@
     left: 320px;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
+.close:hover, .close:focus {
+    color:cornflowerblue;
     text-decoration: none;
     cursor: pointer;
 }
