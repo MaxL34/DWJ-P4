@@ -485,6 +485,7 @@
     position: relative;
     left: 10%;
     max-width: 380px;
+    padding-bottom: 20px;
 }
 
 .comments input {
@@ -577,7 +578,7 @@
     background: linear-gradient(to left, #122833, #286DA6);
     padding: 15px;
     border-radius: 10px;
-    max-width: 16%;
+    max-width: 18%;
 }
 
 .admin_comments button {
