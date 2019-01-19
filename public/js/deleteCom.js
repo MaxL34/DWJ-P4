@@ -30,6 +30,7 @@ var comToDel = {
                 if(!$(event.target).closest(self.modal).length) {
                     console.log('document cliqué');
                     self.modal.hide();
+                    self.modal.stop(true, true).fadeOut();
                 } 
             });
 
@@ -64,7 +65,7 @@ var comToDel = {
                 self.modalText.text('Le commentaire n\'a pas été supprimé.');
                     self.modal.fadeOut(4000, function() {
                         self.modal.hide();
-                        self.modalText.text('Voulez-vous vraiment supprimer ce commentaire ?');
+                        //self.modalText.text('Voulez-vous vraiment supprimer ce commentaire ?');
                     });
             });
         });

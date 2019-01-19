@@ -8,11 +8,20 @@ var comToReport = {
         var self = this;
 
         self.comReportBtn.click(function(e) {
+            e.stopPropagation();
             e.preventDefault();
 
             var comId = $(this).attr('id');
             console.log('com_id = ' + $(this).attr('id'));
             console.log('article_id = ' + artId);
+
+            $(document).click(function(event) { 
+                if(!$(event.target).closest(self.modalCom).length) {
+                    console.log('document cliqué');
+                    self.modalCom.hide();
+                    self.modalCom.stop(true, true).fadeOut();
+                } 
+            });
 
             $.ajax({
                 url: 'main_index.php?action=reportCom',
