@@ -38,12 +38,7 @@ var artDelEdit = {
                 self.modal.hide();
             });
 
-            $(document).click(function(event) { 
-                if(!$(event.target).closest(self.modal).length) {
-                    console.log('document cliqué');
-                    self.modal.hide();
-                } 
-            });
+            self.resetModal();
 
             self.editModalBtn.click(function(e) {
                 e.preventDefault();
@@ -66,6 +61,8 @@ var artDelEdit = {
                                 });
                     }
                 });
+
+                self.resetModal();
             });
 
             self.delModalBtn.click(function(e) {
@@ -103,6 +100,8 @@ var artDelEdit = {
                             });
                         }
                     }); 
+                    
+                    self.resetModal();                
                 });
 
                 self.noModalBtn.click(function() {
@@ -112,9 +111,24 @@ var artDelEdit = {
                         self.modal.fadeOut(4000, function() {
                             self.modal.hide();
                         });
+
+                    self.resetModal();
                 });
 
             });
         });
+    },
+
+    resetModal : function() {
+        var self = this;
+
+        $(document).click(function(event) { 
+            if(!$(event.target).closest(self.modal).length) {
+                console.log('document cliqué');
+                self.modal.hide();
+                self.modal.stop(true, true).fadeOut();
+            } 
+        });
     }
+
 };
