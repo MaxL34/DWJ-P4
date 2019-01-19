@@ -25,6 +25,14 @@ var commentAdder = {
         self.comSubmitBtn.click(function(e) {
             e.preventDefault();
 
+            $(document).click(function(event) { 
+                if(!$(event.target).closest(self.modalCom).length) {
+                    console.log('document cliqué');;
+                    self.modalCom.hide();
+                    self.modalCom.stop(true, true).fadeOut();
+                } 
+            });
+
             console.log('article_id = ' + self.artId);
             console.log('com_content = ' + self.comContent.val() + ', com_author = ' + self.comAuthor.val());
 
