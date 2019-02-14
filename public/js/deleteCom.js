@@ -1,5 +1,6 @@
 var comToDel = {
-    deleteBtn: $('.delete_com_btn'),
+    deleteBtn: $('.del_btn'),
+    comId: $('.del_btn').attr('name'),
     modal: $('#modal_delete'),
     modalText: $('#modal_text'),
     spanClose: $('.close'),
@@ -8,6 +9,15 @@ var comToDel = {
 
     init: function() {  
         var self = this;
+
+        $(document).click(function(event) { 
+            if(!$(event.target).closest(self.modal).length) {
+                console.log('document cliqué');
+                self.modal.hide();
+                self.modal.stop(true, true).fadeOut();
+            } 
+        });
+
 
         self.deleteBtn.click(function(e) {
             e.stopPropagation();
@@ -19,32 +29,24 @@ var comToDel = {
             self.yesModalBtn.show();
             self.noModalBtn.show();
 
-            var comId = $(this).attr('id');
-            var artId = $(this).attr('data_id');
-
             self.spanClose.click(function() {
                 self.modal.hide();
             });
 
-            $(document).click(function(event) { 
-                if(!$(event.target).closest(self.modal).length) {
-                    console.log('document cliqué');
-                    self.modal.hide();
-                    self.modal.stop(true, true).fadeOut();
-                } 
-            });
-
+            self.comId = $(this).attr('name');
+            console.log("comId = " + self.comId);
+            
             self.yesModalBtn.click(function() {
                 self.yesModalBtn.hide();
                 self.noModalBtn.hide();
 
                 $.ajax({
                     url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=deleteCom',
-                    type: 'GET',
-                    data: 'article_id=' + artId + '&com_id=' + comId,
+                    type: 'POST',
+                    data: 'com_id=' + self.comId,
                     dataType: 'text',
                     success: function(data) {
-                        console.log('data = ' + data);
+                        console.log("ajax success comId = " + self.comId);
                         if (data == 'success') {
                             self.yesModalBtn.hide();
                             self.noModalBtn.hide();
@@ -58,6 +60,8 @@ var comToDel = {
                     }
                 });
             });
+        
+        });
 
             self.noModalBtn.click(function() {
                 self.yesModalBtn.hide();
@@ -65,9 +69,8 @@ var comToDel = {
                 self.modalText.text('Le commentaire n\'a pas été supprimé.');
                     self.modal.fadeOut(4000, function() {
                         self.modal.hide();
-                        //self.modalText.text('Voulez-vous vraiment supprimer ce commentaire ?');
+                        
                     });
             });
-        });
     }
 };
