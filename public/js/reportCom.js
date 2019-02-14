@@ -8,20 +8,13 @@ var comToReport = {
         var self = this;
 
         self.comReportBtn.click(function(e) {
-            e.stopPropagation();
-            e.preventDefault();
+            //e.preventDefault();
 
             var comId = $(this).attr('id');
             console.log('com_id = ' + $(this).attr('id'));
             console.log('article_id = ' + artId);
 
-            $(document).click(function(event) { 
-                if(!$(event.target).closest(self.modalCom).length) {
-                    console.log('document cliqué');
-                    self.modalCom.hide();
-                    self.modalCom.stop(true, true).fadeOut();
-                } 
-            });
+            self.resetModal();
 
             $.ajax({
                 url: 'main_index.php?action=reportCom',
@@ -37,6 +30,19 @@ var comToReport = {
                     });
                 }
             });
+        });
+    },
+
+    resetModal: function() {
+        var self = this;
+        //e.stopPropagation();
+        $(document).click(function(event) { 
+            if(!$(event.target).closest(self.modalCom).length) {
+                console.log('document cliqué');
+                self.modalCom.hide();
+                //$('#com_form').hide();
+                self.modalCom.stop(true, true).fadeOut();
+            } 
         });
     }
 }
