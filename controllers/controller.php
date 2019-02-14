@@ -70,10 +70,10 @@ function addComment($com_content, $com_author, $article_id) {
     $comments = $commentsManager->getComFromArticle($article_id);
 }
 
-function deleteCom($article_id, $com_id) {
+function deleteCom($com_id) {
     $db = setDb();
     $commentsManager = new CommentsManager($db);
-    $comToDelete = $commentsManager->deleteCom($article_id, $com_id);
+    $comToDelete = $commentsManager->deleteCom($com_id);
     return $comToDelete;
 }
 
