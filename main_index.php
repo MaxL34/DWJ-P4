@@ -88,8 +88,8 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'deleteCom':
-            if (isset($_GET['article_id']) && $_GET['article_id'] > 0 && $_GET['com_id'] !== NULL) {
-                deleteCom($_GET['article_id'], $_GET['com_id']);
+            if (isset($_POST['com_id']) && ($_POST['com_id']) !== NULL) {
+                deleteCom($_POST['com_id']);
                 echo 'success';
             }
         break;
