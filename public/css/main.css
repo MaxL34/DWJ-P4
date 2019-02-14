@@ -578,10 +578,9 @@
     background: linear-gradient(to left, #122833, #286DA6);
     padding: 15px;
     border-radius: 10px;
-    max-width: 18%;
 }
 
-.admin_comments button {
+.admin_comments input[type="button"] {
     cursor: pointer;
     position: relative;
     left: 15%;
