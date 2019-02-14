@@ -37,8 +37,8 @@ function deleteArticle($article_id) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
     $commentsManager = new CommentsManager($db);
-    $articleToDelete = $articlesManager->deleteArticle($article_id);
     $comsToDelete = $commentsManager->deleteComsFromArticle($article_id);
+    $articleToDelete = $articlesManager->deleteArticle($article_id);
 } 
 
 function getArtCom($article_id) {
