@@ -8,6 +8,14 @@ var articleToUpdate = {
     init: function() {
         var self = this;
 
+        $(document).click(function(event) { 
+            if(!$(event.target).closest(self.modal).length) {
+                console.log('document cliqué');
+                self.modalUpdate.hide();
+                self.modalUpdate.stop(true, true).fadeOut();
+            } 
+        });
+
         self.artUpdateBtn.click(function(e) {
             e.preventDefault();
 
