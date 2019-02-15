@@ -13,8 +13,6 @@ var artDelEdit = {
     init: function() {  
         var self = this;
 
-
-
         self.editBtn.click(function(e) {
             e.stopPropagation();
             e.preventDefault();
