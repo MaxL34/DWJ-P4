@@ -31,6 +31,7 @@ function updateArticle($art_title, $art_content, $art_id) {
     $db = setDb();
     $articlesManager = new ArticlesManager($db);
     $articleToUpdate = $articlesManager->updateArticle($art_title, $art_content, $art_id);
+    return $articleToUpdate;
 }
 
 function deleteArticle($article_id) {
