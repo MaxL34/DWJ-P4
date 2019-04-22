@@ -23,13 +23,15 @@ var articleToUpdate = {
             var artContent = tinyMCE.get('art_content').getContent();
 
             $.ajax({
-                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=updateArticle&article_id=' + self.articleId,
+                url: './index.php?action=updateArticle&article_id=' + self.articleId,
                 type: 'POST',
                 data: 'title=' + artTitle + '&content=' + artContent,
                 dataType: 'text',
                 success: function(data) {
                     console.log('data=' + data + ', article_id = ' + self.articleId);
                     
+
+
                     switch (data) {
                         case 'title_missing':
                             self.modalText.text('Veuillez écrire un titre');
@@ -64,7 +66,7 @@ var articleToUpdate = {
                             self.modalUpdate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalUpdate.hide();
-                                window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + data;
+                                window.location.href = "./index.php?action=getArticle&article_id=" + data;
                             })
                     } 
                 }

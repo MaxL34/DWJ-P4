@@ -9,6 +9,7 @@ var loginValid = {
     init: function() {
         var self = this;
         self.loginBtn.click(function(e) {
+            console.log('bouton cliqué');
             e.stopPropagation();
             e.preventDefault();
 
@@ -27,7 +28,7 @@ var loginValid = {
             
 
             $.ajax({                
-                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminLogin',
+                url: './index.php?action=adminLogin',
                 type: 'POST',
                 data: 'user=' + self.userLogin.val() + '&password=' + self.userPass.val(),
                 dataType: 'text',
@@ -38,7 +39,7 @@ var loginValid = {
                         self.modalText.text('Heureux de vous revoir ' + self.userLogin.val() + '.');
                         self.modal.show();
                         self.modal.fadeOut(4000, function() {
-                            window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
+                            window.location.href = "./index.php?action=adminBoardDisplay";
                         });
                     } else if (data == 'failed') {
                         self.modalText.text('Echec d\'authentfication : mauvais identifiants.');

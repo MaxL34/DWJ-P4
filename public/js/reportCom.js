@@ -17,7 +17,7 @@ var comToReport = {
             self.resetModal();
 
             $.ajax({
-                url: 'main_index.php?action=reportCom',
+                url: 'index.php?action=reportCom',
                 type: 'GET',
                 data: 'article_id=' + artId + '&com_id=' + comId,
                 dataType: 'text',

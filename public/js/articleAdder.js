@@ -22,7 +22,7 @@ var articleToAdd = {
             var artContent = tinyMCE.get('art_content').getContent();  
             
             $.ajax({
-                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=addArticle',
+                url: './index.php?action=addArticle',
                 type: 'POST',
                 data: 'title=' + artTitle + '&content=' + artContent + '&user=' + self.sessionUser,
                 dataType: 'text',
@@ -63,7 +63,7 @@ var articleToAdd = {
                             self.modalCreate.fadeOut(4000, function() {
                                 self.modalText.text('');
                                 self.modalCreate.hide();
-                                window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + data;
+                                window.location.href = "./index.php?action=getArticle&article_id=" + data;
                             })
                              
                     }

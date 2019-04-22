@@ -37,7 +37,7 @@ var commentAdder = {
             console.log('com_content = ' + self.comContent.val() + ', com_author = ' + self.comAuthor.val());
 
             $.ajax({
-                url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=addComment',
+                url: 'index.php?action=addComment',
                 type: 'POST',
                 data: 'com_content=' + self.comContent.val() + '&com_author=' + self.comAuthor.val() + '&art_id=' + self.artId,
                 dataType: 'text',
@@ -48,7 +48,7 @@ var commentAdder = {
                         self.modalCom.show();
                         self.modalCom.fadeOut(4000, function() {
                             self.modalCom.hide();
-                            window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=getArticle&article_id=" + self.artId;
+                            window.location.href = "index.php?action=getArticle&article_id=" + self.artId;
                         });
                     } else if (data == 'author_missing') {
                         self.modalText.text('Pseudo manquant : veuillez remplir ce champ');

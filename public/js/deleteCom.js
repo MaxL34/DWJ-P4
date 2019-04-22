@@ -41,7 +41,7 @@ var comToDel = {
                 self.noModalBtn.hide();
 
                 $.ajax({
-                    url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=deleteCom',
+                    url: 'index.php?action=deleteCom',
                     type: 'POST',
                     data: 'com_id=' + self.comId,
                     dataType: 'text',
@@ -52,7 +52,7 @@ var comToDel = {
                             self.noModalBtn.hide();
                             self.modalText.text('Le commentaire a bien été supprimé.');
                             self.modal.fadeOut(4000, function() {
-                                window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=adminBoardDisplay";
+                                window.location.href = "index.php?action=adminBoardDisplay";
                             });
                         } else {
                             console.log('erreur');

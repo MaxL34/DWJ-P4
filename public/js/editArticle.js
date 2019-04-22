@@ -8,7 +8,7 @@ var artDelEdit = {
     delModalBtn: $('#delete'),
     yesModalBtn: $('#yes'),
     noModalBtn: $('#no'),
-    //artId: $('.edit_btn').attr('id'),
+    artId: $('.edit_btn').attr('name'),
 
     init: function() {  
         var self = this;
@@ -16,6 +16,14 @@ var artDelEdit = {
         self.editBtn.click(function(e) {
             e.stopPropagation();
             e.preventDefault();
+
+            $(document).click(function(event) { 
+                if(!$(event.target).closest(self.modal).length) {
+                    console.log('document cliqué');
+                    self.modal.hide();
+                    self.modal.stop(true, true).fadeOut();
+                } 
+            });
 
             self.modalText.text('Que souhaitez-vous faire ?');
             self.editModalBtn.show();
@@ -28,23 +36,20 @@ var artDelEdit = {
 
             console.log('bouton edit cliqué');
 
-            var artId = $(this).attr('id');
-            //console.log(self.artId);
-            console.log('art_id = ' + artId);
-
             self.spanClose.click(function() {
                 self.modal.hide();
             });
 
-            self.resetModal();
+            self.artId = $(this).attr('name');
+            console.log('art_id = ' + self.artId);
 
             self.editModalBtn.click(function(e) {
                 e.preventDefault();
 
                 $.ajax({
-                    url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=editArticle',
+                    url: './index.php?action=editArticle',
                     type: 'GET',
-                    data: 'article_id=' + artId,
+                    data: 'article_id=' + self.artId,
                     dataType: 'text',
                     success: function() {
                         //console.log('data = ' + data);
@@ -55,7 +60,7 @@ var artDelEdit = {
                                 self.modal.show();
                                 self.modal.fadeOut(4000, function() {
                                     self.modal.hide();
-                                    window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=editArticle&article_id=" + artId;
+                                    window.location.href = "./index.php?action=editArticle&article_id=" + self.artId;
                                 });
                     }
                 });
@@ -80,21 +85,17 @@ var artDelEdit = {
                 self.yesModalBtn.click(function(e) {
                     e.preventDefault();
 
-                    //var artId = $('.hidden_input').attr('id');
-                    console.log('art_id = ' + artId);
-                    //console.log($('.edit_btn').attr('id'));
-
                     $.ajax({
-                        url: '/tests/Openclassrooms/DWJ-P4/main_index.php?action=deleteArticle',
+                        url: 'index.php?action=deleteArticle',
                         type: 'GET',
-                        data: 'article_id=' + artId,
+                        data: 'article_id=' + self.artId,
                         dataType: 'text',
                         success: function() {
                             self.yesModalBtn.hide();
                             self.noModalBtn.hide();
                             self.modalText.text('Votre billet a été supprimé.');
                             self.modal.fadeOut(4000, function() {   
-                                window.location.href = "/tests/Openclassrooms/DWJ-P4/main_index.php?action=listArticlesToEdit";
+                                window.location.href = "./index.php?action=listArticlesToEdit";
                             });
                         }
                     }); 
