@@ -2,5 +2,19 @@
 
 /public/js/tinymce/
 /public/js/jquery/
+/public/fontawesome/
+/public/metadata/
+/public/webfonts/
+
+/vendor/fontawesome-free/
+
+./.travis.yml
+./gulpfile.js
+./LICENSE
+./package-lock.json
+./package.json
+
+/controllers/controller.php
+
 /images/
 sync.ffs_db
