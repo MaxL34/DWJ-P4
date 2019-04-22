@@ -8,60 +8,74 @@
 
 <?php ob_start(); ?>
 
-<div id="postView_container">
-    <div class="post_title">
-        <h1>Billet simple pour l'Alaska</h1>
-        <?php echo $article->art_title(); ?>
-    </div>
-
-        <div class="postView_article">
-            <?php echo $article->art_content(); ?>
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1><?php echo $article->art_title(); ?></h1>
+            <span class="meta">Publié le : <?php echo $article->date_fr(); ?></span>
+          </div>
         </div>
+      </div>
+    </div>
+  </header>
 
-            <div class="post_infos">
-                    Posté le : <?php echo $article->date_fr(); ?></br>
-                    Par : <?php echo $article->art_author(); ?></br>
-                    Modifié le <?php echo $article->modified_date_fr(); ?>
-            </div>
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        <p><?php echo $article->art_content(); ?></p>
 
-                <div id="add_com">
-                    <button>Ajouter un commentaire</button>
-                </div>
+          <a href="#">
+            <img class="img-fluid" src="img/post-sample-image.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
 
-                <form id="com_form" action="main_index.php?action=addComment" method="post">
-                    <div>
-                        <label for="com_author">Pseudo : </label>
-                        <input class="com_author" type="text" id="author" name="com_author" placeholder="Votre pseudo" required/>
-                        <span id="missPseudo"></span>
-                    </div>
+  <div id="add_com">
+    <button>Ajouter un commentaire</button>
+  </div>
 
-                        <div>
-                            <label for="com_content">Votre commentaire : </label>
-                            <textarea class="com_content" id="content" name="com_content" placeholder="Votre commentaire" required></textarea>
-                            <span id="missCom"></span>
-                        </div>
+    <form id="com_form" action="index.php?action=addComment" method="post">
+      <div>
+        <label for="com_author">Pseudo : </label>
+        <input class="com_author" type="text" id="author" name="com_author" placeholder="Votre pseudo" required/>
+        <span id="missPseudo"></span>
+      </div>
 
-                            <input type="hidden" id="art_id" name="art_id" value="<?php echo $article->art_id(); ?>" />
+      <div>
+        <label for="com_content">Votre commentaire : </label>
+        <textarea class="com_content" id="content" name="com_content" placeholder="Votre commentaire" required></textarea>
+        <span id="missCom"></span>
+      </div>
 
-                                <div>
-                                    <input id="com_submit_btn" type="submit" />
-                                </div>
-                </form>
+      <input type="hidden" id="art_id" name="art_id" value="<?php echo $article->art_id(); ?>" />
 
-                    <div class="comments">
-                        <p>Commentaires du billet :</p>
-                        <?php foreach ($comments as $comment) { ?>
-                        <p>
-                            Commentaire : <?php echo $comment->com_content(); ?></br>
-                            Posté par : <?php echo $comment->com_author(); ?></br>
-                            le : <?php echo $comment->com_date_fr(); ?></br>
+      <div>
+        <input id="com_submit_btn" type="submit" />
+      </div>
+    </form>
+
+    <div class="comments">
+      <p>Commentaires du billet :</p>
+        <?php foreach ($comments as $comment) { ?>
+        
+        <p>Commentaire : <?php echo $comment->com_content(); ?></br>
+           Posté par : <?php echo $comment->com_author(); ?></br>
+           le : <?php echo $comment->com_date_fr(); ?></br>
                             
-                            <!-- <a class="report_com" href="main_index.php?action=reportCom&amp;article_id=<?php echo $article->art_id(); ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a> -->
-                            <input class="report_com_btn" type="button" id="<?php echo $comment->com_id(); ?>" value="Signaler" />
-                            
-                        </p>
-                        <?php } ?>
-                    </div>
+           <!-- <a class="report_com" href="index.php?action=reportCom&amp;article_id=<?php echo $article->art_id(); ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a> -->
+           <input class="report_com_btn" type="button" id="<?php echo $comment->com_id(); ?>" value="Signaler" />
+        </p>
+          
+          <?php } ?>
+      </div>
 
 <div id="modal_com" class="modal">
     <div class="modal_content">
@@ -69,7 +83,7 @@
     </div>
 </div>
 
-<script>var artId = <?php echo $article->art_id(); ?>;</script>
-
 <?php $content = ob_get_clean(); ?>
 <?php require('views/layout.php'); ?>
+
+
