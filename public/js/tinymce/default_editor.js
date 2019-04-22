@@ -1,13 +1,17 @@
 tinymce.init({
     selector: '.content',
         theme: 'modern',
+        menubar: false,
+        //statusbar: false,
         width: 1024,
         height: 300,
         plugins: [
-            'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-            'save table contextmenu directionality emoticons template paste textcolor'
+            'searchreplace wordcount'
         ],
-        content_css: '/tests/Openclassrooms/DWJ-P4/public/css/main.css',
-        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+        //content_css: '/tests/Openclassrooms/DWJ-P4/public/css/main.css',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | searchreplace | copy paste',
+        valid_elements : 'em/i,strike,u,strong/b,div[align],br,#p[align],-ol[type|compact],-ul[type|compact],-li',
+        forced_root_block: false,
+        force_br_newlines: true,
+        force_p_newlines: false
 });
