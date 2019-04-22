@@ -45,6 +45,16 @@ class ArticlesManager {
         return $articleToDelete;
     }
 
+    public function listLastArticles() {
+        $articles = [];
+        $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, DATE_FORMAT(art_modified_date, \'%d/%m/%Y à %Hh%imin%ss\') AS modified_date_fr, DATE_FORMAT(art_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_fr FROM articles ORDER BY art_creation_date DESC LIMIT 3');
+
+        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
+            $articles[] = new Article($data);
+        }
+        return $articles;
+    }
+
     public function listArticles() {
         $articles = [];
         $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, DATE_FORMAT(art_modified_date, \'%d/%m/%Y à %Hh%imin%ss\') AS modified_date_fr, DATE_FORMAT(art_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS date_fr FROM articles ORDER BY art_creation_date ASC');
@@ -53,15 +63,6 @@ class ArticlesManager {
             $articles[] = new Article($data);
         }
         return $articles;
-    }
-
-    public function recentArticlesList() {
-        $recentArticles = [];
-        $q = $this->_db->query('SELECT art_id, art_title, art_content, art_author, art_creation_date FROM articles GROUP BY art_creation_date DESC LIMIT 3');
-        while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
-            $recentArticles[] = new Article($data);
-        }
-        return $recentArticles;
     }
 
     public function setDb(PDO $db) {
