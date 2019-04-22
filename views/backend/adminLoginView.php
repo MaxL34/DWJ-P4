@@ -2,15 +2,29 @@
 
 <?php ob_start(); ?>
 
+<!-- Header -->
+<header class="masthead" style="background-image: url('img/home-bg.jpg')">
+    <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Billet Simple pour l'Alaska</h1>
+                        <span class="subheading">Connexion à l'espace d'administration<span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 <div class="login_container">
     <div class="title">
-        <h1>Billet simple pour l'Alaska</h1>
-        <p>Connexion à l'espace d'administration du blog</p>
         <p>Veuillez entrer vos identifiants de connexion pour accéder à l'administration du blog</p>
     </div>
 
     <div>
-        <form id="login_form" action="../../main_index.php?action=adminLogin" method="post">
+        <form id="login_form" action="./index.php?action=adminLogin" method="post">
             <div>
                 <label for="user">Login : </label>
                 <input type="text" id="user_login" name="user" required />
@@ -38,7 +52,7 @@
 <?php $content = ob_get_clean(); ?>
 
 <?php
-    if (file_exists('../layout.php')) {
-        require('../layout.php');
+    if (file_exists('./views/layout.php')) {
+        require('./views/layout.php');
     }
 ?>

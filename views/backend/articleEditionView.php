@@ -2,32 +2,51 @@
 
 <?php ob_start(); ?>
 
-    <div id="container">
-        <p class="edition_p">Quel billet voulez-vous modifier ?</p>
-            <?php
-                foreach ($articles as $value) {
-            ?>
-                
-                <div class="container_article">
-                    <div class="article">
-                            <?php echo $value->art_title(); ?>
-                            <?php echo $value->art_content(); ?>
-                            Publié le <?php echo $value->date_fr(); ?></br>
-                            Par : <?php echo $value->art_author(); ?></br>
-                            Modifié le : <?php echo $value->modified_date_fr(); ?></br>
-
-                            
-                            <!-- <input class="delete_btn" type="button" value="Supprimer" /> -->
-                            <!-- <input type="hidden" class="hidden_input" id="<?php echo $value->art_id(); ?>" /> -->
-                    </div>
-
-                    <input class="edit_btn" type="button" id="<?php echo $value->art_id(); ?>" value="Editer" />
-
+<!-- Header -->
+<header class="masthead" style="background-image: url('img/home-bg.jpg')">
+            <div class="overlay"></div>
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Billet Simple pour l'Alaska</h1>
+                    <span class="subheading">Page d'édition des articles<span>
                 </div>
-            <?php
-                }
-            ?>
-    </div>
+                </div>
+            </div>
+            </div>
+</header>
+
+<div class="post-container">
+    <p class="edition_p">Quel billet voulez-vous modifier ?</p>
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-preview">
+            
+                    <?php
+                        foreach ($articles as $value) {
+                    ?>
+                    
+                        <div class="post">
+                            <h2 class="post-title">
+                                <?php echo $value->art_title(); ?>
+                            </h2>
+                            <p class="post-content">
+                                <?php echo $value->art_content(); ?>
+                            </p>
+
+                                    
+                                    <!-- <input class="delete_btn" type="button" value="Supprimer" /> -->
+                                    <!-- <input type="hidden" class="hidden_input" id="<?php echo $value->art_id(); ?>" /> -->
+                            <input class="edit_btn" type="button" name="<?php echo $value->art_id(); ?>" value="Editer" />
+                        </div>
+                    <?php
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+</div>
 
 <div id="modal_edit" class="modal">
     <div class="modal_content">

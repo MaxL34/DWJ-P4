@@ -6,21 +6,28 @@
 
 <?php $title = 'Blog de Jean Forteroche : Espace d\'administration du blog'; ?>
 
-<?php ob_start(); ?>
-<div class="adminBoard_container">
-    <div class="admin_title">
-        <h1>Espace d'administration</h1>
-        <p>Bienvenue sur votre espace d'administration <span id="session_user"><?php echo $_SESSION['user']; ?></span>.</p>
-        <p>Que souhaitez-vous faire ?</p>
-    </div>
+<!-- Header -->
+<header class="masthead" style="background-image: url('img/home-bg.jpg')">
+            <div class="overlay"></div>
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Billet Simple pour l'Alaska</h1>
+                    <span class="subheading">Espace d'administration<span>
+                </div>
+                </div>
+            </div>
+            </div>
+</header>
 
-    <div class="article_management">
-        <p>Rédiger un nouveau billet : </br><a href="/tests/Openclassrooms/DWJ-P4/views/backend/articleCreationView.php">Rédaction de billets</a></p></br>
-        <p>Editer un billet existant (modifier, supprimer) : </br><a href="/tests/Openclassrooms/DWJ-P4/main_index.php?action=listArticlesToEdit">Edition de billets</a></p></br>
-        <p>Lire vos billets : </br><a href="/tests/Openclassrooms/DWJ-P4/main_index.php">Lecture de billets</a></p></br>
-    </div>
+<div class="article_management">
+        <p>Rédiger un nouveau billet : </br><a href="index.php?action=createArticle">Rédaction de billets</a></p></br>
+        <p>Editer un billet existant (modifier, supprimer) : </br><a href="index.php?action=listArticlesToEdit">Edition de billets</a></p></br>
+        <p>Lire vos billets : </br><a href="index.php">Lecture de billets</a></p></br>
+</div>
 
-    <div class="admin_comments">
+<div class="admin_comments">
         <p>Voici la liste des derniers commentaires signalés :</p>
 
             <?php
@@ -40,7 +47,6 @@
                         } 
                 ?>
             
-    </div>
 </div>
 
 <div id="modal_delete" class="modal">
@@ -56,4 +62,8 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('views/layout.php'); ?>
+<?php
+    if (file_exists('./views/layout.php')) {
+        require('./views/layout.php');
+    }
+?>
