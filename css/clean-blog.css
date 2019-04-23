@@ -285,6 +285,17 @@ img::-moz-selection {
   }
 }
 
+/* Page A propos (about.php) */
+
+#jf_portrait {
+  width: 200px;
+  height: 252px;
+  display: block;
+  margin: auto;
+  position: relative;
+  bottom: 125px;
+}
+
 @media only screen and (min-width: 992px) {
   #mainNav {
     -webkit-transition: background-color 0.2s;
