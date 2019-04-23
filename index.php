@@ -23,6 +23,10 @@ if (!empty($_GET['action'])) {
             require('./views/frontend/about.php');
         break;
 
+        case 'contact':
+            require('./views/frontend/contact.php');
+        break;
+
         case 'addArticle':
             session_start();
             //$title = ($_POST['title']);
