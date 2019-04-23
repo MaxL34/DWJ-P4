@@ -63,17 +63,16 @@
     </form>
 
     <div class="comments">
-      <p>Commentaires du billet :</p>
-        <?php foreach ($comments as $comment) { ?>
-        
-        <p>Commentaire : <?php echo $comment->com_content(); ?></br>
+      <p class="com_heading">Commentaires du billet :</p>
+      <?php foreach ($comments as $comment) { ?>
+        <div class="comment_content">
+          <p class="com_text"><?php echo $comment->com_content(); ?></br></br>
            Posté par : <?php echo $comment->com_author(); ?></br>
            le : <?php echo $comment->com_date_fr(); ?></br>
-                            
            <!-- <a class="report_com" href="index.php?action=reportCom&amp;article_id=<?php echo $article->art_id(); ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a> -->
            <input class="report_com_btn" type="button" id="<?php echo $comment->com_id(); ?>" value="Signaler" />
-        </p>
-          
+          </p>
+          </div></br>
           <?php } ?>
       </div>
 
