@@ -19,6 +19,10 @@ if (!empty($_GET['action'])) {
             require('./views/backend/articleCreationView.php');
         break;
 
+        case 'displayAbout':
+            require('./views/frontend/about.php');
+        break;
+
         case 'addArticle':
             session_start();
             //$title = ($_POST['title']);
