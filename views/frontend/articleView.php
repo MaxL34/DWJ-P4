@@ -10,7 +10,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
                 <h1>Billet Simple pour l'Alaska</h1>
-                <span class="subheading">Tous mes chapitres sont sur cette page<span>
+                <span class="subheading">Tous mes chapitres sont sur cette page. Ils sont classés par ordre chronologique (le plus ancien en haut, le plus récent, en fin de page).<span>
             </div>
           </div>
       </div>
