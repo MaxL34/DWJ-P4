@@ -3,6 +3,7 @@ var comToReport = {
     //articleId: artId,
     modalCom: $('#modal_com'),
     modalText: $('#modal_text'),
+    comText: $('.com_text'),
 
     init: function() {
         var self = this;
@@ -26,6 +27,7 @@ var comToReport = {
                     self.modalText.text('Le commentaire a bien été signalé à l\'administrateur');
                     self.modalCom.show();
                     self.modalCom.fadeOut(4000, function() {
+                        //self.comText.css('text-decoration', 'line-through');
                         self.modalText.text('');
                         self.modalCom.hide();
                     });
