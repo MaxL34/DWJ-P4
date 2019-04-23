@@ -242,6 +242,24 @@ img::-moz-selection {
   cursor: pointer;
 }
 
+.com_heading {
+  text-align: center;
+}
+
+.comment_content {
+  background: aliceblue;
+  width: 50%;
+  display: block;
+  margin: auto;
+  padding: 15px;
+}
+
+.comment_content input {
+  position: relative;
+  left: 85%;
+  top: 12%;
+}
+
 /* Page de rédaction d'article */
 
 .article_creation_container, .article_form {
@@ -264,6 +282,17 @@ img::-moz-selection {
   margin: auto;
 }
 
+/* Page A propos (about.php) */
+
+#jf_portrait {
+  width: 200px;
+  height: 252px;
+  display: block;
+  margin: auto;
+  position: relative;
+  bottom: 125px;
+}
+
 @media only screen and (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;
@@ -283,17 +312,6 @@ img::-moz-selection {
   #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
     color: rgba(255, 255, 255, 0.8);
   }
-}
-
-/* Page A propos (about.php) */
-
-#jf_portrait {
-  width: 200px;
-  height: 252px;
-  display: block;
-  margin: auto;
-  position: relative;
-  bottom: 125px;
 }
 
 @media only screen and (min-width: 992px) {
