@@ -58,7 +58,7 @@
                 ?>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="index.php?action=contact">Contact</a>
                 </li>
                 </ul>
             </div>
@@ -119,6 +119,10 @@
         <script src="./js/login.js"></script>
         <script src="./js/clean-blog.js"></script>
         <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Contact Form JavaScript -->
+        <script src="./js/jqBootstrapValidation.js"></script>
+        <script src="./js/contact_me.js"></script>
+        
         <?php
             if (isset($_SESSION['user'])) {
                 echo '<script src="./js/signout.js"></script>';
