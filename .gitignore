@@ -8,6 +8,8 @@
 
 /vendor/fontawesome-free/
 
+/img/
+
 .travis.yml
 gulpfile.js
 LICENSE
