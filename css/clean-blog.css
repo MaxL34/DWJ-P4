@@ -236,6 +236,10 @@ img::-moz-selection {
 #add_com {
   text-align: center;
   padding-bottom: 25px;
+  width: 250px;
+  position: relative;
+  display: block;
+  margin: 25px auto auto auto;
 }
 
 #add_com button {
@@ -252,6 +256,10 @@ img::-moz-selection {
   display: block;
   margin: auto;
   padding: 15px;
+}
+
+.comment_censored {
+  text-decoration: line-through;
 }
 
 .comment_content input {
