@@ -64,14 +64,19 @@
 
     <div class="comments">
       <p class="com_heading">Commentaires du billet :</p>
-      <?php foreach ($comments as $comment) { ?>
-        <div class="comment_content">
+      <?php foreach ($comments as $comment) {
+        $censoredCommentClass = $comment->com_report_number() > 0 ? "comment_censored" : "";
+      ?>
+        <div class="comment_content  <?= $censoredCommentClass ?>">
           <p class="com_text"><?php echo $comment->com_content(); ?></br></br>
            Posté par : <?php echo $comment->com_author(); ?></br>
            le : <?php echo $comment->com_date_fr(); ?></br>
-           <!-- <a class="report_com" href="index.php?action=reportCom&amp;article_id=<?php echo $article->art_id(); ?>&amp;com_id=<?php echo $comment->com_id(); ?>">Signaler</a> -->
-           <input class="report_com_btn" type="button" id="<?php echo $comment->com_id(); ?>" value="Signaler" />
+           <!-- <input class="report_com_btn" type="button" id="<?php echo $comment->com_id(); ?>" value="Signaler" name="<?php echo $comment->com_report_number(); ?>" /> -->
+           <!-- <input type="hidden" class="reported" value="<?php echo $comment->com_report_number(); ?>" /> -->
           </p>
+            <!-- On a ici un formulaire pour signaler un commentaire. Ce formulaire ne possède juste qu'un input, de type hidden (c'est un champ caché). Ce champ contient l'id du commentaire à signaler. Lorsqu'on clique sur le bouton, le formulaire est soumis. On récupère l'id du commentaire côté PHP. -->
+          <!-- <input type="hidden" name="comment_id" value="<?php echo $comment->com_id(); ?>" /> -->
+          <input type="button" class="report_com_btn" value="Signaler" id="<?php echo $comment->com_id(); ?>"/>
           </div></br>
           <?php } ?>
       </div>
