@@ -110,27 +110,27 @@
             </div>
         </div>
 
-        <script src="./js/jquery/jquery-3.3.1.min.js"></script>
+        <script src="./public/js/jquery/jquery-3.3.1.min.js"></script>
         <script>var sUser = '<?php echo $sessionUser; ?>';console.log(sUser);</script>
-        <script src="./js/scroll.js"></script>
-        <script src="./js/commentAdder.js"></script>
-        <script src="./js/reportCom.js"></script>
-        <script src="./js/deleteCom.js"></script>
-        <script src="./js/login.js"></script>
-        <script src="./js/clean-blog.js"></script>
+        <script src="./public/js/scroll.js"></script>
+        <script src="./public/js/commentAdder.js"></script>
+        <script src="./public/js/reportCom.js"></script>
+        <script src="./public/js/deleteCom.js"></script>
+        <script src="./public/js/login.js"></script>
+        <script src="./public/js/clean-blog.js"></script>
         <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Contact Form JavaScript -->
-        <script src="./js/jqBootstrapValidation.js"></script>
-        <script src="./js/contact_me.js"></script>
+        <script src="./public/js/jqBootstrapValidation.js"></script>
+        <script src="./public/js/contact_me.js"></script>
         
         <?php
             if (isset($_SESSION['user'])) {
-                echo '<script src="./js/signout.js"></script>';
-                echo '<script src="./js/articleUpdater.js"></script>';
-                echo '<script src="./js/articleAdder.js"></script>';
-                echo '<script src="./js/editArticle.js"></script>';
+                echo '<script src="./public/js/signout.js"></script>';
+                echo '<script src="./public/js/articleUpdater.js"></script>';
+                echo '<script src="./public/js/articleAdder.js"></script>';
+                echo '<script src="./public/js/editArticle.js"></script>';
             }
         ?>
-        <script src="./js/main.js"></script>
+        <script src="./public/js/main.js"></script>
     </body>
 </html>
