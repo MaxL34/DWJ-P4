@@ -19,7 +19,6 @@ var artDelEdit = {
 
             $(document).click(function(event) { 
                 if(!$(event.target).closest(self.modal).length) {
-                    console.log('document cliqué');
                     self.modal.hide();
                     self.modal.stop(true, true).fadeOut();
                 } 
@@ -34,14 +33,11 @@ var artDelEdit = {
             self.yesModalBtn.hide();
             self.noModalBtn.hide();
 
-            console.log('bouton edit cliqué');
-
             self.spanClose.click(function() {
                 self.modal.hide();
             });
 
             self.artId = $(this).attr('name');
-            console.log('art_id = ' + self.artId);
 
             self.editModalBtn.click(function(e) {
                 e.preventDefault();
@@ -52,16 +48,14 @@ var artDelEdit = {
                     data: 'article_id=' + self.artId,
                     dataType: 'text',
                     success: function() {
-                        //console.log('data = ' + data);
-                            //if (data == 'success') {
-                                self.delModalBtn.hide();
-                                self.editModalBtn.hide();
-                                self.modalText.text('Redirection vers la page d\'édition du billet');
-                                self.modal.show();
-                                self.modal.fadeOut(4000, function() {
-                                    self.modal.hide();
-                                    window.location.href = "./index.php?action=editArticle&article_id=" + self.artId;
-                                });
+                        self.delModalBtn.hide();
+                        self.editModalBtn.hide();
+                        self.modalText.text('Redirection vers la page d\'édition du billet');
+                        self.modal.show();
+                        self.modal.fadeOut(4000, function() {
+                            self.modal.hide();
+                            window.location.href = "./index.php?action=editArticle&article_id=" + self.artId;
+                        });
                     }
                 });
 
@@ -123,7 +117,6 @@ var artDelEdit = {
 
         $(document).click(function(event) { 
             if(!$(event.target).closest(self.modal).length) {
-                console.log('document cliqué');
                 self.modal.hide();
                 self.modal.stop(true, true).fadeOut();
             } 

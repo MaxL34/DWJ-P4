@@ -1,6 +1,5 @@
 var comToReport = {
     comReportBtn: $('.report_com_btn'),
-    //articleId: artId,
     modalCom: $('#modal_com'),
     modalText: $('#modal_text'),
     comText: $('.com_text'),
@@ -9,12 +8,8 @@ var comToReport = {
         var self = this;
 
         self.comReportBtn.click(function(e) {
-            //e.preventDefault();
-
             var comId = $(this).attr('id');
             var artId = $('#art_id').attr('value');
-            console.log('com_id = ' + $(this).attr('id'));
-            console.log('article_id = ' + artId);
 
             self.resetModal();
 
@@ -27,23 +22,22 @@ var comToReport = {
                     self.modalText.text('Le commentaire a bien été signalé à l\'administrateur');
                     self.modalCom.show();
                     self.modalCom.fadeOut(4000, function() {
-                        //self.comText.css('text-decoration', 'line-through');
                         self.modalText.text('');
                         self.modalCom.hide();
                     });
                 }
             });
+            e.preventDefault();
         });
     },
 
     resetModal: function() {
         var self = this;
-        //e.stopPropagation();
+
         $(document).click(function(event) { 
             if(!$(event.target).closest(self.modalCom).length) {
                 console.log('document cliqué');
                 self.modalCom.hide();
-                //$('#com_form').hide();
                 self.modalCom.stop(true, true).fadeOut();
             } 
         });

@@ -6,11 +6,9 @@ var articleToAdd = {
 
     init: function() {
         var self = this;
-        console.log('init articleToAdd lancée, user = ' + self.sessionUser);
 
         $(document).click(function(event) { 
             if(!$(event.target).closest(self.modal).length) {
-                console.log('document cliqué');
                 self.modalCreate.hide();
                 self.modalCreate.stop(true, true).fadeOut();
             } 
@@ -27,8 +25,6 @@ var articleToAdd = {
                 data: 'title=' + artTitle + '&content=' + artContent + '&user=' + self.sessionUser,
                 dataType: 'text',
                 success: function(data) {
-                    console.log('data=' + data);
-
                     switch (data) {
                         case 'title_missing':
                             self.modalText.text('Veuillez écrire un titre');

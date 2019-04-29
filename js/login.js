@@ -9,7 +9,6 @@ var loginValid = {
     init: function() {
         var self = this;
         self.loginBtn.click(function(e) {
-            console.log('bouton cliqué');
             e.stopPropagation();
             e.preventDefault();
 
@@ -20,7 +19,6 @@ var loginValid = {
         
             $(document).click(function(event) { 
                 if(!$(event.target).closest(self.modal).length) {
-                    console.log('document cliqué');
                     self.modalText.empty();
                     self.modal.hide();
                 } 
@@ -33,8 +31,6 @@ var loginValid = {
                 data: 'user=' + self.userLogin.val() + '&password=' + self.userPass.val(),
                 dataType: 'text',
                 success: function(data) {
-                    console.log(data);
-
                     if (data == 'success') {
                         self.modalText.text('Heureux de vous revoir ' + self.userLogin.val() + '.');
                         self.modal.show();

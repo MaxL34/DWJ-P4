@@ -12,7 +12,6 @@ var comToDel = {
 
         $(document).click(function(event) { 
             if(!$(event.target).closest(self.modal).length) {
-                console.log('document cliqué');
                 self.modal.hide();
                 self.modal.stop(true, true).fadeOut();
             } 
@@ -34,7 +33,6 @@ var comToDel = {
             });
 
             self.comId = $(this).attr('name');
-            console.log("comId = " + self.comId);
             
             self.yesModalBtn.click(function() {
                 self.yesModalBtn.hide();
@@ -46,7 +44,6 @@ var comToDel = {
                     data: 'com_id=' + self.comId,
                     dataType: 'text',
                     success: function(data) {
-                        console.log("ajax success comId = " + self.comId);
                         if (data == 'success') {
                             self.yesModalBtn.hide();
                             self.noModalBtn.hide();
