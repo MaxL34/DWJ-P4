@@ -13,9 +13,6 @@ var commentAdder = {
     init: function() {
         var self = this;
 
-        console.log('article_id = ' + self.artId);
-
-        //Dissimulation du formulaire d'ajout de commentaire
         self.comForm.hide();
 
         self.addComButton.click(function() {
@@ -27,14 +24,10 @@ var commentAdder = {
 
             $(document).click(function(event) { 
                 if(!$(event.target).closest(self.modalCom).length) {
-                    console.log('document cliqué');;
                     self.modalCom.hide();
                     self.modalCom.stop(true, true).fadeOut();
                 } 
             });
-
-            console.log('article_id = ' + self.artId);
-            console.log('com_content = ' + self.comContent.val() + ', com_author = ' + self.comAuthor.val());
 
             $.ajax({
                 url: 'index.php?action=addComment',
@@ -42,7 +35,6 @@ var commentAdder = {
                 data: 'com_content=' + self.comContent.val() + '&com_author=' + self.comAuthor.val() + '&art_id=' + self.artId,
                 dataType: 'text',
                 success: function(data) {
-                    console.log('data = ' + data);
                     if (data == 'success') {
                         self.modalText.text('Votre commentaire à bien été ajouté');
                         self.modalCom.show();

@@ -1,18 +1,15 @@
 var comToReport = {
     comReportBtn: $('.report_com_btn'),
-    //articleId: artId,
     modalCom: $('#modal_com'),
     modalText: $('#modal_text'),
+    comText: $('.com_text'),
 
     init: function() {
         var self = this;
 
         self.comReportBtn.click(function(e) {
-            //e.preventDefault();
-
             var comId = $(this).attr('id');
-            console.log('com_id = ' + $(this).attr('id'));
-            console.log('article_id = ' + artId);
+            var artId = $('#art_id').attr('value');
 
             self.resetModal();
 
@@ -30,17 +27,17 @@ var comToReport = {
                     });
                 }
             });
+            e.preventDefault();
         });
     },
 
     resetModal: function() {
         var self = this;
-        //e.stopPropagation();
+
         $(document).click(function(event) { 
             if(!$(event.target).closest(self.modalCom).length) {
                 console.log('document cliqué');
                 self.modalCom.hide();
-                //$('#com_form').hide();
                 self.modalCom.stop(true, true).fadeOut();
             } 
         });

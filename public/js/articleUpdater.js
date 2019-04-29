@@ -10,7 +10,6 @@ var articleToUpdate = {
 
         $(document).click(function(event) { 
             if(!$(event.target).closest(self.modal).length) {
-                console.log('document cliqué');
                 self.modalUpdate.hide();
                 self.modalUpdate.stop(true, true).fadeOut();
             } 
@@ -28,10 +27,6 @@ var articleToUpdate = {
                 data: 'title=' + artTitle + '&content=' + artContent,
                 dataType: 'text',
                 success: function(data) {
-                    console.log('data=' + data + ', article_id = ' + self.articleId);
-                    
-
-
                     switch (data) {
                         case 'title_missing':
                             self.modalText.text('Veuillez écrire un titre');
