@@ -1,6 +1,6 @@
 <?php $title = 'Blog de Jean Forteroche : Espace d\'édition des billets' ?>
 <?php $tinyMCE_API = 'src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=0ofr5ymckej6ac4mcq2doqoozjut2zifnyjjfp067bqy5s12"'; ?>
-<?php $tinyMCE_DefaultEditor = 'src="./js/tinymce/default_editor.js"'; ?>
+<?php $tinyMCE_DefaultEditor = 'src="./public/js/tinymce/default_editor.js"'; ?>
 <?php $tinymceInit = 'tinymce.init({selector:\'content\'});'; ?>
 
 <?php ob_start(); ?>
