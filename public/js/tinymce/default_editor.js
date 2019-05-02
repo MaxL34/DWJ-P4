@@ -3,7 +3,6 @@ tinymce.init({
         theme: 'modern',
         menubar: false,
         //statusbar: false,
-        width: 1024,
         height: 300,
         plugins: [
             'searchreplace wordcount'
