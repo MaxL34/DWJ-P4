@@ -39,7 +39,7 @@
                         Auteur : <?php echo $value->com_author(); ?></br>
                         Commentaire : <?php echo $value->com_content(); ?></br>
                         Signalé le : <?php echo $value->com_date_fr() . ', ' . $value->com_report_number() . ' fois.'; ?></br>
-                        <input type="button" class="del_btn" name="<?php echo $value->com_id(); ?>" value="Supprimer le commentaire" />
+                        <input type="button" class="del_btn" name="<?php echo $value->com_id(); ?>" value="Supprimer" />
                     </p>
                 </div>
                 <?php 
