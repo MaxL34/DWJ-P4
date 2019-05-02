@@ -7,6 +7,16 @@ var comToReport = {
     init: function() {
         var self = this;
 
+        /*$('.span_censored').each(function() {
+            $('.censored_span').css('display', 'block');
+        });*/
+
+        if ($('#comments span').hasClass('span_censored')) {
+            $('.span_censored').text('Commentaire signalé');
+            } else {
+                $('.span_censored').text('');    
+            }
+
         self.comReportBtn.click(function(e) {
             var comId = $(this).attr('id');
             var artId = $('#art_id').attr('value');
