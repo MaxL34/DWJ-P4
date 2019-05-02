@@ -169,7 +169,8 @@ img::-moz-selection {
   font-size: 28px;
   font-weight: bold;
   position: relative;
-  left: 355px;
+  top: -25px;
+  left: -5px;
 }
 
 .close:hover, .close:focus {
@@ -605,23 +606,91 @@ footer .copyright {
   padding: 25px 35px;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 16%;
-  top: 24%;
-  width: 245px;
-  height: 40%;
-  background-color: white;
-  border-radius: 10px;
+@media only screen and (max-width: 640px) {
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 16%;
+    top: 24%;
+    width: 245px;
+    height: 25%;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .close {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    left: -5px;
+    top: -25px;
+  }
 }
 
-.close {
-  color: black;
-  font-size: 28px;
-  font-weight: bold;
-  position: relative;
-  left: -5px;
-  top: -25px;
+@media only screen and (min-width: 640px) {
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 30%;
+    top: 24%;
+    width: 310px;
+    height: 20%;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .close {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    left: -5px;
+    top: -25px;
+  }
 }
+
+@media only screen and (min-width: 768px) {
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 30%;
+    top: 24%;
+    width: 310px;
+    height: 25%;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .close {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    left: -5px;
+    top: -25px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 42%;
+    top: 24%;
+    width: 310px;
+    height: 19%;
+    background-color: white;
+    border-radius: 10px;
+  }
+}
+
+
