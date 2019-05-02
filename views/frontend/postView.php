@@ -62,20 +62,22 @@
       </div>
     </form>
 
-    <div class="comments">
+    <div id="comments">
       <p class="com_heading">Commentaires du billet :</p>
       <?php foreach ($comments as $comment) {
         $censoredCommentClass = $comment->com_report_number() > 0 ? "comment_censored" : "";
+        $censoredSpanClass = $comment->com_report_number() > 0 ? "span_censored" : "";
       ?>
-        <div class="comment_content  <?= $censoredCommentClass ?>">
+        <div class="comment_content <?= $censoredCommentClass ?>">
           <p class="com_text"><?php echo $comment->com_content(); ?></br></br>
            Posté par : <?php echo $comment->com_author(); ?></br>
            le : <?php echo $comment->com_date_fr(); ?></br>
+           <input type="button" class="report_com_btn" value="Signaler" id="<?php echo $comment->com_id(); ?>"/>
           </p>
-          <input type="button" class="report_com_btn" value="Signaler" id="<?php echo $comment->com_id(); ?>"/>
-          </div></br>
+          <span class="<?= $censoredSpanClass ?>"></span>
+        </div></br>
           <?php } ?>
-      </div>
+    </div>
 
 <div id="modal_com" class="modal">
     <div class="modal_content">
