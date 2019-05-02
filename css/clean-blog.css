@@ -276,6 +276,8 @@ img::-moz-selection {
 .article_creation_container, .article_form {
   position: relative;
   text-align: center;
+  max-width: 90%;
+  margin: auto;
 }
 
 .mce-tinymce.mce-container.mce-panel {
