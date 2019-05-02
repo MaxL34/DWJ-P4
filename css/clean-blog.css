@@ -219,8 +219,8 @@ img::-moz-selection {
 
 #com_form {
   position: relative;
-  left: 42%;
-  width: 340px;
+  width: 280px;
+  margin: auto;
 }
 
 #com_form [type="submit"] {
@@ -265,8 +265,10 @@ img::-moz-selection {
 
 .comment_content input {
   position: relative;
-  left: 85%;
   top: 12%;
+  left: 0;
+  display: block;
+  margin: auto;
 }
 
 /* Page de rédaction d'article */
@@ -677,20 +679,4 @@ footer .copyright {
     top: -25px;
   }
 }
-
-@media only screen and (min-width: 768px) {
-
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 42%;
-    top: 24%;
-    width: 310px;
-    height: 19%;
-    background-color: white;
-    border-radius: 10px;
-  }
-}
-
 
