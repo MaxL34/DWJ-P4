@@ -260,7 +260,6 @@ img::-moz-selection {
 
 .comment_censored {
   text-decoration: line-through;
-  /*visibility: visible;*/
 }
 
 .comment_content input {
@@ -604,4 +603,25 @@ footer .copyright {
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 16%;
+  top: 24%;
+  width: 245px;
+  height: 40%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.close {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  left: -5px;
+  top: -25px;
 }
