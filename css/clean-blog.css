@@ -184,7 +184,7 @@ img::-moz-selection {
 .article_management {
   display: flex;
   text-align: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 67vw;
   position: relative;
   padding-bottom: 60px;
