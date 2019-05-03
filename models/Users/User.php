@@ -36,7 +36,7 @@ class User {
 
     // Déclaration des setters (mutateurs)
     public function setUser_id($user_id) {
-        $art_id = (int) $user_id;
+        $user_id = (int) $user_id;
         if ($user_id > 0) {
             $this->_user_id = $user_id;
         }
