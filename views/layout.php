@@ -112,7 +112,6 @@
 
         <script src="./public/js/jquery/jquery-3.3.1.min.js"></script>
         <script>var sUser = '<?php echo $sessionUser; ?>';console.log(sUser);</script>
-        <script src="./public/js/scroll.js"></script>
         <script src="./public/js/commentAdder.js"></script>
         <script src="./public/js/reportCom.js"></script>
         <script src="./public/js/deleteCom.js"></script>
