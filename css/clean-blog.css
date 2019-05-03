@@ -207,8 +207,9 @@ img::-moz-selection {
 .admin_comments input[type="button"] {
   cursor: pointer;
   position: relative;
-  left: 15%;
   top: 8px;
+  margin: auto;
+  display: block;
 }
 
 #buttons {
