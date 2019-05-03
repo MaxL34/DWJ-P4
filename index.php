@@ -29,8 +29,6 @@ if (!empty($_GET['action'])) {
 
         case 'addArticle':
             session_start();
-            //$title = ($_POST['title']);
-            //$content = ($_POST['content']);
 
             if (!empty(strip_tags($_POST['title'])) && !empty(strip_tags($_POST['content']))) {
                 $artId = addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
