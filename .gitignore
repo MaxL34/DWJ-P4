@@ -16,7 +16,7 @@ LICENSE
 package-lock.json
 package.json
 
-/controllers/controller.php
+/controllers/
 
 /images/
 sync.ffs_db
