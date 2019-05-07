@@ -1,5 +1,6 @@
 <?php
-require('./controllers/controller.php');
+require('./controllers/frontController.php');
+require('./controllers/adminController.php');
 
 if (!empty($_GET['action'])) {
     switch ($_GET['action']) {
@@ -7,7 +8,7 @@ if (!empty($_GET['action'])) {
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 getArtCom($_GET['article_id']);
             } else {
-                echo 'Erreur d\'id d\'article : aucun id envoyé ou id inexistant';
+                artIdError();
             }
         break;
         
@@ -16,40 +17,52 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'createArticle':
-            require('./views/backend/articleCreationView.php');
+            session_start();
+            if (isset($_SESSION['user'])) {
+                displayArticleCreationView();
+            } else {
+                displayLoginView();
+            }
         break;
 
         case 'displayAbout':
-            require('./views/frontend/about.php');
+            displayAbout();
         break;
 
-        case 'contact':
-            require('./views/frontend/contact.php');
+        case 'displayContact':
+            displayContact();
         break;
 
         case 'addArticle':
             session_start();
+            $artTitle = htmlspecialchars($_POST['title']);
+            $artContent = htmlspecialchars($_POST['content']);
 
-            if (!empty(strip_tags($_POST['title'])) && !empty(strip_tags($_POST['content']))) {
-                $artId = addArticle($_POST['title'], $_POST['content'], $_SESSION['user']);
-                echo $artId;
-            } else if (empty(strip_tags($_POST['title'])) && empty(strip_tags($_POST['content']))) {
-                echo 'failed';
-            } else if (empty(strip_tags($_POST['title'])) && !empty(strip_tags($_POST['content']))) {
-                echo 'title_missing';
-            } else if (!empty(strip_tags($_POST['title'])) && empty(strip_tags($_POST['content']))) {
-                echo 'content_missing';
+            if (isset($_SESSION['user'])) {
+                if (!empty($artTitle) && !empty($artContent)) {
+                    $artId = addArticle($artTitle, $artContent, $_SESSION['user']);
+                    echo $artId;
+                } else if (empty($artTitle) && empty($artContent)) {
+                    echo 'failed';
+                } else if (empty($artTitle) && !empty($artContent)) {
+                    echo 'title_missing';
+                } else if (!empty($artTitle) && empty($artContent)) {
+                    echo 'content_missing';
+                } else {
+                    echo 'erreur non gérée';
+                }
             } else {
-                echo 'erreur non gérée';
+                displayLoginView();
             } 
         break;
 
-        case 'login':
-            require('./views/backend/adminLoginView.php');
-        break;
-
         case 'listArticlesToEdit':
-            listArticlesToEdit();
+            session_start();
+            if (isset($_SESSION['user'])) {
+                listArticlesToEdit();
+            } else {
+                displayLoginView();
+            }
         break;
 
         case 'editArticle':
@@ -61,22 +74,27 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'updateArticle':
-            if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                $title = ($_POST['title']);
-                $content = ($_POST['content']);
+            session_start();
+            if (isset($_SESSION['user'])) {
+                if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
+                    $title = htmlspecialchars($_POST['title']);
+                    $content = htmlspecialchars($_POST['content']);
 
-                if (!empty(strip_tags($title)) && !empty(strip_tags($content))) {
-                    updateArticle($title, $content, $_GET['article_id']);
-                    echo $_GET['article_id'];
-                } else if (empty(strip_tags($title)) && empty(strip_tags($content))) {
-                    echo 'failed';
-                } else if (empty(strip_tags($title)) && !empty(strip_tags($content))) {
-                    echo 'title_missing';
-                } else if (!empty(strip_tags($title)) && empty(strip_tags($content))) {
-                    echo 'content_missing';
-                } else {
-                    echo 'erreur non gérée';
+                    if (!empty($title) && !empty($content)) {
+                        updateArticle($title, $content, $_GET['article_id']);
+                        echo $_GET['article_id'];
+                    } else if (empty($title) && empty($content)) {
+                        echo 'failed';
+                    } else if (empty($title) && !empty($content)) {
+                        echo 'title_missing';
+                    } else if (!empty($title) && empty($content)) {
+                        echo 'content_missing';
+                    } else {
+                        echo 'erreur non gérée';
+                    }
                 }
+            } else {
+                displayLoginView();
             }
         break;
 
@@ -92,8 +110,8 @@ if (!empty($_GET['action'])) {
 
             if (isset($_POST['art_id']) && $_POST['art_id'] > 0) {
                 if (!empty($content) && !empty($author)) {
-                    addComment($content, $author, $_POST['art_id']);
                     echo 'success';
+                    addComment($content, $author, $_POST['art_id']);
                 } else if (empty($author)) {
                     echo 'author_missing';
                 } else if (empty($content)) {
@@ -120,6 +138,9 @@ if (!empty($_GET['action'])) {
             }
         break;
 
+        case 'login':
+            displayLoginView();
+
         case 'adminLogin':
             if (!empty($_POST['user']) && (!empty($_POST['password']))) {
                 if (logUser($_POST['user'], $_POST['password']) == true) {
@@ -135,28 +156,12 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'adminBoardDisplay':
-            $var = getReportedComs();
-        break;
-
-        case 'createUser':   
-            $user = rtrim($_POST['user']);
-            $password = rtrim($_POST['password']);
-
-            if (!empty($user) && !empty($password)) {
-                if (doesUserExist($_POST['user']) == FALSE) {
-                    createUser($_POST['user'], $_POST['password']);
-
-                    session_start();
-                    $_SESSION['user'] = $_POST['user'];
-
-                    $var = getReportedComs();
-
-                } elseif (doesUserExist($_POST['user']) == TRUE) {
-                    echo 'Le pseudo ' . $_POST['user'] . ' est déjà utilisé, veuillez en choisir un autre';
-                  } 
+            session_start();
+            if (isset($_SESSION['user'])) {
+                $var = getReportedComs();
             } else {
-                echo 'Veuillez renseigner un pseudo et un mot de passe valides';
-              }
+                displayLoginView();
+            }
         break;
 
         case 'signOut':
