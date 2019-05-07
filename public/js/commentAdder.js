@@ -35,6 +35,7 @@ var commentAdder = {
                 data: 'com_content=' + self.comContent.val() + '&com_author=' + self.comAuthor.val() + '&art_id=' + self.artId,
                 dataType: 'text',
                 success: function(data) {
+                    console.log('data = ' + data);
                     if (data == 'success') {
                         self.modalText.text('Votre commentaire à bien été ajouté');
                         self.modalCom.show();

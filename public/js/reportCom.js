@@ -3,6 +3,7 @@ var comToReport = {
     modalCom: $('#modal_com'),
     modalText: $('#modal_text'),
     comText: $('.com_text'),
+    artId: $('#art_id').attr('value'),
 
     init: function() {
         var self = this;
@@ -30,6 +31,7 @@ var comToReport = {
                     self.modalCom.fadeOut(4000, function() {
                         self.modalText.text('');
                         self.modalCom.hide();
+                        window.location.href = "index.php?action=getArticle&article_id=" + self.artId;
                     });
                 }
             });

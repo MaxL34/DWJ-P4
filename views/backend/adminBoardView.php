@@ -31,8 +31,7 @@
         <p>Voici la liste des derniers commentaires signalés :</p>
 
             <?php
-                if (isset($var)) {
-                    foreach ($var as $value) {
+                foreach ($var as $value) {
             ?>
                 <div>
                     <p>
@@ -42,10 +41,9 @@
                         <input type="button" class="del_btn" name="<?php echo $value->com_id(); ?>" value="Supprimer" />
                     </p>
                 </div>
-                <?php 
-                            }
-                        } 
-                ?>
+            <?php 
+                } 
+            ?>
             
 </div>
 

@@ -1,3 +1,9 @@
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+?>
+
 <?php $title = 'Blog de Jean Forteroche : Espace d\'édition des billets'; ?>
 
 <?php ob_start(); ?>
