@@ -48,7 +48,7 @@ class CommentsManager {
 
     public function getComFromArticle($article_ID) {
         $comments = [];
-        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, fk_art_id, com_report_number, DATE_FORMAT(com_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS com_date_fr FROM comments WHERE fk_art_id = ? ORDER BY com_creation_date ASC');
+        $q = $this->_db->prepare('SELECT com_id, com_content, com_author, fk_art_id, com_report_number, DATE_FORMAT(com_creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS com_date_fr FROM comments WHERE fk_art_id = ? ORDER BY com_creation_date DESC');
         $q->execute(array($article_ID));
         while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
             $comments[] = new Comment($data);        
