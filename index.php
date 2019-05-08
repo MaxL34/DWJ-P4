@@ -35,8 +35,8 @@ if (!empty($_GET['action'])) {
 
         case 'addArticle':
             session_start();
-            $artTitle = htmlspecialchars($_POST['title']);
-            $artContent = htmlspecialchars($_POST['content']);
+            $artTitle = trim($_POST['title']);
+            $artContent = trim($_POST['content']);
 
             if (isset($_SESSION['user'])) {
                 if (!empty($artTitle) && !empty($artContent)) {
@@ -77,8 +77,8 @@ if (!empty($_GET['action'])) {
             session_start();
             if (isset($_SESSION['user'])) {
                 if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
-                    $title = htmlspecialchars($_POST['title']);
-                    $content = htmlspecialchars($_POST['content']);
+                    $title = trim($_POST['title']);
+                    $content = trim($_POST['content']);
 
                     if (!empty($title) && !empty($content)) {
                         updateArticle($title, $content, $_GET['article_id']);
