@@ -105,8 +105,8 @@ if (!empty($_GET['action'])) {
         break;
 
         case 'addComment':
-            $content = rtrim($_POST['com_content']);
-            $author = rtrim($_POST['com_author']);
+            $content = trim($_POST['com_content']);
+            $author = trim($_POST['com_author']);
 
             if (isset($_POST['art_id']) && $_POST['art_id'] > 0) {
                 if (!empty($content) && !empty($author)) {
