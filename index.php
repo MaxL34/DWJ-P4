@@ -8,7 +8,7 @@ if (!empty($_GET['action'])) {
             if (isset($_GET['article_id']) && $_GET['article_id'] > 0) {
                 getArtCom($_GET['article_id']);
             } else {
-                artIdError();
+                echo 'Valeur d\'id incorrect';
             }
         break;
         
@@ -134,7 +134,7 @@ if (!empty($_GET['action'])) {
             if ((isset($_GET['article_id']) && $_GET['article_id'] > 0) && isset($_GET['com_id'])) {
                 reportCom($_GET['article_id'], $_GET['com_id']);
             } else {
-                echo 'error on article_id or com_id';
+                echo 'erreur sur article_id ou com_id';
             }
         break;
 
